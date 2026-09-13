@@ -1,0 +1,36 @@
+name: LinkedIn RAG Agent
+
+on:
+  schedule:
+    - cron: "0 14 * * *" # Daily at 14:00 UTC (9:30 AM EST / 7:30 PM IST) — customize via crontab.guru
+  workflow_dispatch: {} # Allows manual execution from the GitHub Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run LinkedIn RAG Agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
+        run: node agent.js
+
+      - name: Commit updated state
+        run: |
+          git config user.name "linkedin-agent-bot"
+          git config user.email "actions@github.com"
+          git add state.json
+          git diff --cached --quiet || git commit -m "Update rotation state [skip ci]"
+          git push

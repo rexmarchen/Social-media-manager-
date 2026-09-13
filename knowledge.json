@@ -1,0 +1,18 @@
+[
+  {
+    "id": "bio",
+    "text": "I'm a CSE student focused on backend systems and applied AI. I've built projects in distributed systems and machine learning pipelines."
+  },
+  {
+    "id": "past-post-1",
+    "text": "Shipped a caching layer that cut API latency by 40% for a course project. Learned that premature optimization is real, but so is under-optimization."
+  },
+  {
+    "id": "opinion-1",
+    "text": "I believe most CS students over-index on frameworks and under-index on reading other people's code."
+  },
+  {
+    "id": "achievement-1",
+    "text": "Placed in the top 10 at a regional hackathon building a real-time collaboration tool."
+  }
+]

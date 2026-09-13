@@ -1,0 +1,30 @@
+{
+  "name": "linkedin-rag-agent",
+  "version": "2.0.0",
+  "description": "LinkedIn posting agent with local RAG over your own documents, controllable via Telegram",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "ingest": "node ingest.js",
+    "watch": "node watch-ingest.js",
+    "dry-run": "node test-dry-run.js"
+  },
+  "keywords": [
+    "linkedin",
+    "rag",
+    "gemini",
+    "automation",
+    "agent"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.19.2",
+    "mammoth": "^1.8.0",
+    "node-cron": "^3.0.3",
+    "pdf-parse": "^1.1.1",
+    "vectra": "^0.9.0"
+  }
+}
