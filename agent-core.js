@@ -10,8 +10,8 @@
 const { retrieveRelevantChunks } = require("./vector-store");
 
 const CONFIG = {
-  textModel: "gemini-2.5-flash",
-  imageModel: "gemini-2.5-flash-image",
+  textModel: process.env.GEMINI_TEXT_MODEL || "gemini-3.6-flash",
+  imageModel: process.env.GEMINI_IMAGE_MODEL || "gemini-3.1-flash-image",
 };
 
 async function retrieveContext(topic, topK = 4) {
@@ -48,20 +48,43 @@ Respond with ONLY valid JSON in this exact shape, nothing else:
   "image_prompt": "<a concise text-to-image prompt, or empty string if needs_image is false>"
 }`;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.textModel}:generateContent`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": process.env.GEMINI_API_KEY,
-    },
-    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
-  });
-  if (!response.ok) throw new Error(`Gemini generateContent error: ${await response.text()}`);
-  const data = await response.json();
-  const rawText = data.candidates[0].content.parts[0].text;
-  const cleaned = rawText.replace(/```json|```/g, "").trim();
-  return JSON.parse(cleaned);
+  const candidateModels = Array.from(new Set([
+    CONFIG.textModel,
+    "gemini-3.6-flash",
+    "gemini-3.8-flash",
+    "gemini-3.1-flash-lite",
+  ]));
+
+  let lastError = null;
+  for (const model of candidateModels) {
+    try {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": process.env.GEMINI_API_KEY,
+        },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+      });
+      if (!response.ok) {
+        const errText = await response.text();
+        console.warn(`[Gemini Info] Model ${model} returned ${response.status}, attempting fallback...`);
+        lastError = new Error(`Gemini generateContent error (${response.status}): ${errText}`);
+        continue;
+      }
+      const data = await response.json();
+      const textPart = data.candidates?.[0]?.content?.parts?.find((p) => p.text);
+      const rawText = textPart ? textPart.text : data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!rawText) throw new Error("No text returned by Gemini");
+      const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) throw new Error(`Could not parse JSON from Gemini response: ${rawText}`);
+      return JSON.parse(jsonMatch[0]);
+    } catch (err) {
+      lastError = err;
+    }
+  }
+  throw lastError || new Error("All candidate models failed.");
 }
 
 async function generateImage(imagePrompt) {
@@ -151,8 +174,12 @@ async function runAgentForTopic(topic) {
 
   let imageUrn = null;
   if (needs_image && image_prompt) {
-    const imageBuffer = await generateImage(image_prompt);
-    imageUrn = await uploadImageToLinkedIn(imageBuffer);
+    try {
+      const imageBuffer = await generateImage(image_prompt);
+      imageUrn = await uploadImageToLinkedIn(imageBuffer);
+    } catch (imgErr) {
+      console.warn("Optional image generation skipped:", imgErr.message);
+    }
   }
 
   const postId = await publishPost(post_text, imageUrn);
