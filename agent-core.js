@@ -115,7 +115,7 @@ async function uploadImageToLinkedIn(imageBuffer) {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
-        "LinkedIn-Version": "202405",
+        "LinkedIn-Version": process.env.LINKEDIN_VERSION || "202603",
         "X-Restli-Protocol-Version": "2.0.0",
       },
       body: JSON.stringify({ initializeUploadRequest: { owner: authorUrn } }),
@@ -160,7 +160,7 @@ async function publishPost(text, imageUrn) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,
       "X-Restli-Protocol-Version": "2.0.0",
-      "LinkedIn-Version": "202405",
+      "LinkedIn-Version": process.env.LINKEDIN_VERSION || "202603",
     },
     body: JSON.stringify(body),
   });
