@@ -104,8 +104,27 @@ async function generateImage(imagePrompt) {
   return Buffer.from(imagePart.inlineData.data, "base64");
 }
 
+async function getAuthorUrn() {
+  let urn = (process.env.LINKEDIN_PERSON_URN || "").trim();
+  if (urn) {
+    return urn.startsWith("urn:li:person:") ? urn : `urn:li:person:${urn}`;
+  }
+  // Auto-resolve URN from LinkedIn access token if not configured in environment
+  const response = await fetch("https://api.linkedin.com/v2/userinfo", {
+    headers: { Authorization: `Bearer ${process.env.LINKEDIN_ACCESS_TOKEN}` },
+  });
+  if (!response.ok) {
+    throw new Error(`LinkedIn userinfo error (${response.status}): ${await response.text()}`);
+  }
+  const data = await response.json();
+  if (!data.sub) {
+    throw new Error("Unable to retrieve LinkedIn person ID (sub) from userinfo.");
+  }
+  return `urn:li:person:${data.sub}`;
+}
+
 async function uploadImageToLinkedIn(imageBuffer) {
-  const authorUrn = process.env.LINKEDIN_PERSON_URN;
+  const authorUrn = await getAuthorUrn();
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
   const initResponse = await fetch(
@@ -137,7 +156,7 @@ async function uploadImageToLinkedIn(imageBuffer) {
 }
 
 async function publishPost(text, imageUrn) {
-  const authorUrn = process.env.LINKEDIN_PERSON_URN;
+  const authorUrn = await getAuthorUrn();
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
   const body = {
