@@ -183,17 +183,29 @@ Respond with ONLY valid JSON:
  * Check if there is a new push on GitHub that hasn't been posted yet.
  * If new, posts it automatically!
  */
-async function checkAndAutoPostGitHub(username = GITHUB_USERNAME) {
+async function checkAndAutoPostGitHub(username = GITHUB_USERNAME, minCooldownHours = 12) {
   const activity = await getLatestGitHubActivity(username);
   if (!activity) return { status: "no_activity" };
 
   const state = await loadState({ lastPostedGitHubCommit: "", lastPostedGitHubEventId: "" });
 
+  // 1. Check if already posted for this exact commit or event
   if (
     state.lastPostedGitHubCommit === activity.commitSha ||
     state.lastPostedGitHubEventId === activity.eventId
   ) {
     return { status: "already_posted", commitSha: activity.commitSha, repo: activity.repoName };
+  }
+
+  // 2. Minimum cooldown between automatic posts (prevents spamming if many commits are pushed)
+  if (state.lastPostedAt) {
+    const elapsedHours = (Date.now() - new Date(state.lastPostedAt).getTime()) / (1000 * 60 * 60);
+    if (elapsedHours < minCooldownHours) {
+      return {
+        status: "cooldown",
+        message: `Cooldown active: last post was ${elapsedHours.toFixed(1)}h ago (minimum ${minCooldownHours}h between automatic posts).`,
+      };
+    }
   }
 
   console.log(`[AutoPost] New GitHub push detected on ${activity.repoName}! Commit: ${activity.commitSha}`);

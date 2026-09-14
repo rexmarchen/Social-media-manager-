@@ -133,9 +133,10 @@ async function loadState(fallback = { lastIndex: -1, scheduleEnabled: true }) {
     const doc = await db.collection("state").findOne({ _id: "bot_state" });
     if (doc) {
       return {
+        ...fallback,
+        ...doc,
         lastIndex: doc.lastIndex ?? fallback.lastIndex,
         scheduleEnabled: doc.scheduleEnabled ?? fallback.scheduleEnabled,
-        lastGitHubSync: doc.lastGitHubSync ?? null,
       };
     }
   } catch (err) {

@@ -92,26 +92,17 @@ async function sendTelegramMessage(chatId, text) {
   });
 }
 
-// ---------- Background Watcher: Check GitHub for new pushes every 15 minutes ----------
+// ---------- Background Memory Sync: Keep MongoDB updated every 30 mins (Silent, No Posting) ----------
 
-cron.schedule("*/15 * * * *", async () => {
-  if (!scheduleEnabled) return;
+cron.schedule("*/30 * * * *", async () => {
   try {
-    console.log("[AutoPost] Checking GitHub for new pushes...");
-    const res = await checkAndAutoPostGitHub();
-    if (res.status === "published") {
-      console.log(`[AutoPost] Published new push for ${res.activity.repoName}! ID: ${res.postId}`);
-      if (process.env.TELEGRAM_OWNER_ID) {
-        await sendTelegramMessage(
-          process.env.TELEGRAM_OWNER_ID,
-          `🚀 Auto-published new GitHub push to LinkedIn!\n\nProject: ${res.activity.repoName}\nCommit: "${res.activity.commitMessage}"\nPhoto included: ${res.hadImage ? "YES" : "NO"}\nPost ID: ${res.postId}\n\n"${res.postText}"`
-        );
-      }
-    }
+    console.log("[Background Sync] Updating MongoDB memory with latest GitHub repos...");
+    await syncGitHubActivity();
   } catch (err) {
-    console.error("[AutoPost Error]", err.message);
+    console.warn("[Background Sync Warning]", err.message);
   }
 });
+
 
 // ---------- Daily Scheduled Auto-Posting (GitHub-First) ----------
 
@@ -342,14 +333,6 @@ process.on("uncaughtException", (err) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}. Cron: ${CRON_SCHEDULE}`);
-
-  // Auto-check GitHub 5 seconds after server boots up
-  setTimeout(() => {
-    if (scheduleEnabled) {
-      console.log("[Boot] Running initial GitHub push check...");
-      checkAndAutoPostGitHub().catch((e) => console.warn("[Boot Check Warning]", e.message));
-    }
-  }, 5000);
 
   // Keep-alive self ping if running on Render (prevents free tier sleep)
   const externalUrl = process.env.RENDER_EXTERNAL_URL || "https://social-media-manager-2-mkyg.onrender.com";
