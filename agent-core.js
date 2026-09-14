@@ -22,6 +22,8 @@ async function retrieveContext(topic, topK = 4) {
     .join("\n");
 }
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 async function generatePost(topic, context) {
   const prompt = `You are drafting a LinkedIn post for a computer science student who wants to build a professional, authentic personal brand — not generic marketing copy.
 
@@ -48,15 +50,92 @@ Respond with ONLY valid JSON in this exact shape, nothing else:
   "image_prompt": "<a concise text-to-image prompt, or empty string if needs_image is false>"
 }`;
 
+  // Prioritize reliable, stable models.
+  // gemini-3.8-flash frequently throws 503 Unavailable / High Demand, so it is deprioritized.
+  const configuredModel = process.env.GEMINI_TEXT_MODEL;
+  const preferredPrimary = configuredModel && configuredModel !== "gemini-3.8-flash"
+    ? configuredModel
+    : "gemini-3.6-flash";
+
   const candidateModels = Array.from(new Set([
-    CONFIG.textModel,
+    preferredPrimary,
     "gemini-3.6-flash",
-    "gemini-3.8-flash",
+    "gemini-3.5-flash",
     "gemini-3.1-flash-lite",
+    "gemini-3.5-flash-lite",
+    "gemini-3.8-flash",
   ]));
 
   let lastError = null;
   for (const model of candidateModels) {
+    const maxRetries = 2;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": process.env.GEMINI_API_KEY,
+          },
+          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+        });
+
+        if (!response.ok) {
+          const errText = await response.text();
+          lastError = new Error(`Gemini generateContent error (${response.status}): ${errText}`);
+          // If temporary high demand (503) or rate limit (429), retry before moving to next model
+          if ((response.status === 503 || response.status === 429) && attempt < maxRetries) {
+            console.warn(`[Gemini Warning] Model ${model} returned ${response.status} (attempt ${attempt}/${maxRetries}), retrying in 1.5s...`);
+            await sleep(1500 * attempt);
+            continue;
+          }
+          console.warn(`[Gemini Info] Model ${model} returned ${response.status}, attempting next fallback model...`);
+          break; // proceed to next candidate model
+        }
+
+        const data = await response.json();
+        const textPart = data.candidates?.[0]?.content?.parts?.find((p) => p.text);
+        const rawText = textPart ? textPart.text : data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!rawText) throw new Error("No text returned by Gemini");
+
+        const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          try {
+            return JSON.parse(jsonMatch[0]);
+          } catch {
+            // If JSON fails to parse, fall back to plain text below
+          }
+        }
+
+        return {
+          post_text: rawText.replace(/```json|```/g, "").trim(),
+          needs_image: false,
+          image_prompt: "",
+        };
+      } catch (err) {
+        lastError = err;
+        if (attempt < maxRetries) {
+          await sleep(1000 * attempt);
+          continue;
+        }
+        break;
+      }
+    }
+  }
+  throw lastError || new Error("All candidate models failed.");
+}
+
+async function generateImage(imagePrompt) {
+  const candidateImageModels = Array.from(new Set([
+    CONFIG.imageModel,
+    "gemini-3.1-flash-image",
+    "gemini-3-pro-image",
+    "gemini-2.5-flash-image",
+  ]));
+
+  let lastErr = null;
+  for (const model of candidateImageModels) {
     try {
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
       const response = await fetch(url, {
@@ -65,43 +144,21 @@ Respond with ONLY valid JSON in this exact shape, nothing else:
           "Content-Type": "application/json",
           "x-goog-api-key": process.env.GEMINI_API_KEY,
         },
-        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+        body: JSON.stringify({ contents: [{ parts: [{ text: imagePrompt }] }] }),
       });
       if (!response.ok) {
-        const errText = await response.text();
-        console.warn(`[Gemini Info] Model ${model} returned ${response.status}, attempting fallback...`);
-        lastError = new Error(`Gemini generateContent error (${response.status}): ${errText}`);
+        lastErr = new Error(`Gemini image error (${response.status}): ${await response.text()}`);
         continue;
       }
       const data = await response.json();
-      const textPart = data.candidates?.[0]?.content?.parts?.find((p) => p.text);
-      const rawText = textPart ? textPart.text : data.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (!rawText) throw new Error("No text returned by Gemini");
-      const jsonMatch = rawText.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) throw new Error(`Could not parse JSON from Gemini response: ${rawText}`);
-      return JSON.parse(jsonMatch[0]);
+      const imagePart = data.candidates?.[0]?.content?.parts?.find((p) => p.inlineData);
+      if (!imagePart) continue;
+      return Buffer.from(imagePart.inlineData.data, "base64");
     } catch (err) {
-      lastError = err;
+      lastErr = err;
     }
   }
-  throw lastError || new Error("All candidate models failed.");
-}
-
-async function generateImage(imagePrompt) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.imageModel}:generateContent`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": process.env.GEMINI_API_KEY,
-    },
-    body: JSON.stringify({ contents: [{ parts: [{ text: imagePrompt }] }] }),
-  });
-  if (!response.ok) throw new Error(`Gemini image error: ${await response.text()}`);
-  const data = await response.json();
-  const imagePart = data.candidates[0].content.parts.find((p) => p.inlineData);
-  if (!imagePart) throw new Error("No image returned from Gemini.");
-  return Buffer.from(imagePart.inlineData.data, "base64");
+  throw lastErr || new Error("All image candidate models failed.");
 }
 
 async function getAuthorUrn() {

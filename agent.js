@@ -22,7 +22,7 @@ const path = require("path");
 
 // ---- CONFIG: verify these model IDs in Google AI Studio before running ----
 const CONFIG = {
-  textModel: process.env.GEMINI_TEXT_MODEL || "gemini-3.8-flash",
+  textModel: process.env.GEMINI_TEXT_MODEL || "gemini-3.6-flash",
   embeddingModel: process.env.GEMINI_EMBEDDING_MODEL || "gemini-embedding-001",
   imageModel: process.env.GEMINI_IMAGE_MODEL || "gemini-3.1-flash-image",
 };
@@ -134,51 +134,78 @@ Respond with ONLY valid JSON in this exact shape, nothing else:
   "image_prompt": "<a concise text-to-image prompt describing the image, or empty string if needs_image is false>"
 }`;
 
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const configuredModel = process.env.GEMINI_TEXT_MODEL;
+  const preferredPrimary = configuredModel && configuredModel !== "gemini-3.8-flash"
+    ? configuredModel
+    : "gemini-3.6-flash";
+
   const candidateModels = Array.from(new Set([
-    CONFIG.textModel,
-    "gemini-3.1-flash-lite",
+    preferredPrimary,
     "gemini-3.6-flash",
+    "gemini-3.5-flash",
+    "gemini-3.1-flash-lite",
+    "gemini-3.5-flash-lite",
     "gemini-3.8-flash",
   ]));
 
   let lastError = null;
   for (const model of candidateModels) {
-    try {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": process.env.GEMINI_API_KEY,
-        },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            responseMimeType: "application/json",
-            maxOutputTokens: 2048,
+    const maxRetries = 2;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": process.env.GEMINI_API_KEY,
           },
-        }),
-      });
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              responseMimeType: "application/json",
+              maxOutputTokens: 2048,
+            },
+          }),
+        });
 
-      if (!response.ok) {
-        const errText = await response.text();
-        console.warn(`[Gemini Info] Model ${model} returned ${response.status}, attempting fallback...`);
-        lastError = new Error(`Gemini generateContent error (${response.status}): ${errText}`);
-        continue;
+        if (!response.ok) {
+          const errText = await response.text();
+          lastError = new Error(`Gemini generateContent error (${response.status}): ${errText}`);
+          if ((response.status === 503 || response.status === 429) && attempt < maxRetries) {
+            console.warn(`[Gemini Warning] Model ${model} returned ${response.status}, retrying in 1.5s...`);
+            await sleep(1500 * attempt);
+            continue;
+          }
+          console.warn(`[Gemini Info] Model ${model} returned ${response.status}, attempting fallback...`);
+          break;
+        }
+
+        const data = await response.json();
+        const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!rawText) throw new Error("Empty or invalid response received from Gemini.");
+
+        const cleaned = rawText.replace(/```json/gi, "").replace(/```/g, "").trim();
+        const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+          try {
+            return JSON.parse(jsonMatch[0]);
+          } catch {}
+        }
+        return {
+          post_text: cleaned,
+          needs_image: false,
+          image_prompt: "",
+        };
+      } catch (err) {
+        lastError = err;
+        if (attempt < maxRetries) {
+          await sleep(1000 * attempt);
+          continue;
+        }
+        break;
       }
-
-      const data = await response.json();
-      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (!rawText) throw new Error("Empty or invalid response received from Gemini.");
-
-      const cleaned = rawText.replace(/```json/gi, "").replace(/```/g, "").trim();
-      const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) {
-        throw new Error(`Unable to parse JSON from model output:\n${rawText}`);
-      }
-      return JSON.parse(jsonMatch[0]);
-    } catch (err) {
-      lastError = err;
     }
   }
 
