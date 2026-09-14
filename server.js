@@ -29,6 +29,11 @@ const path = require("path");
 const { runAgentForTopic } = require("./agent-core");
 const { addMemory, getRecentMemories, loadState, saveState } = require("./mongo-store");
 const { syncGitHubActivity } = require("./github-sync");
+const {
+  getLatestGitHubActivity,
+  generateAndPublishGitHubPost,
+  checkAndAutoPostGitHub,
+} = require("./github-monitor");
 
 const app = express();
 app.use(express.json());
@@ -42,10 +47,14 @@ const CRON_SCHEDULE = process.env.CRON_SCHEDULE || "0 14 * * *";
 let scheduleEnabled = true;
 
 // Initialize state from MongoDB on startup
-loadState({ lastIndex: -1, scheduleEnabled: true }).then((state) => {
-  scheduleEnabled = state.scheduleEnabled;
-  console.log(`[Server] State loaded from MongoDB. Schedule: ${scheduleEnabled ? "ON" : "OFF"}, Last Index: ${state.lastIndex}`);
-}).catch(() => {});
+loadState({ lastIndex: -1, scheduleEnabled: true })
+  .then((state) => {
+    scheduleEnabled = state.scheduleEnabled;
+    console.log(
+      `[Server] State loaded from MongoDB. Schedule: ${scheduleEnabled ? "ON" : "OFF"}, Last Index: ${state.lastIndex}`
+    );
+  })
+  .catch(() => {});
 
 function loadJSON(filePath, fallback) {
   try {
@@ -83,7 +92,28 @@ async function sendTelegramMessage(chatId, text) {
   });
 }
 
-// ---------- Scheduled auto-posting ----------
+// ---------- Background Watcher: Check GitHub for new pushes every 15 minutes ----------
+
+cron.schedule("*/15 * * * *", async () => {
+  if (!scheduleEnabled) return;
+  try {
+    console.log("[AutoPost] Checking GitHub for new pushes...");
+    const res = await checkAndAutoPostGitHub();
+    if (res.status === "published") {
+      console.log(`[AutoPost] Published new push for ${res.activity.repoName}! ID: ${res.postId}`);
+      if (process.env.TELEGRAM_OWNER_ID) {
+        await sendTelegramMessage(
+          process.env.TELEGRAM_OWNER_ID,
+          `🚀 Auto-published new GitHub push to LinkedIn!\n\nProject: ${res.activity.repoName}\nCommit: "${res.activity.commitMessage}"\nPhoto included: ${res.hadImage ? "YES" : "NO"}\nPost ID: ${res.postId}\n\n"${res.postText}"`
+        );
+      }
+    }
+  } catch (err) {
+    console.error("[AutoPost Error]", err.message);
+  }
+});
+
+// ---------- Daily Scheduled Auto-Posting (GitHub-First) ----------
 
 cron.schedule(CRON_SCHEDULE, async () => {
   if (!scheduleEnabled) {
@@ -91,22 +121,25 @@ cron.schedule(CRON_SCHEDULE, async () => {
     return;
   }
   try {
-    // Automatically sync GitHub activity before post run
-    try {
-      await syncGitHubActivity();
-    } catch (ghErr) {
-      console.warn("[Cron Warning] Background GitHub sync failed:", ghErr.message);
+    // Check if there is GitHub activity to post about first (prioritize real builds)
+    const latestActivity = await getLatestGitHubActivity();
+    let result;
+
+    if (latestActivity) {
+      console.log(`[Daily Run] Posting about latest GitHub project: ${latestActivity.repoName}`);
+      result = await generateAndPublishGitHubPost();
+    } else {
+      const { topic, nextIndex } = await getNextTopic();
+      console.log(`[Daily Run] Posting topic: ${topic}`);
+      result = await runAgentForTopic(topic);
+      await advanceTopic(nextIndex);
     }
 
-    const { topic, nextIndex } = await getNextTopic();
-    console.log(`Scheduled post starting. Topic: ${topic}`);
-    const result = await runAgentForTopic(topic);
-    await advanceTopic(nextIndex);
     console.log(`Scheduled post published. ID: ${result.postId}`);
     if (process.env.TELEGRAM_OWNER_ID) {
       await sendTelegramMessage(
         process.env.TELEGRAM_OWNER_ID,
-        `Scheduled post published.${result.hadImage ? " (with image)" : ""}\n\n"${result.postText}"`
+        `Scheduled post published.${result.hadImage ? " (with photo)" : ""}\n\n"${result.postText}"`
       );
     }
   } catch (err) {
@@ -117,7 +150,7 @@ cron.schedule(CRON_SCHEDULE, async () => {
   }
 });
 
-// ---------- Telegram webhook ----------
+// ---------- Telegram Webhook ----------
 
 app.post("/telegram-webhook", async (req, res) => {
   res.sendStatus(200); // acknowledge Telegram immediately
@@ -138,23 +171,34 @@ app.post("/telegram-webhook", async (req, res) => {
     await sendTelegramMessage(
       chatId,
       "Commands:\n" +
-        "/post <topic> - generate and publish immediately\n" +
+        "/post github - immediately post your latest GitHub project & commit with photo\n" +
+        "/post <topic> - generate and publish a specific custom topic\n" +
         "/learn <text> - save what you learned or researched today\n" +
         "/project <text> - log a project or technical milestone\n" +
         "/sync github - sync your latest GitHub repos & commits\n" +
         "/memory - show latest memories stored in cloud\n" +
-        "/schedule on - enable automatic scheduled posting\n" +
-        "/schedule off - disable automatic scheduled posting\n" +
-        "/status - show current schedule state"
+        "/schedule on - enable 24/7 automatic GitHub & scheduled posting\n" +
+        "/schedule off - pause automatic posting\n" +
+        "/status - show current schedule state and latest GitHub commit"
     );
     return;
   }
 
   if (text === "/status") {
-    const { topic } = await getNextTopic();
+    let gitInfo = "No GitHub push found";
+    try {
+      const act = await getLatestGitHubActivity();
+      if (act) {
+        gitInfo = `${act.repoName} ("${act.commitMessage.slice(0, 50)}")`;
+      }
+    } catch {}
+
     await sendTelegramMessage(
       chatId,
-      `Schedule: ${scheduleEnabled ? "ON" : "OFF"}\nCron: ${CRON_SCHEDULE}\nNext topic in rotation: "${topic}"\nDatabase: MongoDB Atlas (Connected)`
+      `Schedule: ${scheduleEnabled ? "ON (24/7 GitHub Push Watcher Active)" : "OFF"}\n` +
+        `Cron: ${CRON_SCHEDULE}\n` +
+        `Latest GitHub Project: ${gitInfo}\n` +
+        `Database: MongoDB Atlas (Connected)`
     );
     return;
   }
@@ -162,7 +206,7 @@ app.post("/telegram-webhook", async (req, res) => {
   if (text === "/schedule on") {
     scheduleEnabled = true;
     await saveState({ scheduleEnabled: true });
-    await sendTelegramMessage(chatId, "Scheduled posting turned ON (saved to cloud).");
+    await sendTelegramMessage(chatId, "24/7 GitHub push watcher & scheduled posting turned ON (saved to cloud).");
     return;
   }
 
@@ -170,6 +214,25 @@ app.post("/telegram-webhook", async (req, res) => {
     scheduleEnabled = false;
     await saveState({ scheduleEnabled: false });
     await sendTelegramMessage(chatId, "Scheduled posting turned OFF (saved to cloud).");
+    return;
+  }
+
+  // Command to post the latest GitHub commit with photo immediately
+  if (text === "/post github" || text === "/post latest") {
+    await sendTelegramMessage(chatId, "Analyzing your latest GitHub push, drafting post, and preparing photo...");
+    try {
+      const result = await generateAndPublishGitHubPost();
+      await sendTelegramMessage(
+        chatId,
+        `Published to LinkedIn!${result.hadImage ? " (with photo)" : ""}\n` +
+          `Project: ${result.activity.repoName}\n` +
+          `Commit: "${result.activity.commitMessage}"\n` +
+          `Post ID: ${result.postId}\n\n` +
+          `"${result.postText}"`
+      );
+    } catch (err) {
+      await sendTelegramMessage(chatId, `Failed to post GitHub update: ${err.message}`);
+    }
     return;
   }
 
@@ -239,7 +302,7 @@ app.post("/telegram-webhook", async (req, res) => {
   if (text.startsWith("/post")) {
     const topic = text.replace("/post", "").trim();
     if (!topic) {
-      await sendTelegramMessage(chatId, "Usage: /post <topic>");
+      await sendTelegramMessage(chatId, "Usage: /post <topic> or /post github");
       return;
     }
     await sendTelegramMessage(chatId, `Working on it — drafting a post about: "${topic}"...`);
@@ -262,3 +325,4 @@ app.get("/", (req, res) => res.send("LinkedIn agent server is running."));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}. Cron: ${CRON_SCHEDULE}`));
+
