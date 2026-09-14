@@ -27,6 +27,8 @@ const cron = require("node-cron");
 const fs = require("fs");
 const path = require("path");
 const { runAgentForTopic } = require("./agent-core");
+const { addMemory, getRecentMemories, loadState, saveState } = require("./mongo-store");
+const { syncGitHubActivity } = require("./github-sync");
 
 const app = express();
 app.use(express.json());
@@ -36,10 +38,14 @@ const TOPICS_PATH = path.join(__dirname, "topics.json");
 const STATE_PATH = path.join(__dirname, "state.json");
 const CRON_SCHEDULE = process.env.CRON_SCHEDULE || "0 14 * * *";
 
-// In-memory toggle — resets to `true` if the server restarts.
-// (Free hosting tiers can restart occasionally; if you need this to survive
-// restarts, persist it to a file the same way state.json is persisted.)
+// Persisted schedule toggle (in-memory cache synced with MongoDB Atlas)
 let scheduleEnabled = true;
+
+// Initialize state from MongoDB on startup
+loadState({ lastIndex: -1, scheduleEnabled: true }).then((state) => {
+  scheduleEnabled = state.scheduleEnabled;
+  console.log(`[Server] State loaded from MongoDB. Schedule: ${scheduleEnabled ? "ON" : "OFF"}, Last Index: ${state.lastIndex}`);
+}).catch(() => {});
 
 function loadJSON(filePath, fallback) {
   try {
@@ -50,19 +56,23 @@ function loadJSON(filePath, fallback) {
 }
 
 function saveJSON(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  } catch {}
 }
 
-function getNextTopic() {
+async function getNextTopic() {
   const topics = loadJSON(TOPICS_PATH, []);
   if (topics.length === 0) throw new Error("topics.json is empty.");
-  const state = loadJSON(STATE_PATH, { lastIndex: -1 });
-  const nextIndex = (state.lastIndex + 1) % topics.length;
+  const localState = loadJSON(STATE_PATH, { lastIndex: -1 });
+  const cloudState = await loadState(localState);
+  const nextIndex = (cloudState.lastIndex + 1) % topics.length;
   return { topic: topics[nextIndex], nextIndex };
 }
 
-function advanceTopic(nextIndex) {
+async function advanceTopic(nextIndex) {
   saveJSON(STATE_PATH, { lastIndex: nextIndex });
+  await saveState({ lastIndex: nextIndex });
 }
 
 async function sendTelegramMessage(chatId, text) {
@@ -81,10 +91,17 @@ cron.schedule(CRON_SCHEDULE, async () => {
     return;
   }
   try {
-    const { topic, nextIndex } = getNextTopic();
+    // Automatically sync GitHub activity before post run
+    try {
+      await syncGitHubActivity();
+    } catch (ghErr) {
+      console.warn("[Cron Warning] Background GitHub sync failed:", ghErr.message);
+    }
+
+    const { topic, nextIndex } = await getNextTopic();
     console.log(`Scheduled post starting. Topic: ${topic}`);
     const result = await runAgentForTopic(topic);
-    advanceTopic(nextIndex);
+    await advanceTopic(nextIndex);
     console.log(`Scheduled post published. ID: ${result.postId}`);
     if (process.env.TELEGRAM_OWNER_ID) {
       await sendTelegramMessage(
@@ -122,6 +139,10 @@ app.post("/telegram-webhook", async (req, res) => {
       chatId,
       "Commands:\n" +
         "/post <topic> - generate and publish immediately\n" +
+        "/learn <text> - save what you learned or researched today\n" +
+        "/project <text> - log a project or technical milestone\n" +
+        "/sync github - sync your latest GitHub repos & commits\n" +
+        "/memory - show latest memories stored in cloud\n" +
         "/schedule on - enable automatic scheduled posting\n" +
         "/schedule off - disable automatic scheduled posting\n" +
         "/status - show current schedule state"
@@ -130,23 +151,88 @@ app.post("/telegram-webhook", async (req, res) => {
   }
 
   if (text === "/status") {
-    const { topic } = getNextTopic();
+    const { topic } = await getNextTopic();
     await sendTelegramMessage(
       chatId,
-      `Schedule: ${scheduleEnabled ? "ON" : "OFF"}\nCron: ${CRON_SCHEDULE}\nNext topic in rotation: "${topic}"`
+      `Schedule: ${scheduleEnabled ? "ON" : "OFF"}\nCron: ${CRON_SCHEDULE}\nNext topic in rotation: "${topic}"\nDatabase: MongoDB Atlas (Connected)`
     );
     return;
   }
 
   if (text === "/schedule on") {
     scheduleEnabled = true;
-    await sendTelegramMessage(chatId, "Scheduled posting turned ON.");
+    await saveState({ scheduleEnabled: true });
+    await sendTelegramMessage(chatId, "Scheduled posting turned ON (saved to cloud).");
     return;
   }
 
   if (text === "/schedule off") {
     scheduleEnabled = false;
-    await sendTelegramMessage(chatId, "Scheduled posting turned OFF.");
+    await saveState({ scheduleEnabled: false });
+    await sendTelegramMessage(chatId, "Scheduled posting turned OFF (saved to cloud).");
+    return;
+  }
+
+  if (text.startsWith("/learn")) {
+    const note = text.replace("/learn", "").trim();
+    if (!note) {
+      await sendTelegramMessage(chatId, "Usage: /learn <what you learned or researched>");
+      return;
+    }
+    await sendTelegramMessage(chatId, "Embedding and saving to MongoDB Atlas cloud memory...");
+    try {
+      await addMemory(note, "learning", "telegram");
+      await sendTelegramMessage(chatId, "Saved to cloud memory! 🧠 I will use this context when drafting your posts.");
+    } catch (err) {
+      await sendTelegramMessage(chatId, `Failed to save memory: ${err.message}`);
+    }
+    return;
+  }
+
+  if (text.startsWith("/project")) {
+    const note = text.replace("/project", "").trim();
+    if (!note) {
+      await sendTelegramMessage(chatId, "Usage: /project <project or milestone details>");
+      return;
+    }
+    await sendTelegramMessage(chatId, "Embedding and saving project milestone to cloud memory...");
+    try {
+      await addMemory(note, "project", "telegram");
+      await sendTelegramMessage(chatId, "Project milestone saved! 🚀 I will feature this in upcoming posts.");
+    } catch (err) {
+      await sendTelegramMessage(chatId, `Failed to save project: ${err.message}`);
+    }
+    return;
+  }
+
+  if (text === "/sync github" || text === "/sync") {
+    await sendTelegramMessage(chatId, "Syncing public GitHub repositories and commits...");
+    try {
+      const result = await syncGitHubActivity();
+      await sendTelegramMessage(
+        chatId,
+        `GitHub sync complete! Synced ${result.syncedCount} projects:\n${result.syncedRepos.join("\n")}`
+      );
+    } catch (err) {
+      await sendTelegramMessage(chatId, `GitHub sync failed: ${err.message}`);
+    }
+    return;
+  }
+
+  if (text === "/memory" || text === "/memories") {
+    try {
+      const recent = await getRecentMemories(5);
+      if (!recent.length) {
+        await sendTelegramMessage(chatId, "No memories stored yet. Use /learn or /sync github to add memories.");
+        return;
+      }
+      const summary = recent
+        .map((m, i) => `${i + 1}. [${m.type.toUpperCase()}] ${m.content.slice(0, 120)}...`)
+        .join("\n\n");
+      await sendTelegramMessage(chatId, `Latest memories in MongoDB Atlas:\n\n${summary}`);
+    } catch (err) {
+      await sendTelegramMessage(chatId, `Failed to fetch memories: ${err.message}`);
+    }
     return;
   }
 

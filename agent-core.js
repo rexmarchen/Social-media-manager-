@@ -8,6 +8,7 @@
  */
 
 const { retrieveRelevantChunks } = require("./vector-store");
+const { findRelevantMemories, getRecentMemories } = require("./mongo-store");
 
 const CONFIG = {
   textModel: process.env.GEMINI_TEXT_MODEL || "gemini-3.6-flash",
@@ -15,11 +16,41 @@ const CONFIG = {
 };
 
 async function retrieveContext(topic, topK = 4) {
-  const chunks = await retrieveRelevantChunks(topic, topK);
-  if (chunks.length === 0) return "";
-  return chunks
-    .map((c) => `- (from ${c.source}, relevance ${c.score.toFixed(2)}) ${c.text}`)
-    .join("\n");
+  const contextParts = [];
+
+  // 1. Retrieve semantic memories from MongoDB Atlas (learnings, projects, GitHub)
+  try {
+    const memories = await findRelevantMemories(topic, topK);
+    for (const m of memories) {
+      if (m.score > 0.45) {
+        contextParts.push(`- [Cloud Memory - ${m.type}] ${m.content}`);
+      }
+    }
+  } catch (err) {
+    console.warn("[Memory Warning] Could not retrieve MongoDB memories:", err.message);
+  }
+
+  // 2. Retrieve local document chunks if available
+  try {
+    const chunks = await retrieveRelevantChunks(topic, topK);
+    for (const c of chunks) {
+      contextParts.push(`- [Doc Chunk - from ${c.source}] ${c.text}`);
+    }
+  } catch (err) {
+    // Local vector store might be empty on fresh cloud deploys
+  }
+
+  // 3. If context is empty, supply the latest 2 real-life memories
+  if (contextParts.length === 0) {
+    try {
+      const recent = await getRecentMemories(2);
+      for (const r of recent) {
+        contextParts.push(`- [Recent Activity - ${r.type}] ${r.content}`);
+      }
+    } catch {}
+  }
+
+  return contextParts.join("\n");
 }
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
