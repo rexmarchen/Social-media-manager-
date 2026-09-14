@@ -294,4 +294,10 @@ async function runAgentForTopic(topic) {
   return { postId, postText: post_text, hadImage: Boolean(imageUrn) };
 }
 
-module.exports = { runAgentForTopic, retrieveContext };
+module.exports = {
+  runAgentForTopic,
+  retrieveContext,
+  generatePost,
+  uploadImageToLinkedIn,
+  publishPost,
+};
