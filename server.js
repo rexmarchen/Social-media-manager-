@@ -322,7 +322,41 @@ app.post("/telegram-webhook", async (req, res) => {
 });
 
 app.get("/", (req, res) => res.send("LinkedIn agent server is running."));
+app.get("/health", (req, res) =>
+  res.json({
+    status: "ok",
+    uptime: Math.round(process.uptime()),
+    timestamp: new Date(),
+  })
+);
+
+// Global anti-crash handlers: prevent unhandled errors from terminating the server process
+process.on("unhandledRejection", (reason) => {
+  console.error("[Anti-Crash] Unhandled Rejection caught:", reason);
+});
+
+process.on("uncaughtException", (err) => {
+  console.error("[Anti-Crash] Uncaught Exception caught:", err);
+});
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Listening on port ${PORT}. Cron: ${CRON_SCHEDULE}`));
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}. Cron: ${CRON_SCHEDULE}`);
+
+  // Auto-check GitHub 5 seconds after server boots up
+  setTimeout(() => {
+    if (scheduleEnabled) {
+      console.log("[Boot] Running initial GitHub push check...");
+      checkAndAutoPostGitHub().catch((e) => console.warn("[Boot Check Warning]", e.message));
+    }
+  }, 5000);
+
+  // Keep-alive self ping if running on Render (prevents free tier sleep)
+  const externalUrl = process.env.RENDER_EXTERNAL_URL || "https://social-media-manager-2-mkyg.onrender.com";
+  if (externalUrl) {
+    setInterval(() => {
+      fetch(`${externalUrl}/health`).catch(() => {});
+    }, 12 * 60 * 1000); // pings every 12 minutes
+  }
+});
 
