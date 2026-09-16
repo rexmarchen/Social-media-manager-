@@ -26,7 +26,8 @@ require("dotenv").config();
 const cron = require("node-cron");
 const fs = require("fs");
 const path = require("path");
-const { runAgentForTopic } = require("./agent-core");
+const { runAgentForTopic, generateAutonomousPost } = require("./agent-core");
+const { getAllRepositories } = require("./ai-researcher");
 const { addMemory, getRecentMemories, loadState, saveState } = require("./mongo-store");
 const { syncGitHubActivity } = require("./github-sync");
 const {
@@ -104,7 +105,7 @@ cron.schedule("*/30 * * * *", async () => {
 });
 
 
-// ---------- Daily Scheduled Auto-Posting (GitHub-First) ----------
+// ---------- Daily Scheduled Auto-Posting (Autonomous AI Multi-Repo RAG) ----------
 
 cron.schedule(CRON_SCHEDULE, async () => {
   if (!scheduleEnabled) {
@@ -112,25 +113,14 @@ cron.schedule(CRON_SCHEDULE, async () => {
     return;
   }
   try {
-    // Check if there is GitHub activity to post about first (prioritize real builds)
-    const latestActivity = await getLatestGitHubActivity();
-    let result;
+    console.log("[Daily Run] Triggering autonomous AI research & RAG pipeline across portfolio...");
+    const result = await generateAutonomousPost();
 
-    if (latestActivity) {
-      console.log(`[Daily Run] Posting about latest GitHub project: ${latestActivity.repoName}`);
-      result = await generateAndPublishGitHubPost();
-    } else {
-      const { topic, nextIndex } = await getNextTopic();
-      console.log(`[Daily Run] Posting topic: ${topic}`);
-      result = await runAgentForTopic(topic);
-      await advanceTopic(nextIndex);
-    }
-
-    console.log(`Scheduled post published. ID: ${result.postId}`);
+    console.log(`Scheduled post published. ID: ${result.postId}, Repo: ${result.repoName}`);
     if (process.env.TELEGRAM_OWNER_ID) {
       await sendTelegramMessage(
         process.env.TELEGRAM_OWNER_ID,
-        `Scheduled post published.${result.hadImage ? " (with photo)" : ""}\n\n"${result.postText}"`
+        `🚀 Scheduled post published! (Project: ${result.repoName})${result.hadImage ? " [with photo]" : ""}\n\n"${result.postText}"`
       );
     }
   } catch (err) {
@@ -162,15 +152,16 @@ app.post("/telegram-webhook", async (req, res) => {
     await sendTelegramMessage(
       chatId,
       "Commands:\n" +
-        "/post github - immediately post your latest GitHub project & commit with photo\n" +
-        "/post <topic> - generate and publish a specific custom topic\n" +
+        "/post - autonomously research repos, pick an interesting project with RAG & publish\n" +
+        "/post <repo_or_topic> - publish about a specific project or topic (e.g. /post REXAI)\n" +
+        "/post github - immediately post your latest GitHub commit\n" +
+        "/repos - view all indexed repositories in your portfolio\n" +
+        "/sync - deeply sync all GitHub repos & READMEs into vector memory\n" +
         "/learn <text> - save what you learned or researched today\n" +
         "/project <text> - log a project or technical milestone\n" +
-        "/sync github - sync your latest GitHub repos & commits\n" +
         "/memory - show latest memories stored in cloud\n" +
-        "/schedule on - enable 24/7 automatic GitHub & scheduled posting\n" +
-        "/schedule off - pause automatic posting\n" +
-        "/status - show current schedule state and latest GitHub commit"
+        "/schedule on/off - toggle daily automated posting\n" +
+        "/status - show current schedule state"
     );
     return;
   }
@@ -290,15 +281,66 @@ app.post("/telegram-webhook", async (req, res) => {
     return;
   }
 
+  if (text === "/repos" || text === "/projects") {
+    try {
+      const repos = await getAllRepositories();
+      const list = repos.map((r, i) => `${i + 1}. ${r.name} (${r.language})`).join("\n");
+      await sendTelegramMessage(
+        chatId,
+        `📁 Indexed Repositories (${repos.length} total):\n\n${list}\n\nUse /post <repo_name> to feature any specific project, or /post to let the AI decide!`
+      );
+    } catch (err) {
+      await sendTelegramMessage(chatId, `Failed to load repositories: ${err.message}`);
+    }
+    return;
+  }
+
+  if (text === "/post" || text === "/post auto") {
+    await sendTelegramMessage(
+      chatId,
+      "🤖 Autonomous AI Researcher active: inspecting portfolio, selecting an interesting project, retrieving RAG context, and drafting post..."
+    );
+    try {
+      const result = await generateAutonomousPost();
+      await sendTelegramMessage(
+        chatId,
+        `🚀 Published to LinkedIn!${result.hadImage ? " (with custom image)" : ""}\n` +
+          `Project: ${result.repoName}\n` +
+          `Topic: ${result.topicTitle}\n` +
+          `Post ID: ${result.postId}\n\n` +
+          `"${result.postText}"`
+      );
+    } catch (err) {
+      await sendTelegramMessage(chatId, `Failed to generate post: ${err.message}`);
+    }
+    return;
+  }
+
   if (text.startsWith("/post")) {
-    const topic = text.replace("/post", "").trim();
-    if (!topic) {
-      await sendTelegramMessage(chatId, "Usage: /post <topic> or /post github");
+    const topicOrRepo = text.replace("/post", "").trim();
+    if (!topicOrRepo) {
+      await sendTelegramMessage(chatId, "Usage: /post, /post <repo_name>, or /post <custom topic>");
       return;
     }
-    await sendTelegramMessage(chatId, `Working on it — drafting a post about: "${topic}"...`);
+
     try {
-      const result = await runAgentForTopic(topic);
+      const allRepos = await getAllRepositories();
+      const matchedRepo = allRepos.find(
+        (r) => r.name.toLowerCase() === topicOrRepo.toLowerCase()
+      );
+
+      let result;
+      if (matchedRepo) {
+        await sendTelegramMessage(
+          chatId,
+          `Researching project "${matchedRepo.name}" with RAG and drafting an authentic post...`
+        );
+        result = await generateAutonomousPost(matchedRepo.name);
+      } else {
+        await sendTelegramMessage(chatId, `Working on it — drafting a post about: "${topicOrRepo}"...`);
+        result = await runAgentForTopic(topicOrRepo);
+      }
+
       await sendTelegramMessage(
         chatId,
         `Published!${result.hadImage ? " (with image)" : ""}\nPost ID: ${result.postId}\n\n"${result.postText}"`

@@ -8,7 +8,8 @@
  */
 
 const { retrieveRelevantChunks } = require("./vector-store");
-const { findRelevantMemories, getRecentMemories } = require("./mongo-store");
+const { findRelevantMemories, getRecentMemories, addMemory } = require("./mongo-store");
+const { researchTopicForPost, markRepoAsPosted } = require("./ai-researcher");
 
 const CONFIG = {
   textModel: process.env.GEMINI_TEXT_MODEL || "gemini-3.6-flash",
@@ -81,21 +82,17 @@ Respond with ONLY valid JSON in this exact shape, nothing else:
   "image_prompt": "<a concise text-to-image prompt, or empty string if needs_image is false>"
 }`;
 
-  // Prioritize reliable, stable models.
-  // gemini-3.8-flash frequently throws 503 Unavailable / High Demand, so it is deprioritized.
+  // Prioritize reliable, ultra-responsive models to prevent 503 capacity errors
   const configuredModel = process.env.GEMINI_TEXT_MODEL;
-  const preferredPrimary = configuredModel && configuredModel !== "gemini-3.8-flash"
-    ? configuredModel
-    : "gemini-3.6-flash";
-
-  const candidateModels = Array.from(new Set([
-    preferredPrimary,
-    "gemini-3.6-flash",
-    "gemini-3.5-flash",
-    "gemini-3.1-flash-lite",
-    "gemini-3.5-flash-lite",
-    "gemini-3.8-flash",
-  ]));
+  const candidateModels = Array.from(
+    new Set([
+      "gemini-3.5-flash-lite",
+      "gemini-3.5-flash",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      configuredModel,
+    ].filter(Boolean))
+  );
 
   let lastError = null;
   for (const model of candidateModels) {
@@ -158,33 +155,58 @@ Respond with ONLY valid JSON in this exact shape, nothing else:
 }
 
 async function generateImage(imagePrompt) {
-  const candidateImageModels = Array.from(new Set([
-    CONFIG.imageModel,
-    "gemini-3.1-flash-image",
-    "gemini-3-pro-image",
-    "gemini-2.5-flash-image",
-  ]));
+  const candidateImageModels = Array.from(
+    new Set([
+      CONFIG.imageModel,
+      "imagen-3.0-generate-002",
+      "gemini-3.1-flash-image",
+      "gemini-2.5-flash-image",
+    ].filter(Boolean))
+  );
 
   let lastErr = null;
   for (const model of candidateImageModels) {
     try {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+      const isImagen = model.startsWith("imagen");
+      const url = isImagen
+        ? `https://generativelanguage.googleapis.com/v1beta/models/${model}:predict`
+        : `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+
+      const requestBody = isImagen
+        ? {
+            instances: [{ prompt: imagePrompt }],
+            parameters: { sampleCount: 1, aspectRatio: "1:1", outputOptions: { mimeType: "image/jpeg" } },
+          }
+        : {
+            contents: [{ parts: [{ text: imagePrompt }] }],
+          };
+
       const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "x-goog-api-key": process.env.GEMINI_API_KEY,
         },
-        body: JSON.stringify({ contents: [{ parts: [{ text: imagePrompt }] }] }),
+        body: JSON.stringify(requestBody),
       });
+
       if (!response.ok) {
-        lastErr = new Error(`Gemini image error (${response.status}): ${await response.text()}`);
+        lastErr = new Error(`Image generation error for ${model} (${response.status}): ${await response.text()}`);
         continue;
       }
+
       const data = await response.json();
+
+      // Check Imagen response format
+      if (data.predictions?.[0]?.bytesBase64Encoded) {
+        return Buffer.from(data.predictions[0].bytesBase64Encoded, "base64");
+      }
+
+      // Check Gemini generateContent response format
       const imagePart = data.candidates?.[0]?.content?.parts?.find((p) => p.inlineData);
-      if (!imagePart) continue;
-      return Buffer.from(imagePart.inlineData.data, "base64");
+      if (imagePart?.inlineData?.data) {
+        return Buffer.from(imagePart.inlineData.data, "base64");
+      }
     } catch (err) {
       lastErr = err;
     }
@@ -294,10 +316,67 @@ async function runAgentForTopic(topic) {
   return { postId, postText: post_text, hadImage: Boolean(imageUrn) };
 }
 
+/**
+ * Fully autonomous AI research & RAG publishing workflow:
+ * 1. Researches across all user repositories to pick an interesting, diverse project
+ * 2. Ideates an authentic engineering angle and retrieves RAG context from vector DB
+ * 3. Generates high-impact post text
+ * 4. Image handling: NO static banner photos. Only generates a custom image if AI truly requests visual aid.
+ * 5. Publishes to LinkedIn and updates MongoDB state to avoid repeating the same repo.
+ */
+async function generateAutonomousPost(targetRepoName = null) {
+  const research = await researchTopicForPost(targetRepoName);
+  console.log(`[Autonomous Agent] Researched project "${research.repoName}": ${research.topicTitle}`);
+
+  const promptTopic = `${research.topicTitle} (${research.repoName} in ${research.language})`;
+  const { post_text, needs_image, image_prompt } = await generatePost(promptTopic, research.ragContext);
+
+  let imageUrn = null;
+  if (needs_image && image_prompt) {
+    console.log(`[Autonomous Agent] Generating unique visual graphic for this topic...`);
+    try {
+      const imageBuffer = await generateImage(image_prompt);
+      imageUrn = await uploadImageToLinkedIn(imageBuffer);
+      console.log(`[Autonomous Agent] Custom image uploaded to LinkedIn. URN: ${imageUrn}`);
+    } catch (imgErr) {
+      console.warn("[Autonomous Agent] Optional image generation skipped:", imgErr.message);
+    }
+  } else {
+    console.log(`[Autonomous Agent] Clean text post selected (no unnecessary photos attached).`);
+  }
+
+  const postId = await publishPost(post_text, imageUrn);
+
+  // Mark repository as posted to ensure rotation across all projects
+  await markRepoAsPosted(research.repoName);
+
+  // Save to MongoDB memories
+  try {
+    await addMemory(
+      `LinkedIn post published about ${research.repoName} (${research.topicTitle}): ${post_text}`,
+      "published_post",
+      `linkedin:${research.repoKey}`,
+      { repoName: research.repoName, topic: research.topicTitle, postId }
+    );
+  } catch (err) {
+    console.warn("Could not save published post memory:", err.message);
+  }
+
+  return {
+    postId,
+    postText: post_text,
+    hadImage: Boolean(imageUrn),
+    repoName: research.repoName,
+    topicTitle: research.topicTitle,
+  };
+}
+
 module.exports = {
   runAgentForTopic,
+  generateAutonomousPost,
   retrieveContext,
   generatePost,
+  generateImage,
   uploadImageToLinkedIn,
   publishPost,
 };

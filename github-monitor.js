@@ -6,7 +6,7 @@
  * and publishes it to LinkedIn automatically.
  */
 
-const { generatePost, uploadImageToLinkedIn, publishPost } = require("./agent-core");
+const { generatePost, generateImage, uploadImageToLinkedIn, publishPost } = require("./agent-core");
 const { getDb, loadState, saveState, addMemory } = require("./mongo-store");
 require("dotenv").config();
 
@@ -72,23 +72,6 @@ async function getLatestGitHubActivity(username = GITHUB_USERNAME) {
 }
 
 /**
- * Fetch a high-resolution preview photo for the repository
- */
-async function fetchProjectPhoto(repoFullName) {
-  try {
-    const cardUrl = `https://opengraph.githubassets.com/1/${repoFullName}`;
-    const res = await fetch(cardUrl);
-    if (res.ok) {
-      const arrayBuffer = await res.arrayBuffer();
-      return Buffer.from(arrayBuffer);
-    }
-  } catch (err) {
-    console.warn("[Photo Warning] Could not fetch GitHub preview photo:", err.message);
-  }
-  return null;
-}
-
-/**
  * Generate an authentic LinkedIn post for a GitHub push and publish it
  */
 async function generateAndPublishGitHubPost(username = GITHUB_USERNAME) {
@@ -97,57 +80,33 @@ async function generateAndPublishGitHubPost(username = GITHUB_USERNAME) {
     throw new Error("No recent GitHub activity found.");
   }
 
-  const topic = `New update shipped to ${activity.repoName}`;
+  const topic = `New code shipped to ${activity.repoName}: ${activity.commitMessage}`;
   const context = `
 AUTHOR GITHUB ACTIVITY:
 - Repository: ${activity.repoFullName}
 - Primary Tech / Language: ${activity.language}
 - Project Purpose: ${activity.description || "Open source developer tool"}
-- Latest Commit Update: ${activity.commitMessage}
+- Latest Commit: ${activity.commitMessage}
 - Repository Link: ${activity.repoUrl}
 `;
 
-  // Custom prompt tailored specifically for shipping real code
-  const customPrompt = `You are writing a LinkedIn post for Anshu Pal, a computer science student and software builder.
-Anshu just pushed new code to his GitHub project.
-
-PROJECT DETAILS:
-- Repository: ${activity.repoName} (${activity.language})
-- What it does: ${activity.description || "Developer automation and tools"}
-- What was just committed/shipped: ${activity.commitMessage}
-- GitHub Link: ${activity.repoUrl}
-
-Write a compelling, authentic LinkedIn post following these rules:
-- 100-170 words
-- Open with what was just built or solved (not "Excited to announce")
-- Sound like a real builder sharing technical lessons and implementation details
-- Highlight the problem it solves and key technical decisions (languages, APIs, architecture)
-- Invite feedback from other developers/engineers
-- Mention that the code is open source on GitHub: ${activity.repoUrl}
-- Add 3-5 relevant hashtags at the end
-
-Respond with ONLY valid JSON:
-{
-  "post_text": "<the full post text>",
-  "needs_image": true,
-  "image_prompt": ""
-}`;
-
   console.log(`[GitHub Agent] Drafting LinkedIn post for ${activity.repoName}...`);
-  // Use generatePost
-  const { post_text } = await generatePost(topic, context);
+  const { post_text, needs_image, image_prompt } = await generatePost(topic, context);
 
-  // Fetch the official project preview photo
-  console.log(`[GitHub Agent] Fetching project photo for ${activity.repoFullName}...`);
+  // Smart image handling: NO static banner photos!
+  // Only generate a custom graphic if the AI genuinely determines visual aid is needed for this topic
   let imageUrn = null;
-  const photoBuffer = await fetchProjectPhoto(activity.repoFullName);
-  if (photoBuffer) {
+  if (needs_image && image_prompt) {
+    console.log(`[GitHub Agent] AI determined a visual diagram adds value. Generating unique graphic...`);
     try {
-      imageUrn = await uploadImageToLinkedIn(photoBuffer);
-      console.log(`[GitHub Agent] Photo uploaded to LinkedIn. URN: ${imageUrn}`);
-    } catch (uploadErr) {
-      console.warn("[Photo Upload Warning] Failed to upload photo:", uploadErr.message);
+      const imageBuffer = await generateImage(image_prompt);
+      imageUrn = await uploadImageToLinkedIn(imageBuffer);
+      console.log(`[GitHub Agent] Custom image uploaded to LinkedIn. URN: ${imageUrn}`);
+    } catch (imgErr) {
+      console.warn("[GitHub Agent] Optional image generation skipped:", imgErr.message);
     }
+  } else {
+    console.log(`[GitHub Agent] Clean text post selected (no unnecessary photo attached).`);
   }
 
   // Publish post to LinkedIn
@@ -160,7 +119,7 @@ Respond with ONLY valid JSON:
       `Shipped update to ${activity.repoName}: ${activity.commitMessage}. Post published: ${post_text}`,
       "github_post",
       `github:${activity.repoFullName}`,
-      { commitSha: activity.commitSha, postId }
+      { commitSha: activity.commitSha, postId, repoName: activity.repoName }
     );
     await saveState({
       lastPostedGitHubCommit: activity.commitSha,
