@@ -317,7 +317,10 @@ app.post("/telegram-webhook", async (req, res) => {
   }
 
   if (text.startsWith("/post")) {
-    const topicOrRepo = text.replace("/post", "").trim();
+    let topicOrRepo = text.replace("/post", "").trim();
+    // Strip wrapping angle brackets, quotes, and punctuation
+    topicOrRepo = topicOrRepo.replace(/^[<"'\s]+|[>"'\s]+$/g, "").trim();
+
     if (!topicOrRepo) {
       await sendTelegramMessage(chatId, "Usage: /post, /post <repo_name>, or /post <custom topic>");
       return;

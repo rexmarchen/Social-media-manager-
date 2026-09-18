@@ -86,33 +86,38 @@ async function callGeminiText(prompt) {
  * Get all known repositories from the portfolio catalog or memory collection
  */
 async function getAllRepositories() {
-  const db = await getDb();
-  const catalog = await db.collection("portfolio_catalog").findOne({ _id: "github_portfolio" });
-  if (catalog && catalog.repos && catalog.repos.length > 0) {
-    // Filter out user's profile README repo (e.g. 'rexmarchen')
-    return catalog.repos.filter((r) => r.name !== r.repoKey.split("/")[0]);
-  }
-
-  // Fallback: query memories collection directly
-  const memories = await db
-    .collection("memories")
-    .find({ type: "github" })
-    .project({ metadata: 1 })
-    .toArray();
-
-  const reposMap = new Map();
-  for (const m of memories) {
-    if (m.metadata?.repoName) {
-      reposMap.set(m.metadata.repoName, {
-        name: m.metadata.repoName,
-        repoKey: m.metadata.repoKey,
-        language: m.metadata.language || "Code",
-        url: m.metadata.repoUrl || `https://github.com/${m.metadata.repoKey}`,
-        description: "",
-      });
+  try {
+    const db = await getDb();
+    const catalog = await db.collection("portfolio_catalog").findOne({ _id: "github_portfolio" });
+    if (catalog && catalog.repos && catalog.repos.length > 0) {
+      // Filter out user's profile README repo (e.g. 'rexmarchen')
+      return catalog.repos.filter((r) => r.name !== r.repoKey.split("/")[0]);
     }
+
+    // Fallback: query memories collection directly
+    const memories = await db
+      .collection("memories")
+      .find({ type: "github" })
+      .project({ metadata: 1 })
+      .toArray();
+
+    const reposMap = new Map();
+    for (const m of memories) {
+      if (m.metadata?.repoName) {
+        reposMap.set(m.metadata.repoName, {
+          name: m.metadata.repoName,
+          repoKey: m.metadata.repoKey,
+          language: m.metadata.language || "Code",
+          url: m.metadata.repoUrl || `https://github.com/${m.metadata.repoKey}`,
+          description: "",
+        });
+      }
+    }
+    return Array.from(reposMap.values());
+  } catch (err) {
+    console.warn("[Repositories Warning] Could not fetch repositories from MongoDB:", err.message);
+    return [];
   }
-  return Array.from(reposMap.values());
 }
 
 /**
