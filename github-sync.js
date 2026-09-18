@@ -59,9 +59,9 @@ function cleanMarkdown(mdText) {
     .trim();
 }
 
-async function syncGitHubActivity(username = GITHUB_USERNAME) {
+async function syncGitHubActivity(username = GITHUB_USERNAME, force = false) {
   const db = await getDb();
-  console.log(`[GitHub Deep Sync] Scanning all repositories for user: ${username}...`);
+  console.log(`[GitHub Deep Sync] Scanning all repositories for user: ${username} (force: ${force})...`);
 
   // 1. Fetch all public repos (up to 100)
   const reposUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
@@ -103,12 +103,14 @@ async function syncGitHubActivity(username = GITHUB_USERNAME) {
     const lastUpdated = repo.updated_at;
 
     // Check if we already have an up-to-date rich memory for this repo version
-    const existing = await db.collection("memories").findOne({
-      type: "github",
-      "metadata.repoKey": repoKey,
-      "metadata.updatedAt": lastUpdated,
-      "metadata.schemaVersion": 2,
-    });
+    const existing = !force
+      ? await db.collection("memories").findOne({
+          type: "github",
+          "metadata.repoKey": repoKey,
+          "metadata.updatedAt": lastUpdated,
+          "metadata.schemaVersion": 2,
+        })
+      : null;
 
     // Record repository into the active inventory
     repoInventory.push({
@@ -211,12 +213,18 @@ async function syncGitHubActivity(username = GITHUB_USERNAME) {
   console.log(
     `[GitHub Deep Sync] Complete. Synced ${syncedCount} updated repos. Portfolio contains ${repoInventory.length} total projects.`
   );
-  return { syncedCount, syncedRepos, totalPortfolio: repoInventory.length };
+  return {
+    syncedCount,
+    syncedRepos,
+    totalPortfolio: repoInventory.length,
+    allRepos: repoInventory.map((r) => r.name),
+  };
 }
 
-// Allow direct execution: node github-sync.js
+// Allow direct execution: node github-sync.js [--force]
 if (require.main === module) {
-  syncGitHubActivity()
+  const isForce = process.argv.includes("--force") || process.argv.includes("-f");
+  syncGitHubActivity(GITHUB_USERNAME, isForce)
     .then((result) => {
       console.log(`[GitHub Deep Sync] Success!`, result);
       process.exit(0);
