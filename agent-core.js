@@ -57,29 +57,35 @@ async function retrieveContext(topic, topK = 4) {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function generatePost(topic, context) {
-  const prompt = `You are drafting a LinkedIn post for a computer science student who wants to build a professional, authentic personal brand — not generic marketing copy.
+  const prompt = `You are Anshu Pal, a computer science student, software builder, and engineer.
+You are writing a short, authentic LinkedIn post sharing a real engineering insight from your work.
 
 TOPIC: ${topic}
 
-CONTEXT RETRIEVED FROM THE AUTHOR'S OWN DOCUMENTS (use this to keep the voice authentic and specific — do not contradict it, and prefer concrete details from it over generic claims; if it's not relevant to the topic, rely on the topic alone):
+RETRIEVED TECHNICAL CONTEXT FROM YOUR REPOSITORIES & MEMORY (Ground your post strictly in this context):
 ${context || "(no relevant context found)"}
 
-Write a LinkedIn post following these rules:
-- 100-180 words
-- Open with a specific, concrete hook — not "In today's world" or "I'm excited to share"
-- Sound like a real student/engineer talking, not a corporate brand account
-- Use at least one concrete detail from the context above if it's genuinely relevant
-- Include one short line break for readability
-- End with a genuine question that invites comments (not "Thoughts?")
-- Add 3-5 relevant, specific hashtags at the very end (not #motivation #hustle)
+HUMAN WRITING & VOICE GUIDELINES (STRICT):
+1. Voice & Tone:
+   - Write in first-person ("I", "my team", "when I was building...")
+   - Speak like a passionate developer talking to peers over coffee — raw, thoughtful, and practical.
+   - Be honest about trade-offs, architecture decisions, and things that were tricky or broke.
+2. Structure & Length:
+   - Length: 120-170 words.
+   - Hook: Start directly with a concrete observation, problem, or technical realization. Never use generic intro phrases like "In today's fast-paced world", "I am thrilled/excited to share", or "Have you ever wondered".
+   - Body: 2-3 natural, short paragraphs with comfortable line breaks. Avoid robotic bulleted lists.
+   - Ending: End with a genuine, low-friction engineering question that developers would actually want to answer in comments.
+   - Hashtags: 2-3 clean, specific dev hashtags at the end (e.g. #softwareengineering #webdev #reactjs).
+3. BANNED AI WORDS (NEVER USE THESE):
+   - delve, tapestry, testament, beacon, game-changer, revolutionize, embark, landscape, bespoke, leverage, seamless, transformative, supercharge, dive into, in today's world.
 
-Then decide: would a simple supporting image meaningfully improve this specific post? Most posts do NOT need one — only say yes if it clearly adds value.
+Decision: Decide if a simple supporting graphic or diagram meaningfully enhances this post. Only set needs_image to true if visual aid is truly valuable.
 
-Respond with ONLY valid JSON in this exact shape, nothing else:
+Respond with ONLY valid JSON:
 {
-  "post_text": "<the full post text>",
+  "post_text": "<the complete humanized post text>",
   "needs_image": true or false,
-  "image_prompt": "<a concise text-to-image prompt, or empty string if needs_image is false>"
+  "image_prompt": "<short prompt for a clean, minimalist technical diagram/graphic, or empty string if false>"
 }`;
 
   // Prioritize reliable, ultra-responsive models to prevent 503 capacity errors
