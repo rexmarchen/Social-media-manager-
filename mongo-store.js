@@ -13,9 +13,12 @@ const EMBEDDING_MODEL = process.env.GEMINI_EMBEDDING_MODEL || "gemini-embedding-
 let client = null;
 let dbInstance = null;
 
+const DEFAULT_MONGODB_URI =
+  "mongodb+srv://anshu90ar:Anshu90%23%40@cluster0.abyixcg.mongodb.net/linkedin_agent?retryWrites=true&w=majority&appName=Cluster0";
+
 async function getDb() {
   if (dbInstance) return dbInstance;
-  const uri = process.env.MONGODB_URI;
+  const uri = process.env.MONGODB_URI || DEFAULT_MONGODB_URI;
   if (!uri) {
     throw new Error("Missing MONGODB_URI environment variable.");
   }
