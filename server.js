@@ -18,7 +18,8 @@
  *   GEMINI_API_KEY, LINKEDIN_ACCESS_TOKEN, LINKEDIN_PERSON_URN
  *
  * Optional:
- *   CRON_SCHEDULE - defaults to "0 14 * * *" (daily at 14:00 UTC)
+ *   TIMEZONE - defaults to "Asia/Kolkata" (IST)
+ *   CRON_SCHEDULE - defaults to "30 19 * * *" (daily at 7:30 PM IST / 19:30)
  */
 
 const express = require("express");
@@ -35,6 +36,7 @@ const {
   generateAndPublishGitHubPost,
   checkAndAutoPostGitHub,
 } = require("./github-monitor");
+const { runJobMonitor } = require("./job-monitor");
 
 const app = express();
 app.use(express.json());
@@ -42,7 +44,8 @@ app.use(express.json());
 const TELEGRAM_API = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
 const TOPICS_PATH = path.join(__dirname, "topics.json");
 const STATE_PATH = path.join(__dirname, "state.json");
-const CRON_SCHEDULE = process.env.CRON_SCHEDULE || "0 14 * * *";
+const TIMEZONE = process.env.TIMEZONE || "Asia/Kolkata";
+const CRON_SCHEDULE = process.env.CRON_SCHEDULE || "30 19 */2 * *"; // Every 2 days at 7:30 PM IST
 
 // Persisted schedule toggle (in-memory cache synced with MongoDB Atlas)
 let scheduleEnabled = true;
@@ -50,12 +53,16 @@ let scheduleEnabled = true;
 // Initialize state from MongoDB on startup
 loadState({ lastIndex: -1, scheduleEnabled: true })
   .then((state) => {
-    scheduleEnabled = state.scheduleEnabled;
+    scheduleEnabled = state.scheduleEnabled !== false; // default true
     console.log(
       `[Server] State loaded from MongoDB. Schedule: ${scheduleEnabled ? "ON" : "OFF"}, Last Index: ${state.lastIndex}`
     );
   })
-  .catch(() => {});
+  .catch((err) => {
+    console.error("[Server] WARNING: Failed to load state from MongoDB:", err.message);
+    console.warn("[Server] Defaulting to scheduleEnabled=true");
+    scheduleEnabled = true; // safe default
+  });
 
 function loadJSON(filePath, fallback) {
   try {
@@ -119,37 +126,98 @@ cron.schedule("*/15 * * * *", async () => {
   }
 });
 
-async function triggerDailyPost(reason = "Daily Run") {
+// ---------- Background Job & Internship Watchdog (< 12h) ----------
+const JOB_CRON = process.env.JOB_ALERT_CRON_SCHEDULE || "0 */3 * * *";
+cron.schedule(JOB_CRON, async () => {
+  try {
+    console.log("[Job Watchdog] Scheduled check for fresh tech jobs & internships (< 12h)...");
+    await runJobMonitor();
+  } catch (err) {
+    console.warn("[Job Watchdog Warning]", err.message);
+  }
+});
+
+let isPostingInProgress = false;
+let activeRetryTimeout = null;
+
+async function triggerDailyPost(reason = "Daily Run", retryAttempt = 0) {
   if (!scheduleEnabled) {
     console.log(`[${reason}] Skipped — schedule is currently off.`);
     return { status: "skipped_schedule_off" };
   }
+
+  if (isPostingInProgress) {
+    console.log(`[${reason}] Another post operation is currently in progress. Skipping duplicate.`);
+    return { status: "in_progress" };
+  }
+
+  isPostingInProgress = true;
   try {
-    console.log(`[${reason}] Triggering autonomous AI research & RAG pipeline across portfolio...`);
+    console.log(`[${reason}] Triggering autonomous AI research & RAG pipeline across portfolio (attempt ${retryAttempt + 1})...`);
     const result = await generateAutonomousPost();
 
     console.log(`[${reason}] Scheduled post published. ID: ${result.postId}, Repo: ${result.repoName}`);
     if (process.env.TELEGRAM_OWNER_ID) {
+      const retryTag = retryAttempt > 0 ? ` (Succeeded on auto-retry #${retryAttempt})` : "";
       await sendTelegramMessage(
         process.env.TELEGRAM_OWNER_ID,
-        `🚀 Scheduled post published! (Project: ${result.repoName})${result.hadImage ? " [with photo]" : ""}\n\n"${result.postText}"`
+        `🚀 Scheduled post published!${retryTag} (Project: ${result.repoName})${result.hadImage ? " [with photo]" : ""}\n\n"${result.postText}"`
       );
     }
     return { status: "published", ...result };
   } catch (err) {
-    console.error(`[${reason}] Post failed:`, err.message);
-    if (process.env.TELEGRAM_OWNER_ID) {
-      await sendTelegramMessage(process.env.TELEGRAM_OWNER_ID, `Scheduled post failed: ${err.message}`);
+    console.error(`[${reason}] Post attempt ${retryAttempt + 1} failed:`, err.message);
+
+    const maxRetries = 3;
+    const retryDelaysMinutes = [3, 7, 12]; // Auto-retry schedule: 3m, 7m, 12m
+
+    if (retryAttempt < maxRetries) {
+      const nextDelayMin = retryDelaysMinutes[retryAttempt];
+      const nextDelayMs = nextDelayMin * 60 * 1000;
+      console.log(`[${reason}] Scheduling automatic retry ${retryAttempt + 1}/${maxRetries} in ${nextDelayMin} minutes...`);
+
+      if (process.env.TELEGRAM_OWNER_ID) {
+        await sendTelegramMessage(
+          process.env.TELEGRAM_OWNER_ID,
+          `⚠️ Scheduled post encountered temporary high demand from Gemini:\n"${err.message.slice(0, 140)}"\n\n🔄 Automatic retry attempt ${retryAttempt + 1}/${maxRetries} scheduled in ${nextDelayMin} minutes (within the 7:00-8:00 PM IST posting window)...`
+        );
+      }
+
+      if (activeRetryTimeout) clearTimeout(activeRetryTimeout);
+      activeRetryTimeout = setTimeout(async () => {
+        try {
+          await triggerDailyPost("Scheduled Post Retry", retryAttempt + 1);
+        } catch (retryErr) {
+          console.error("[Scheduled Retry Warning]", retryErr.message);
+        }
+      }, nextDelayMs);
+
+      return { status: "retry_scheduled", attempt: retryAttempt + 1, delayMin: nextDelayMin };
+    } else {
+      if (process.env.TELEGRAM_OWNER_ID) {
+        await sendTelegramMessage(
+          process.env.TELEGRAM_OWNER_ID,
+          `❌ Scheduled post failed after ${maxRetries} automatic retry attempts:\n${err.message}\n\n💡 You can trigger a manual retry anytime with /post or /post <project>.`
+        );
+      }
+      throw err;
     }
-    throw err;
+  } finally {
+    isPostingInProgress = false;
   }
 }
 
 // ---------- Daily Scheduled Auto-Posting (Autonomous AI Multi-Repo RAG) ----------
 
-cron.schedule(CRON_SCHEDULE, async () => {
-  await triggerDailyPost("Daily Cron");
-});
+cron.schedule(
+  CRON_SCHEDULE,
+  async () => {
+    await triggerDailyPost("Daily Cron");
+  },
+  {
+    timezone: TIMEZONE,
+  }
+);
 
 // ---------- Telegram Webhook ----------
 
@@ -183,6 +251,7 @@ app.post("/telegram-webhook", async (req, res) => {
         "• /sync force - force re-indexing of all repositories\n" +
         "• /learn <text> - save what you learned or researched today\n" +
         "• /project <text> - log a project or technical milestone\n" +
+        "• /jobs - check & email fresh tech jobs & internships (< 12h)\n" +
         "• /memory - show latest memories stored in MongoDB cloud\n" +
         "• /schedule on/off - toggle daily automated posting\n" +
         "• /status - show current schedule and posting status"
@@ -206,7 +275,8 @@ app.post("/telegram-webhook", async (req, res) => {
       chatId,
       `📊 *Agent Status*:\n\n` +
         `• Schedule: ${scheduleEnabled ? "🟢 ON (Daily Auto-Poster Active)" : "🔴 OFF"}\n` +
-        `• Cron Schedule: ${CRON_SCHEDULE} (UTC)\n` +
+        `• Posting Time: 7:30 PM (Window: 7:00 PM - 8:00 PM ${TIMEZONE})\n` +
+        `• Cron Schedule: ${CRON_SCHEDULE} (${TIMEZONE})\n` +
         `• Last Post Published: ${lastPosted}\n` +
         `• Latest GitHub Push: ${gitInfo}\n` +
         `• Database: MongoDB Atlas (Connected)`
@@ -225,6 +295,24 @@ app.post("/telegram-webhook", async (req, res) => {
     scheduleEnabled = false;
     await saveState({ scheduleEnabled: false });
     await sendTelegramMessage(chatId, "⏸️ Scheduled posting turned OFF.");
+    return;
+  }
+
+  // Command to trigger Tech Job & Internship Watchdog on demand
+  if (lower === "/jobs" || lower === "/jobs check") {
+    await sendTelegramMessage(chatId, "🔍 Scanning LinkedIn for tech jobs & internships posted strictly under 12 hours...");
+    try {
+      const result = await runJobMonitor();
+      await sendTelegramMessage(
+        chatId,
+        `📬 *Job Watchdog Report*:\n\n` +
+          `• Fresh Positions Found (< 12h): ${result.scanned}\n` +
+          `• New Unseen Postings: ${result.newJobsCount}\n` +
+          `• Email Notification: ${result.emailSent ? "Delivered to your inbox ✅" : (result.newJobsCount === 0 ? "No new unnotified postings" : "SMTP Pending / Dry-run")}`
+      );
+    } catch (err) {
+      await sendTelegramMessage(chatId, `❌ Job watchdog failed: ${err.message}`);
+    }
     return;
   }
 
@@ -434,14 +522,19 @@ process.on("uncaughtException", (err) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}. Cron: ${CRON_SCHEDULE}`);
+  console.log(`Listening on port ${PORT}. Cron: ${CRON_SCHEDULE} (${TIMEZONE})`);
 
-  // Keep-alive self ping if running on Render (prevents free tier sleep)
+  // Keep-alive self ping — pings every 5 minutes to prevent Render free tier sleep
+  // (Render sleeps after 15 minutes of inactivity; 5-min interval gives 3x safety margin)
   const externalUrl = process.env.RENDER_EXTERNAL_URL || "https://social-media-manager-2-mkyg.onrender.com";
   if (externalUrl) {
+    const PING_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
     setInterval(() => {
-      fetch(`${externalUrl}/health`).catch(() => {});
-    }, 12 * 60 * 1000); // pings every 12 minutes
+      fetch(`${externalUrl}/health`)
+        .then((r) => { if (!r.ok) console.warn(`[Keep-Alive] Ping returned status ${r.status}`); })
+        .catch((err) => console.warn(`[Keep-Alive] Ping failed: ${err.message}`));
+    }, PING_INTERVAL_MS);
+    console.log(`[Keep-Alive] Self-ping enabled every 5 minutes → ${externalUrl}/health`);
   }
 });
 
