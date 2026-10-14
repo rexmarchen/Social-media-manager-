@@ -27,6 +27,7 @@ import sys
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
+import time
 from typing import Any
 
 import requests
@@ -343,21 +344,48 @@ def generate_with_gemini(prompt: str) -> dict[str, Any]:
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise ValueError("GEMINI_API_KEY is missing.")
-    model = os.environ.get("GEMINI_TEXT_MODEL", "gemini-2.0-flash")
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-    response = requests.post(
-        url,
-        headers={"Content-Type": "application/json", "x-goog-api-key": api_key},
-        json={
-            "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"responseMimeType": "application/json", "maxOutputTokens": 2500},
-        },
-        timeout=60,
-    )
-    response.raise_for_status()
-    data = response.json()
-    raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
-    return extract_json(raw_text)
+    configured_model = os.environ.get("GEMINI_TEXT_MODEL", "gemini-flash-lite-latest")
+    candidate_models = [
+        configured_model,
+        "gemini-flash-lite-latest",
+        "gemini-3.5-flash",
+        "gemini-3.5-flash-lite",
+        "gemini-3.1-flash-lite",
+        "gemini-flash-latest",
+        "gemini-3.6-flash",
+        "gemini-3.8-flash",
+    ]
+    models_to_try = list(dict.fromkeys([m for m in candidate_models if m]))
+
+    last_err = None
+    for model in models_to_try:
+        for attempt in range(1, 4):
+            try:
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+                response = requests.post(
+                    url,
+                    headers={"Content-Type": "application/json", "x-goog-api-key": api_key},
+                    json={
+                        "contents": [{"parts": [{"text": prompt}]}],
+                        "generationConfig": {"responseMimeType": "application/json", "maxOutputTokens": 2500},
+                    },
+                    timeout=25,
+                )
+                if response.status_code in (429, 500, 502, 503, 504):
+                    if attempt < 3:
+                        time.sleep(attempt * 2)
+                        continue
+                    break  # Try next fallback model
+                response.raise_for_status()
+                data = response.json()
+                raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
+                return extract_json(raw_text)
+            except Exception as e:
+                last_err = e
+                if attempt < 3:
+                    time.sleep(attempt * 2)
+
+    raise RuntimeError(f"All Gemini models failed. Last error: {last_err}")
 
 
 def generate_with_openai(prompt: str) -> dict[str, Any]:
@@ -768,7 +796,7 @@ def run_once(args: argparse.Namespace) -> None:
 def run_schedule(args: argparse.Namespace) -> None:
     from apscheduler.schedulers.blocking import BlockingScheduler
 
-    hour, minute = map(int, os.environ.get("POST_TIME", "09:00").split(":"))
+    hour, minute = map(int, os.environ.get("POST_TIME", "19:30").split(":"))
     scheduler = BlockingScheduler()
 
     def job() -> None:

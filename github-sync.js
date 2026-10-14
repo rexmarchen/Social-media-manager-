@@ -141,12 +141,25 @@ async function syncGitHubActivity(username = GITHUB_USERNAME, force = false) {
       // README is optional
     }
 
-    // Fetch top-level file structure
+    // Fetch top-level file structure and package.json if present
     let fileStructure = [];
+    let dependenciesText = "";
     try {
       const contents = await fetchJSON(`https://api.github.com/repos/${repoKey}/contents`);
       if (Array.isArray(contents)) {
         fileStructure = contents.map((c) => c.name).slice(0, 15);
+        if (fileStructure.includes("package.json")) {
+          const pkgRaw = await fetchRaw(`https://api.github.com/repos/${repoKey}/contents/package.json`);
+          if (pkgRaw) {
+            try {
+              const pkgJson = JSON.parse(pkgRaw);
+              const deps = Object.keys(pkgJson.dependencies || {}).concat(Object.keys(pkgJson.devDependencies || {})).slice(0, 10);
+              if (deps.length) {
+                dependenciesText = `Core Dependencies/Stack: ${deps.join(", ")}`;
+              }
+            } catch {}
+          }
+        }
       }
     } catch (contentsErr) {}
 
@@ -162,6 +175,7 @@ async function syncGitHubActivity(username = GITHUB_USERNAME, force = false) {
       `GitHub Project: ${repo.name}`,
       repo.language ? `Primary Tech/Language: ${repo.language}` : "",
       repo.description ? `Project Overview: ${repo.description}` : "",
+      dependenciesText,
       topicsText,
       filesText,
       readmeText ? `Technical Documentation / README Overview:\n${readmeText}` : "",

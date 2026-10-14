@@ -219,12 +219,9 @@ cron.schedule(
   }
 );
 
-// ---------- Telegram Webhook ----------
+// ---------- Telegram Message Handler & Dispatcher ----------
 
-app.post("/telegram-webhook", async (req, res) => {
-  res.sendStatus(200); // acknowledge Telegram immediately
-
-  const message = req.body.message;
+async function handleTelegramMessage(message) {
   if (!message || !message.text) return;
 
   const senderId = String(message.from.id);
@@ -480,7 +477,80 @@ app.post("/telegram-webhook", async (req, res) => {
   }
 
   await sendTelegramMessage(chatId, "Unrecognized command. Send /help to see what I can do.");
+}
+
+// Telegram Webhook endpoint (for cloud deployments with valid public URLs)
+app.post("/telegram-webhook", async (req, res) => {
+  res.sendStatus(200); // acknowledge Telegram immediately
+  if (req.body && req.body.message) {
+    handleTelegramMessage(req.body.message).catch((err) => {
+      console.error("[Telegram Webhook Error]", err.message);
+    });
+  }
 });
+
+// ---------- Telegram Long Polling (Local execution & fallback) ----------
+let pollingActive = false;
+let pollingOffset = 0;
+
+async function startTelegramPolling() {
+  if (pollingActive) return;
+  if (!process.env.TELEGRAM_BOT_TOKEN) {
+    console.warn("[Telegram Bot] Cannot start polling: TELEGRAM_BOT_TOKEN is missing.");
+    return;
+  }
+
+  pollingActive = true;
+  console.log("[Telegram Bot] Initializing Long Polling mode (clearing stale webhooks)...");
+
+  try {
+    const delRes = await fetch(`${TELEGRAM_API}/deleteWebhook?drop_pending_updates=false`);
+    const delData = await delRes.json();
+    if (delData.ok) {
+      console.log("[Telegram Bot] Webhook successfully cleared. Long polling is now ACTIVE!");
+    } else {
+      console.warn("[Telegram Bot] deleteWebhook returned:", delData.description);
+    }
+  } catch (err) {
+    console.warn("[Telegram Bot] Failed to clear webhook:", err.message);
+  }
+
+  console.log("🤖 [Telegram Bot] Listening for messages directly (Local & Cloud compatible)...");
+
+  async function pollLoop() {
+    if (!pollingActive) return;
+    try {
+      const pollUrl = `${TELEGRAM_API}/getUpdates?offset=${pollingOffset}&timeout=25`;
+      const res = await fetch(pollUrl);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.ok && Array.isArray(data.result)) {
+          for (const update of data.result) {
+            pollingOffset = update.update_id + 1;
+            if (update.message) {
+              handleTelegramMessage(update.message).catch((err) =>
+                console.error("[Telegram Poll Handler Error]", err.message)
+              );
+            }
+          }
+        }
+      } else {
+        const errText = await res.text();
+        console.warn(`[Telegram Poll] HTTP ${res.status}: ${errText}`);
+        await new Promise((r) => setTimeout(r, 4000));
+      }
+    } catch (err) {
+      // Temporary network interruption or timeout
+      await new Promise((r) => setTimeout(r, 3000));
+    }
+
+    if (pollingActive) {
+      setImmediate(pollLoop);
+    }
+  }
+
+  pollLoop();
+}
 
 app.get("/", (req, res) => res.send("LinkedIn agent server is running."));
 app.get("/health", (req, res) =>
@@ -521,12 +591,26 @@ process.on("uncaughtException", (err) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Listening on port ${PORT}. Cron: ${CRON_SCHEDULE} (${TIMEZONE})`);
 
-  // Keep-alive self ping — pings every 5 minutes to prevent Render free tier sleep
-  // (Render sleeps after 15 minutes of inactivity; 5-min interval gives 3x safety margin)
-  const externalUrl = process.env.RENDER_EXTERNAL_URL || "https://social-media-manager-2-mkyg.onrender.com";
+  const customWebhook = process.env.WEBHOOK_URL;
+  const externalUrl = process.env.RENDER_EXTERNAL_URL;
+
+  if (customWebhook) {
+    const fullWebhookUrl = `${customWebhook.replace(/\/$/, "")}/telegram-webhook`;
+    console.log(`[Telegram] Setting webhook to ${fullWebhookUrl}...`);
+    try {
+      await fetch(`${TELEGRAM_API}/setWebhook?url=${encodeURIComponent(fullWebhookUrl)}`);
+    } catch (e) {
+      console.warn("[Telegram] Failed to set webhook:", e.message);
+    }
+  } else {
+    // Default to Long Polling for direct local & self-hosted reliability (no suspended Render webhooks)
+    startTelegramPolling();
+  }
+
+  // Keep-alive self ping — only if a live RENDER_EXTERNAL_URL is explicitly provided
   if (externalUrl) {
     const PING_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
     setInterval(() => {

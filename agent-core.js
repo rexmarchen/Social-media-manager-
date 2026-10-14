@@ -54,6 +54,16 @@ async function retrieveContext(topic, topK = 4) {
   return contextParts.join("\n");
 }
 
+function isValidImageBuffer(buffer) {
+  if (!buffer || !Buffer.isBuffer(buffer) || buffer.length < 4096) {
+    return false;
+  }
+  // Validate JPEG (0xFF, 0xD8, 0xFF) or PNG (0x89, 0x50, 0x4E, 0x47) signatures
+  const isJpeg = buffer[0] === 0xFF && buffer[1] === 0xD8 && buffer[2] === 0xFF;
+  const isPng = buffer[0] === 0x89 && buffer[1] === 0x50 && buffer[2] === 0x4E && buffer[3] === 0x47;
+  return isJpeg || isPng;
+}
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function generatePost(topic, context) {
@@ -81,92 +91,47 @@ HUMAN WRITING & VOICE GUIDELINES (STRICT):
 
 Decision: Decide if a simple supporting graphic or diagram meaningfully enhances this post. Only set needs_image to true if visual aid is truly valuable.
 
-Respond with ONLY valid JSON:
+Respond with ONLY valid JSON in this exact structure:
 {
-  "post_text": "<the complete humanized post text>",
-  "needs_image": true or false,
-  "image_prompt": "<short prompt for a clean, minimalist technical diagram/graphic, or empty string if false>"
+  "post_text": "<the complete humanized post text with line breaks and hashtags>",
+  "needs_image": false,
+  "image_prompt": ""
 }`;
 
-  // Prioritize reliable, ultra-responsive models to prevent 503 capacity errors
-  const configuredModel = process.env.GEMINI_TEXT_MODEL;
-  const candidateModels = Array.from(
-    new Set([
-      "gemini-3.5-flash-lite",
-      "gemini-3.5-flash",
-      "gemini-3.6-flash",
-      "gemini-3.7-flash",
-      configuredModel,
-    ].filter(Boolean))
-  );
+const { callGeminiResilient } = require("./gemini-resilience");
 
-  let lastError = null;
-  for (const model of candidateModels) {
-    const maxRetries = 2;
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": process.env.GEMINI_API_KEY,
-          },
-          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
-        });
+  const result = await callGeminiResilient({
+    prompt,
+    expectJson: true,
+    temperature: 0.7,
+    maxOutputTokens: 2048,
+    timeoutMs: 25000,
+  });
 
-        if (!response.ok) {
-          const errText = await response.text();
-          lastError = new Error(`Gemini generateContent error (${response.status}): ${errText}`);
-          // If temporary high demand (503) or rate limit (429), retry before moving to next model
-          if ((response.status === 503 || response.status === 429) && attempt < maxRetries) {
-            console.warn(`[Gemini Warning] Model ${model} returned ${response.status} (attempt ${attempt}/${maxRetries}), retrying in 1.5s...`);
-            await sleep(1500 * attempt);
-            continue;
-          }
-          console.warn(`[Gemini Info] Model ${model} returned ${response.status}, attempting next fallback model...`);
-          break; // proceed to next candidate model
-        }
-
-        const data = await response.json();
-        const textPart = data.candidates?.[0]?.content?.parts?.find((p) => p.text);
-        const rawText = textPart ? textPart.text : data.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (!rawText) throw new Error("No text returned by Gemini");
-
-        const jsonMatch = rawText.match(/\{[\s\S]*\}/);
-        if (jsonMatch) {
-          try {
-            return JSON.parse(jsonMatch[0]);
-          } catch {
-            // If JSON fails to parse, fall back to plain text below
-          }
-        }
-
-        return {
-          post_text: rawText.replace(/```json|```/g, "").trim(),
-          needs_image: false,
-          image_prompt: "",
-        };
-      } catch (err) {
-        lastError = err;
-        if (attempt < maxRetries) {
-          await sleep(1000 * attempt);
-          continue;
-        }
-        break;
-      }
-    }
+  const parsed = result.data;
+  if (parsed && typeof parsed.post_text === "string" && parsed.post_text.trim().length > 40) {
+    return {
+      post_text: parsed.post_text.trim(),
+      needs_image: Boolean(parsed.needs_image),
+      image_prompt: typeof parsed.image_prompt === "string" ? parsed.image_prompt.trim() : "",
+    };
   }
-  throw lastError || new Error("All candidate models failed.");
+
+  throw new Error("Invalid or truncated post_text received from model.");
 }
 
 async function generateImage(imagePrompt) {
+  if (!imagePrompt || !imagePrompt.trim()) {
+    throw new Error("Empty image prompt provided.");
+  }
+
+  const configuredImageModel = process.env.GEMINI_IMAGE_MODEL || "gemini-3.1-flash-image";
   const candidateImageModels = Array.from(
     new Set([
-      CONFIG.imageModel,
-      "imagen-3.0-generate-002",
+      configuredImageModel,
       "gemini-3.1-flash-image",
-      "gemini-2.5-flash-image",
+      "gemini-3-pro-image",
+      "imagen-3.0-generate-002",
     ].filter(Boolean))
   );
 
@@ -187,14 +152,23 @@ async function generateImage(imagePrompt) {
             contents: [{ parts: [{ text: imagePrompt }] }],
           };
 
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": process.env.GEMINI_API_KEY,
-        },
-        body: JSON.stringify(requestBody),
-      });
+      const controller = new AbortController();
+      const timeoutHandle = setTimeout(() => controller.abort(), 15000);
+
+      let response;
+      try {
+        response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": process.env.GEMINI_API_KEY,
+          },
+          body: JSON.stringify(requestBody),
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timeoutHandle);
+      }
 
       if (!response.ok) {
         lastErr = new Error(`Image generation error for ${model} (${response.status}): ${await response.text()}`);
@@ -202,17 +176,23 @@ async function generateImage(imagePrompt) {
       }
 
       const data = await response.json();
+      let buffer = null;
 
       // Check Imagen response format
       if (data.predictions?.[0]?.bytesBase64Encoded) {
-        return Buffer.from(data.predictions[0].bytesBase64Encoded, "base64");
+        buffer = Buffer.from(data.predictions[0].bytesBase64Encoded, "base64");
+      } else {
+        // Check Gemini generateContent response format
+        const imagePart = data.candidates?.[0]?.content?.parts?.find((p) => p.inlineData);
+        if (imagePart?.inlineData?.data) {
+          buffer = Buffer.from(imagePart.inlineData.data, "base64");
+        }
       }
 
-      // Check Gemini generateContent response format
-      const imagePart = data.candidates?.[0]?.content?.parts?.find((p) => p.inlineData);
-      if (imagePart?.inlineData?.data) {
-        return Buffer.from(imagePart.inlineData.data, "base64");
+      if (buffer && isValidImageBuffer(buffer)) {
+        return buffer;
       }
+      lastErr = new Error(`Image model ${model} did not return a valid image buffer.`);
     } catch (err) {
       lastErr = err;
     }
@@ -240,6 +220,10 @@ async function getAuthorUrn() {
 }
 
 async function uploadImageToLinkedIn(imageBuffer) {
+  if (!isValidImageBuffer(imageBuffer)) {
+    throw new Error("Cannot upload invalid or empty image buffer to LinkedIn.");
+  }
+
   const authorUrn = await getAuthorUrn();
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
@@ -263,7 +247,7 @@ async function uploadImageToLinkedIn(imageBuffer) {
 
   const uploadResponse = await fetch(uploadUrl, {
     method: "PUT",
-    headers: { Authorization: `Bearer ${accessToken}` },
+    headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "image/jpeg" },
     body: imageBuffer,
   });
   if (!uploadResponse.ok) throw new Error(`LinkedIn image upload error (${uploadResponse.status})`);

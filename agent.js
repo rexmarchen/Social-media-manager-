@@ -19,12 +19,13 @@ try {
 
 const fs = require("fs");
 const path = require("path");
+const { callGeminiResilient, callGeminiEmbeddingResilient } = require("./gemini-resilience");
 
-// ---- CONFIG: verify these model IDs in Google AI Studio before running ----
+// ---- CONFIG: verified active models ----
 const CONFIG = {
-  textModel: process.env.GEMINI_TEXT_MODEL || "gemini-3.6-flash",
+  textModel: process.env.GEMINI_TEXT_MODEL || "gemini-3-flash-preview",
   embeddingModel: process.env.GEMINI_EMBEDDING_MODEL || "gemini-embedding-001",
-  imageModel: process.env.GEMINI_IMAGE_MODEL || "gemini-3.1-flash-image",
+  imageModel: process.env.GEMINI_IMAGE_MODEL || "imagen-3.0-generate-002",
 };
 // ----------------------------------------------------------------------------
 
@@ -55,24 +56,7 @@ function getNextTopic() {
 
 // ---------- Embeddings + retrieval (the "RAG" part) ----------
 async function embedText(text) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.embeddingModel}:embedContent`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": process.env.GEMINI_API_KEY,
-    },
-    body: JSON.stringify({
-      content: { parts: [{ text }] },
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Embedding error (${response.status}): ${await response.text()}`);
-  }
-
-  const data = await response.json();
-  return data.embedding.values; // array of floats
+  return await callGeminiEmbeddingResilient(text, CONFIG.embeddingModel);
 }
 
 function cosineSimilarity(a, b) {
@@ -134,133 +118,132 @@ Respond with ONLY valid JSON in this exact shape, nothing else:
   "image_prompt": "<a concise text-to-image prompt describing the image, or empty string if needs_image is false>"
 }`;
 
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-  const configuredModel = process.env.GEMINI_TEXT_MODEL;
-  const preferredPrimary = configuredModel && configuredModel !== "gemini-3.8-flash"
-    ? configuredModel
-    : "gemini-3.6-flash";
+function isValidImageBuffer(buffer) {
+  if (!buffer || !Buffer.isBuffer(buffer) || buffer.length < 4096) {
+    return false;
+  }
+  const isJpeg = buffer[0] === 0xFF && buffer[1] === 0xD8 && buffer[2] === 0xFF;
+  const isPng = buffer[0] === 0x89 && buffer[1] === 0x50 && buffer[2] === 0x4E && buffer[3] === 0x47;
+  return isJpeg || isPng;
+}
 
-  const candidateModels = Array.from(new Set([
-    preferredPrimary,
-    "gemini-3.6-flash",
-    "gemini-3.5-flash",
-    "gemini-3.1-flash-lite",
-    "gemini-3.5-flash-lite",
-    "gemini-3.8-flash",
-  ]));
+  const result = await callGeminiResilient({
+    prompt,
+    expectJson: true,
+    temperature: 0.7,
+    maxOutputTokens: 2048,
+    timeoutMs: 25000,
+  });
 
-  let lastError = null;
-  for (const model of candidateModels) {
-    const maxRetries = 2;
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-      try {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": process.env.GEMINI_API_KEY,
-          },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: {
-              responseMimeType: "application/json",
-              maxOutputTokens: 2048,
-            },
-          }),
-        });
-
-        if (!response.ok) {
-          const errText = await response.text();
-          lastError = new Error(`Gemini generateContent error (${response.status}): ${errText}`);
-          if ((response.status === 503 || response.status === 429) && attempt < maxRetries) {
-            console.warn(`[Gemini Warning] Model ${model} returned ${response.status}, retrying in 1.5s...`);
-            await sleep(1500 * attempt);
-            continue;
-          }
-          console.warn(`[Gemini Info] Model ${model} returned ${response.status}, attempting fallback...`);
-          break;
-        }
-
-        const data = await response.json();
-        const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (!rawText) throw new Error("Empty or invalid response received from Gemini.");
-
-        const cleaned = rawText.replace(/```json/gi, "").replace(/```/g, "").trim();
-        const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
-        if (jsonMatch) {
-          try {
-            return JSON.parse(jsonMatch[0]);
-          } catch {}
-        }
-        return {
-          post_text: cleaned,
-          needs_image: false,
-          image_prompt: "",
-        };
-      } catch (err) {
-        lastError = err;
-        if (attempt < maxRetries) {
-          await sleep(1000 * attempt);
-          continue;
-        }
-        break;
-      }
-    }
+  const parsed = result.data;
+  if (parsed && typeof parsed.post_text === "string" && parsed.post_text.trim().length > 40) {
+    return {
+      post_text: parsed.post_text.trim(),
+      needs_image: Boolean(parsed.needs_image),
+      image_prompt: typeof parsed.image_prompt === "string" ? parsed.image_prompt.trim() : "",
+    };
   }
 
-  throw lastError || new Error("All candidate models failed.");
+  throw new Error("Invalid or incomplete post_text in JSON response");
 }
 
 // ---------- Image generation ----------
 async function generateImage(imagePrompt) {
-  // Support both Imagen (predict) and Multimodal generateContent endpoints depending on model naming
-  const isImagen = CONFIG.imageModel.startsWith("imagen");
-  const endpoint = isImagen
-    ? `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.imageModel}:predict`
-    : `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.imageModel}:generateContent`;
+  if (!imagePrompt || !imagePrompt.trim()) {
+    throw new Error("Empty image prompt provided.");
+  }
 
-  const requestBody = isImagen
-    ? {
-        instances: [{ prompt: imagePrompt }],
-        parameters: { sampleCount: 1, aspectRatio: "1:1", outputOptions: { mimeType: "image/jpeg" } },
+  const configuredImageModel = process.env.GEMINI_IMAGE_MODEL || "imagen-3.0-generate-002";
+  const candidateImageModels = Array.from(
+    new Set([
+      configuredImageModel,
+      "imagen-3.0-generate-002",
+      "gemini-3.1-flash-image",
+    ].filter(Boolean))
+  );
+
+  let lastErr = null;
+  for (const model of candidateImageModels) {
+    try {
+      const isImagen = model.startsWith("imagen");
+      const endpoint = isImagen
+        ? `https://generativelanguage.googleapis.com/v1beta/models/${model}:predict`
+        : `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+
+      const requestBody = isImagen
+        ? {
+            instances: [{ prompt: imagePrompt }],
+            parameters: { sampleCount: 1, aspectRatio: "1:1", outputOptions: { mimeType: "image/jpeg" } },
+          }
+        : {
+            contents: [{ parts: [{ text: imagePrompt }] }],
+          };
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": process.env.GEMINI_API_KEY,
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (!response.ok) {
+        lastErr = new Error(`Gemini image generation error (${response.status}): ${await response.text()}`);
+        continue;
       }
-    : {
-        contents: [{ parts: [{ text: imagePrompt }] }],
-      };
 
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": process.env.GEMINI_API_KEY,
-    },
-    body: JSON.stringify(requestBody),
+      const data = await response.json();
+      let buffer = null;
+
+      // Check Imagen response format
+      if (data.predictions?.[0]?.bytesBase64Encoded) {
+        buffer = Buffer.from(data.predictions[0].bytesBase64Encoded, "base64");
+      } else {
+        const imagePart = data.candidates?.[0]?.content?.parts?.find((p) => p.inlineData);
+        if (imagePart?.inlineData?.data) {
+          buffer = Buffer.from(imagePart.inlineData.data, "base64");
+        }
+      }
+
+      if (buffer && isValidImageBuffer(buffer)) {
+        return buffer;
+      }
+      lastErr = new Error(`Image model ${model} did not return a valid image buffer.`);
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+
+  throw lastErr || new Error("All candidate image models failed.");
+}
+
+async function getAuthorUrn() {
+  let urn = (process.env.LINKEDIN_PERSON_URN || "").trim();
+  if (urn) {
+    return urn.startsWith("urn:li:person:") ? urn : `urn:li:person:${urn}`;
+  }
+  // Auto-resolve URN from LinkedIn access token if not configured in environment
+  const response = await fetch("https://api.linkedin.com/v2/userinfo", {
+    headers: { Authorization: `Bearer ${process.env.LINKEDIN_ACCESS_TOKEN}` },
   });
-
   if (!response.ok) {
-    throw new Error(`Gemini image generation error (${response.status}): ${await response.text()}`);
+    throw new Error(`LinkedIn userinfo error (${response.status}): ${await response.text()}`);
   }
-
   const data = await response.json();
-
-  // Check Imagen response format
-  if (data.predictions?.[0]?.bytesBase64Encoded) {
-    return Buffer.from(data.predictions[0].bytesBase64Encoded, "base64");
+  if (!data.sub) {
+    throw new Error("Unable to retrieve LinkedIn person ID (sub) from userinfo.");
   }
-
-  // Check Gemini generateContent response format
-  const imagePart = data.candidates?.[0]?.content?.parts?.find((p) => p.inlineData);
-  if (imagePart?.inlineData?.data) {
-    return Buffer.from(imagePart.inlineData.data, "base64");
-  }
-
-  throw new Error("No image bytes returned in Gemini response: " + JSON.stringify(data));
+  return `urn:li:person:${data.sub}`;
 }
 
 // ---------- LinkedIn: image upload ----------
 async function uploadImageToLinkedIn(imageBuffer) {
-  const authorUrn = process.env.LINKEDIN_PERSON_URN;
+  if (!isValidImageBuffer(imageBuffer)) {
+    throw new Error("Cannot upload invalid or empty image buffer to LinkedIn.");
+  }
+
+  const authorUrn = await getAuthorUrn();
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
   // Step 1: register the upload
@@ -304,7 +287,7 @@ async function uploadImageToLinkedIn(imageBuffer) {
 
 // ---------- LinkedIn: publish post ----------
 async function publishPost(text, imageUrn) {
-  const authorUrn = process.env.LINKEDIN_PERSON_URN;
+  const authorUrn = await getAuthorUrn();
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
   const body = {
@@ -346,7 +329,7 @@ async function publishPost(text, imageUrn) {
 
 // ---------- Orchestration ----------
 async function main() {
-  for (const key of ["GEMINI_API_KEY", "LINKEDIN_ACCESS_TOKEN", "LINKEDIN_PERSON_URN"]) {
+  for (const key of ["GEMINI_API_KEY", "LINKEDIN_ACCESS_TOKEN"]) {
     if (!process.env[key]) throw new Error(`Missing required environment variable: ${key}`);
   }
 

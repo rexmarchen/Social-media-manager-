@@ -8,6 +8,7 @@
 
 const path = require("path");
 const { LocalIndex } = require("vectra");
+const { callGeminiEmbeddingResilient } = require("./gemini-resilience");
 
 const INDEX_PATH = path.join(__dirname, "vector-index");
 const EMBEDDING_MODEL = "gemini-embedding-001"; // verify current name in Google AI Studio
@@ -25,20 +26,7 @@ async function getIndex() {
 }
 
 async function embedText(text) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${EMBEDDING_MODEL}:embedContent`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": process.env.GEMINI_API_KEY,
-    },
-    body: JSON.stringify({ content: { parts: [{ text }] } }),
-  });
-  if (!response.ok) {
-    throw new Error(`Embedding error (${response.status}): ${await response.text()}`);
-  }
-  const data = await response.json();
-  return data.embedding.values;
+  return await callGeminiEmbeddingResilient(text, EMBEDDING_MODEL);
 }
 
 /**

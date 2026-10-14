@@ -159,3 +159,43 @@ You can switch Gemini models by setting environment variables in `.env` or in `a
 - `GEMINI_TEXT_MODEL` (default: `gemini-2.0-flash`)
 - `GEMINI_EMBEDDING_MODEL` (default: `text-embedding-004`)
 - `GEMINI_IMAGE_MODEL` (default: `imagen-3.0-generate-002`)
+
+---
+
+## 💼 Tech Job & Internship Email Watchdog (< 12 Hours)
+
+The repository includes a production-grade watchdog that continuously monitors and delivers fresh tech positions and internships to your inbox.
+
+### Key Highlights
+- **Strictly < 12 Hours**: Enforces `f_TPR=r43200` + timestamp validation (`X minutes ago`, `X hours ago` where `X < 12`).
+- **Strictly Tech**: Filters for Software Engineering, Full Stack, Frontend, Backend, AI/ML, Cloud/DevOps, and Tech Internships.
+- **Zero Duplicate Spam**: De-duplication engine (`jobs-seen.json`) guarantees each position is emailed to you only once.
+- **Responsive HTML Email Cards**: Delivers mobile-ready email summaries with badges, company details, posting age, and direct apply links.
+
+### Quick Commands
+```bash
+# 1. Preview fresh jobs in your terminal without sending emails
+npm run jobs:dry
+
+# 2. Test your SMTP email credentials and send a test card
+npm run jobs:test-email
+
+# 3. Live check: scrape, email fresh jobs, and update seen state
+npm run jobs
+```
+
+### Environment Configuration (`.env`)
+```env
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_gmail_app_password
+ALERT_EMAIL_TO=recipient@gmail.com
+
+# Target search locations (comma-separated)
+JOB_SEARCH_LOCATIONS="India,Remote"
+
+# Background cron schedule in server.js (default: every 3 hours)
+JOB_ALERT_CRON_SCHEDULE="0 */3 * * *"
+```

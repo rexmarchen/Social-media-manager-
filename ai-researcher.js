@@ -14,72 +14,26 @@ const { getDb, loadState, saveState, findRelevantMemories } = require("./mongo-s
 const { retrieveRelevantChunks } = require("./vector-store");
 require("dotenv").config();
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const { callGeminiResilient } = require("./gemini-resilience");
 
 async function callGeminiText(prompt) {
-  const configuredModel = process.env.GEMINI_TEXT_MODEL;
-  const candidateModels = Array.from(
-    new Set([
-      "gemini-3.5-flash-lite",
-      "gemini-3.5-flash",
-      "gemini-3.6-flash",
-      "gemini-3.7-flash",
-      configuredModel,
-    ].filter(Boolean))
-  );
+  const result = await callGeminiResilient({
+    prompt,
+    expectJson: true,
+    temperature: 0.7,
+    timeoutMs: 25000,
+  });
 
-  let lastError = null;
-  for (const model of candidateModels) {
-    for (let attempt = 1; attempt <= 2; attempt++) {
-      try {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": process.env.GEMINI_API_KEY,
-          },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-          }),
-        });
-
-        if (!response.ok) {
-          const errText = await response.text();
-          lastError = new Error(`Gemini generateContent error (${response.status}): ${errText}`);
-          if ((response.status === 503 || response.status === 429) && attempt < 2) {
-            console.warn(`[AI Researcher] Model ${model} is busy (${response.status}), retrying in 1s...`);
-            await sleep(1000);
-            continue;
-          }
-          console.warn(`[AI Researcher] Model ${model} returned ${response.status}, switching to next candidate...`);
-          break;
-        }
-
-        const data = await response.json();
-        const textPart = data.candidates?.[0]?.content?.parts?.find((p) => p.text);
-        const rawText = textPart ? textPart.text : data.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (!rawText) throw new Error("Empty response from Gemini");
-
-        const jsonMatch = rawText.match(/\{[\s\S]*\}/);
-        if (jsonMatch) {
-          try {
-            return JSON.parse(jsonMatch[0]);
-          } catch {}
-        }
-
-        return {
-          topic_title: "Key lessons building this project",
-          technical_angle: rawText.slice(0, 150),
-          search_query: "project",
-        };
-      } catch (err) {
-        lastError = err;
-        await sleep(1000);
-      }
-    }
+  const parsed = result.data;
+  if (parsed && parsed.topic_title && parsed.technical_angle) {
+    return {
+      topic_title: String(parsed.topic_title).trim(),
+      technical_angle: String(parsed.technical_angle).trim(),
+      search_query: String(parsed.search_query || parsed.topic_title).trim(),
+    };
   }
-  throw lastError || new Error("All Gemini models failed in ai-researcher.");
+
+  throw new Error("Invalid schema received in ideation response.");
 }
 
 /**

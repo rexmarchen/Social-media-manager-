@@ -139,8 +139,21 @@ AUTHOR GITHUB ACTIVITY:
 }
 
 /**
+ * Check if current time is within allowed posting window (7 PM - 8 PM IST by default)
+ */
+function isWithinPostingWindow() {
+  const tz = process.env.TIMEZONE || "Asia/Kolkata";
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString("en-US", { timeZone: tz, hour12: false, hour: "2-digit" });
+  const hour = parseInt(timeStr, 10);
+  const startHour = parseInt(process.env.POST_WINDOW_START || "19", 10); // 7 PM
+  const endHour = parseInt(process.env.POST_WINDOW_END || "20", 10);     // 8 PM
+  return hour >= startHour && hour <= endHour;
+}
+
+/**
  * Check if there is a new push on GitHub that hasn't been posted yet.
- * If new, posts it automatically!
+ * If new and within the allowed 7-8 PM window, posts it automatically!
  */
 async function checkAndAutoPostGitHub(username = GITHUB_USERNAME, minCooldownHours = 12) {
   const activity = await getLatestGitHubActivity(username);
@@ -156,7 +169,15 @@ async function checkAndAutoPostGitHub(username = GITHUB_USERNAME, minCooldownHou
     return { status: "already_posted", commitSha: activity.commitSha, repo: activity.repoName };
   }
 
-  // 2. Minimum cooldown between automatic posts (prevents spamming if many commits are pushed)
+  // 2. Restrict automated posting to the 7 PM - 8 PM window
+  if (!isWithinPostingWindow()) {
+    return {
+      status: "outside_posting_window",
+      message: "Automated posting is restricted to the 7:00 PM - 8:00 PM window.",
+    };
+  }
+
+  // 3. Minimum cooldown between automatic posts (prevents spamming if many commits are pushed)
   if (state.lastPostedAt) {
     const elapsedHours = (Date.now() - new Date(state.lastPostedAt).getTime()) / (1000 * 60 * 60);
     if (elapsedHours < minCooldownHours) {

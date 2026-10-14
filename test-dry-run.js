@@ -25,29 +25,7 @@ async function dryRun() {
   console.log("==========================================\n");
 
   if (!process.env.GEMINI_API_KEY) {
-    console.warn("⚠️  GEMINI_API_KEY is not set in environment or .env file.");
-    console.log("Simulating output with mock retrieval...\n");
-
-    const topic = "A recent project that didn't go as planned and what I learned";
-    console.log(`[Dry Run] Simulated Topic: "${topic}"`);
-    console.log("[Dry Run] Simulated Context:");
-    console.log("- Placed in top 10 at a regional hackathon building a real-time collaboration tool.");
-    console.log("- Shipped a caching layer that cut API latency by 40% for a course project.");
-    console.log("\n[Dry Run] Simulated Post Output:");
-    console.log(
-      JSON.stringify(
-        {
-          post_text:
-            "Last month, we tried to over-engineer a Redis caching layer before even benchmarking where our bottleneck was. Result? 40% latency drop on paper, but 3 days wasted fixing invalidation bugs.\n\nPremature optimization really is the root of all evil in course projects.\n\nCS folks: what is the most unnecessary optimization you spent hours building?",
-          needs_image: false,
-          image_prompt: "",
-        },
-        null,
-        2
-      )
-    );
-    console.log("\n💡 Add your GEMINI_API_KEY to .env to run real generation!");
-    return;
+    throw new Error("GEMINI_API_KEY is not set in environment or .env file.");
   }
 
   const topic = getNextTopic();

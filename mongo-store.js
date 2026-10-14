@@ -7,20 +7,18 @@
  */
 
 const { MongoClient } = require("mongodb");
+const { callGeminiEmbeddingResilient } = require("./gemini-resilience");
 require("dotenv").config();
 
 const EMBEDDING_MODEL = process.env.GEMINI_EMBEDDING_MODEL || "gemini-embedding-001";
 let client = null;
 let dbInstance = null;
 
-const DEFAULT_MONGODB_URI =
-  "mongodb+srv://anshu90ar:Anshu90%23%40@cluster0.abyixcg.mongodb.net/linkedin_agent?retryWrites=true&w=majority&appName=Cluster0";
-
 async function getDb() {
   if (dbInstance) return dbInstance;
-  const uri = process.env.MONGODB_URI || DEFAULT_MONGODB_URI;
+  const uri = process.env.MONGODB_URI;
   if (!uri) {
-    throw new Error("Missing MONGODB_URI environment variable.");
+    throw new Error("Missing MONGODB_URI in environment variables.");
   }
   client = new MongoClient(uri, {
     maxPoolSize: 10,
@@ -32,21 +30,7 @@ async function getDb() {
 }
 
 async function embedText(text) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${EMBEDDING_MODEL}:embedContent`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": process.env.GEMINI_API_KEY,
-    },
-    body: JSON.stringify({ content: { parts: [{ text }] } }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Embedding error (${response.status}): ${await response.text()}`);
-  }
-  const data = await response.json();
-  return data.embedding.values;
+  return await callGeminiEmbeddingResilient(text, EMBEDDING_MODEL);
 }
 
 function cosineSimilarity(vecA, vecB) {

@@ -52,7 +52,7 @@ LINKEDIN_VERSION = os.environ.get("LINKEDIN_VERSION", "202603")
 API_BASE = "https://api.linkedin.com"
 
 POST_TOPIC = os.environ.get("POST_TOPIC", "Latest breakthroughs in Applied AI & Distributed Systems")
-POST_TIME = os.environ.get("POST_TIME", "09:00")
+POST_TIME = os.environ.get("POST_TIME", "19:30")
 LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "").lower()
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
@@ -180,34 +180,47 @@ Return ONLY the final LinkedIn post text, nothing else (no preambles, notes, or 
 
 def generate_post_with_gemini(prompt: str) -> str:
     candidate_models = [
-        os.environ.get("GEMINI_TEXT_MODEL", "gemini-3.6-flash"),
-        "gemini-3.6-flash",
+        os.environ.get("GEMINI_TEXT_MODEL", "gemini-flash-lite-latest"),
+        "gemini-flash-lite-latest",
         "gemini-3.5-flash",
-        "gemini-3.1-flash-lite",
         "gemini-3.5-flash-lite",
+        "gemini-3.1-flash-lite",
+        "gemini-flash-latest",
+        "gemini-3.6-flash",
         "gemini-3.8-flash",
     ]
 
     # Remove duplicates while preserving order
     seen = set()
-    models = [m for m in candidate_models if not (m in seen or seen.add(m))]
+    models = [m for m in candidate_models if m and not (m in seen or seen.add(m))]
 
     last_error = None
     payload = {"contents": [{"parts": [{"text": prompt}]}]}
 
     for model_name in models:
-        try:
-            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={GEMINI_API_KEY}"
-            resp = requests.post(url, json=payload, timeout=45)
-            if resp.status_code == 200:
-                data = resp.json()
-                return data["candidates"][0]["content"]["parts"][0]["text"].strip()
-            else:
-                log.warning("Gemini model %s returned status %d. Trying next candidate...", model_name, resp.status_code)
-                last_error = f"Status {resp.status_code}: {resp.text}"
-        except Exception as e:
-            log.warning("Gemini model %s failed (%s). Trying next candidate...", model_name, e)
-            last_error = str(e)
+        for attempt in range(1, 3):
+            try:
+                url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={GEMINI_API_KEY}"
+                resp = requests.post(url, json=payload, timeout=25)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+                elif resp.status_code in (429, 500, 502, 503, 504):
+                    log.warning("Gemini model %s returned status %d (attempt %d/2).", model_name, resp.status_code, attempt)
+                    last_error = f"Status {resp.status_code}: {resp.text}"
+                    if attempt < 2:
+                        import time
+                        time.sleep(attempt * 2)
+                        continue
+                    break
+                else:
+                    log.warning("Gemini model %s returned status %d. Trying next candidate...", model_name, resp.status_code)
+                    last_error = f"Status {resp.status_code}: {resp.text}"
+                    break
+            except Exception as e:
+                log.warning("Gemini model %s failed (%s). Trying next candidate...", model_name, e)
+                last_error = str(e)
+                break
 
     raise RuntimeError(f"All Gemini models failed. Last error: {last_error}")
 
