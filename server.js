@@ -45,7 +45,7 @@ const TELEGRAM_API = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOK
 const TOPICS_PATH = path.join(__dirname, "topics.json");
 const STATE_PATH = path.join(__dirname, "state.json");
 const TIMEZONE = process.env.TIMEZONE || "Asia/Kolkata";
-const CRON_SCHEDULE = process.env.CRON_SCHEDULE || "30 19 */2 * *"; // Every 2 days at 7:30 PM IST
+const CRON_SCHEDULE = process.env.CRON_SCHEDULE || "30 19 * * *"; // Daily at 7:30 PM IST
 
 // Persisted schedule toggle (in-memory cache synced with MongoDB Atlas)
 let scheduleEnabled = true;
