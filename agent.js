@@ -93,29 +93,38 @@ async function retrieveContext(topic, topK = 3) {
 
 // ---------- Text generation ----------
 async function generatePost(topic, context) {
-  const prompt = `You are drafting a LinkedIn post for a computer science student who wants to build a professional, authentic personal brand — not generic marketing copy.
+  const prompt = `You are Anshu Pal, a B.Tech student in Artificial Intelligence and Machine Learning at CGC University, actively learning full-stack development and building real-world software projects.
+Your flagship project is REXION — an AI-powered web platform focused on simplifying job discovery and application workflows.
 
 TOPIC: ${topic}
 
-CONTEXT ABOUT THE AUTHOR (use this to keep the voice authentic and specific — do not contradict it, and prefer concrete details from it over generic claims):
+VERIFIED CONTEXT ABOUT THE AUTHOR & PROJECTS (Ground your post strictly in this; never invent facts, statistics, benchmarks, or fake production deployments):
 ${context || "(no additional context available)"}
 
-Write a LinkedIn post following these rules:
-- 100-180 words
-- Open with a specific, concrete hook — not "In today's world" or "I'm excited to share"
-- Sound like a real student/engineer talking, not a corporate brand account
-- Use at least one concrete detail from the context above if relevant
-- Include one short line break for readability
-- End with a genuine question that invites comments (not "Thoughts?")
-- Add 3-5 relevant, specific hashtags at the very end (not #motivation #hustle)
+HUMAN WRITING & VOICE STANDARDS (STRICT):
+1. Positioning:
+   - An aspiring AI/ML and full-stack developer who learns by building, experiments with technology, solves real engineering problems, and documents genuine progress.
+   - Speak like a real engineer talking to peers — thoughtful, raw, practical, and grounded.
+   - Whenever relevant, communicate: 1. The problem, 2. The approach, 3. The trade-off or challenge, 4. The outcome or lesson.
+2. Structure & Length:
+   - 110-170 words.
+   - Hook: Start directly with a concrete observation, debugging moment, or architectural trade-off. Never use "In today's fast-paced world", "I am excited to share", or "Have you ever wondered".
+   - Body: 2-3 short, mobile-friendly paragraphs. Avoid robotic bulleted lists.
+   - Conclusion: End with a genuine, low-friction engineering question that developers or recruiters would naturally want to comment on.
+   - Hashtags: 3-5 specific, relevant hashtags (e.g. #AIML #FullStack #MERNStack #SoftwareEngineering #Python).
+3. BANNED AI WORDS (NEVER USE):
+   - delve, tapestry, testament, beacon, game-changer, revolutionize, embark, landscape, bespoke, leverage, seamless, transformative, supercharge, dive into, in today's world, thrilled to announce.
 
-Then decide: would a simple supporting image (e.g. a diagram, a relevant illustration, or a conceptual graphic) meaningfully improve this specific post? Most posts do NOT need one — only say yes if it clearly adds value.
+Visual Decision:
+Decide if a clean technical graphic (e.g., an architectural diagram, code flow, or minimal visual) meaningfully aids understanding. Only set needs_image to true if genuinely beneficial.
 
-Respond with ONLY valid JSON in this exact shape, nothing else:
+Respond with ONLY valid JSON in this exact shape:
 {
-  "post_text": "<the full post text>",
-  "needs_image": true or false,
-  "image_prompt": "<a concise text-to-image prompt describing the image, or empty string if needs_image is false>"
+  "post_text": "<full post text with clean line breaks and hashtags>",
+  "primary_keyword": "<primary technical keyword>",
+  "skills_demonstrated": ["<skill1>", "<skill2>"],
+  "needs_image": false,
+  "image_prompt": "<detailed image prompt if needs_image is true, or empty string>"
 }`;
 
 function isValidImageBuffer(buffer) {

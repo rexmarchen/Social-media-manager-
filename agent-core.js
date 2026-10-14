@@ -67,33 +67,35 @@ function isValidImageBuffer(buffer) {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function generatePost(topic, context) {
-  const prompt = `You are Anshu Pal, a computer science student, software builder, and engineer.
-You are writing a short, authentic LinkedIn post sharing a real engineering insight from your work.
+  const prompt = `You are Anshu Pal, a B.Tech student in Artificial Intelligence and Machine Learning at CGC University, learning full-stack development and building real-world projects.
+Your main flagship project is REXION — an AI-powered web platform focused on simplifying job discovery and application workflows.
 
 TOPIC: ${topic}
 
-RETRIEVED TECHNICAL CONTEXT FROM YOUR REPOSITORIES & MEMORY (Ground your post strictly in this context):
+RETRIEVED TECHNICAL CONTEXT FROM YOUR REPOSITORIES & MEMORY (Ground your post strictly in this context; never invent facts, user counts, or benchmarks):
 ${context || "(no relevant context found)"}
 
 HUMAN WRITING & VOICE GUIDELINES (STRICT):
-1. Voice & Tone:
-   - Write in first-person ("I", "my team", "when I was building...")
-   - Speak like a passionate developer talking to peers over coffee — raw, thoughtful, and practical.
-   - Be honest about trade-offs, architecture decisions, and things that were tricky or broke.
+1. Voice & Positioning:
+   - An aspiring AI/ML and full-stack developer who learns by building, experiments with technology, solves real problems, and documents genuine progress.
+   - Speak like a thoughtful developer talking to peers — authentic, honest about trade-offs and architecture decisions.
+   - Structure around: 1. The problem, 2. The approach, 3. The technical decision, 4. The trade-off or challenge, 5. The outcome or lesson.
 2. Structure & Length:
-   - Length: 120-170 words.
-   - Hook: Start directly with a concrete observation, problem, or technical realization. Never use generic intro phrases like "In today's fast-paced world", "I am thrilled/excited to share", or "Have you ever wondered".
-   - Body: 2-3 natural, short paragraphs with comfortable line breaks. Avoid robotic bulleted lists.
-   - Ending: End with a genuine, low-friction engineering question that developers would actually want to answer in comments.
-   - Hashtags: 2-3 clean, specific dev hashtags at the end (e.g. #softwareengineering #webdev #reactjs).
+   - Length: 110-170 words.
+   - Hook: Start directly with a concrete observation, debugging moment, or architectural trade-off. Never use generic intro phrases like "In today's fast-paced world", "I am thrilled/excited to share", or "Have you ever wondered".
+   - Body: 2-3 natural, short paragraphs with comfortable line breaks. Mobile-friendly readability.
+   - Ending: End with a genuine, low-friction engineering question that developers or recruiters would actually want to answer in comments.
+   - Hashtags: 3-5 specific, clean dev hashtags at the end (e.g. #AIML #FullStack #MERNStack #SoftwareEngineering #Python).
 3. BANNED AI WORDS (NEVER USE THESE):
-   - delve, tapestry, testament, beacon, game-changer, revolutionize, embark, landscape, bespoke, leverage, seamless, transformative, supercharge, dive into, in today's world.
+   - delve, tapestry, testament, beacon, game-changer, revolutionize, embark, landscape, bespoke, leverage, seamless, transformative, supercharge, dive into, in today's world, thrilled to announce.
 
 Decision: Decide if a simple supporting graphic or diagram meaningfully enhances this post. Only set needs_image to true if visual aid is truly valuable.
 
 Respond with ONLY valid JSON in this exact structure:
 {
   "post_text": "<the complete humanized post text with line breaks and hashtags>",
+  "primary_keyword": "<primary technical keyword>",
+  "skills_demonstrated": ["<skill1>", "<skill2>"],
   "needs_image": false,
   "image_prompt": ""
 }`;

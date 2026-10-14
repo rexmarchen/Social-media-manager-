@@ -1,7 +1,9 @@
 [
-  "A recent project that didn't go as planned and what I learned",
-  "A tool or workflow that saved me real time this month",
-  "An unpopular opinion about how CS is taught",
-  "A mistake I made early on and what it taught me",
-  "A concept I finally understood after struggling with it for weeks"
+  "REXION Architecture: How I designed the job matching pipeline to filter noise for candidates",
+  "MongoDB compound indexes vs single-field indexes in high-throughput query pipelines",
+  "Why data preprocessing in Scikit-learn mattered 10x more than model selection in my recent AI experiment",
+  "Debugging race conditions in Node.js asynchronous API calls: What actually went wrong",
+  "DSA in production: How understanding hash maps and two-pointer techniques helped optimize an in-memory filter",
+  "JWT authentication vs secure HTTP-only cookies in full-stack MERN apps: Trade-offs I learned while building REXION",
+  "Learning AI/ML as a B.Tech student: Why understanding underlying math in NumPy beats blindly copying Hugging Face scripts"
 ]

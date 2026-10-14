@@ -1,18 +1,26 @@
 [
   {
-    "id": "bio",
-    "text": "I'm a CSE student focused on backend systems and applied AI. I've built projects in distributed systems and machine learning pipelines."
+    "id": "profile",
+    "text": "Anshu Pal is a B.Tech student in Artificial Intelligence and Machine Learning at CGC University, learning full-stack development and building real-world projects."
   },
   {
-    "id": "past-post-1",
-    "text": "Shipped a caching layer that cut API latency by 40% for a course project. Learned that premature optimization is real, but so is under-optimization."
+    "id": "technical-stack",
+    "text": "Technical expertise and interests: AI, machine learning, Python, NumPy, Pandas, Scikit-learn, SQL, Data Structures and Algorithms (DSA), MERN stack (MongoDB, Express, React, Node.js), backend engineering, REST APIs, database indexing, caching, and scalable web applications."
   },
   {
-    "id": "opinion-1",
-    "text": "I believe most CS students over-index on frameworks and under-index on reading other people's code."
+    "id": "flagship-project-rexion",
+    "text": "Main project: REXION, an AI-powered web platform focused on simplifying job discovery and application workflows. Architected with MERN stack and AI/ML algorithms to streamline filtering, applicant-job matching, and workflow automation."
   },
   {
-    "id": "achievement-1",
-    "text": "Placed in the top 10 at a regional hackathon building a real-time collaboration tool."
+    "id": "philosophy",
+    "text": "Personal brand positioning: An aspiring AI/ML and full-stack developer who learns by building, experiments with technology, solves real engineering problems, and documents genuine progress in public without exaggeration."
+  },
+  {
+    "id": "database-indexing-insight",
+    "text": "Learned the critical value of compound database indexes in MongoDB and query profiling when querying high-velocity job postings in REXION, cutting lookup times by orders of magnitude."
+  },
+  {
+    "id": "ml-workflow-insight",
+    "text": "Experience evaluating text classification and matching pipelines with Scikit-learn and TF-IDF: realized data preprocessing and token normalization matter far more than tweaking hyper-parameters."
   }
 ]
