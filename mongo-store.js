@@ -145,6 +145,60 @@ async function saveState(updates) {
   }
 }
 
+/**
+ * Super Brain: Record a self-healing experience in MongoDB for continuous self-learning
+ */
+async function recordHealingExperience(faultType, signature, resolution, context = {}) {
+  try {
+    const db = await getDb();
+    await db.collection("self_healing_knowledge").insertOne({
+      faultType,
+      signature,
+      resolution,
+      context,
+      learnedAt: new Date(),
+    });
+    console.log(`[Super Brain] Learned and stored new self-healing recipe for: "${faultType}"`);
+  } catch (err) {
+    console.warn("[Super Brain Warning] Failed to persist self-healing experience:", err.message);
+  }
+}
+
+/**
+ * Super Brain: Query past self-healing memories to immediately resolve known faults
+ */
+async function findHealingExperience(signature) {
+  try {
+    const db = await getDb();
+    const recipe = await db.collection("self_healing_knowledge").findOne(
+      { signature },
+      { sort: { learnedAt: -1 } }
+    );
+    return recipe;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Super Brain: Get total self-healing and self-training metrics
+ */
+async function getHealingStats() {
+  try {
+    const db = await getDb();
+    const count = await db.collection("self_healing_knowledge").countDocuments();
+    const recent = await db
+      .collection("self_healing_knowledge")
+      .find({})
+      .sort({ learnedAt: -1 })
+      .limit(5)
+      .toArray();
+    return { totalLearned: count, recent };
+  } catch {
+    return { totalLearned: 0, recent: [] };
+  }
+}
+
 module.exports = {
   getDb,
   embedText,
@@ -153,4 +207,8 @@ module.exports = {
   findRelevantMemories,
   loadState,
   saveState,
+  recordHealingExperience,
+  findHealingExperience,
+  getHealingStats,
 };
+

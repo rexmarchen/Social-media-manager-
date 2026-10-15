@@ -8,6 +8,9 @@
     "ingest": "node ingest.js",
     "watch": "node watch-ingest.js",
     "dry-run": "node test-dry-run.js",
+    "brain": "node super-brain.js",
+    "brain:train": "node super-brain.js --train",
+    "brain:force": "node super-brain.js --force",
     "jobs": "node job-monitor.js",
     "jobs:dry": "node job-monitor.js --dry-run",
     "jobs:test-email": "node job-monitor.js --test-email"

@@ -28,6 +28,7 @@ const cron = require("node-cron");
 const fs = require("fs");
 const path = require("path");
 const { runAgentForTopic, generateAutonomousPost } = require("./agent-core");
+const { runSuperBrainDailyCycle, trainSuperBrain, autoHealAndExecute } = require("./super-brain");
 const { getAllRepositories } = require("./ai-researcher");
 const { addMemory, getRecentMemories, loadState, saveState } = require("./mongo-store");
 const { syncGitHubActivity } = require("./github-sync");
@@ -140,68 +141,27 @@ cron.schedule(JOB_CRON, async () => {
 let isPostingInProgress = false;
 let activeRetryTimeout = null;
 
-async function triggerDailyPost(reason = "Daily Run", retryAttempt = 0) {
+async function triggerDailyPost(reason = "Daily Run") {
   if (!scheduleEnabled) {
     console.log(`[${reason}] Skipped — schedule is currently off.`);
     return { status: "skipped_schedule_off" };
   }
 
   if (isPostingInProgress) {
-    console.log(`[${reason}] Another post operation is currently in progress. Skipping duplicate.`);
+    console.log(`[${reason}] Another operation is currently in progress. Skipping duplicate.`);
     return { status: "in_progress" };
   }
 
   isPostingInProgress = true;
   try {
-    console.log(`[${reason}] Triggering autonomous AI research & RAG pipeline across portfolio (attempt ${retryAttempt + 1})...`);
-    const result = await generateAutonomousPost();
-
-    console.log(`[${reason}] Scheduled post published. ID: ${result.postId}, Repo: ${result.repoName}`);
-    if (process.env.TELEGRAM_OWNER_ID) {
-      const retryTag = retryAttempt > 0 ? ` (Succeeded on auto-retry #${retryAttempt})` : "";
-      await sendTelegramMessage(
-        process.env.TELEGRAM_OWNER_ID,
-        `🚀 Scheduled post published!${retryTag} (Project: ${result.repoName})${result.hadImage ? " [with photo]" : ""}\n\n"${result.postText}"`
-      );
-    }
-    return { status: "published", ...result };
+    console.log(`[${reason}] Triggering Super Brain Autonomous Engine (1-Day Gap Post / Deep Research)...`);
+    const result = await autoHealAndExecute("Super Brain Daily Cycle", async () => {
+      return await runSuperBrainDailyCycle();
+    });
+    return result;
   } catch (err) {
-    console.error(`[${reason}] Post attempt ${retryAttempt + 1} failed:`, err.message);
-
-    const maxRetries = 3;
-    const retryDelaysMinutes = [3, 7, 12]; // Auto-retry schedule: 3m, 7m, 12m
-
-    if (retryAttempt < maxRetries) {
-      const nextDelayMin = retryDelaysMinutes[retryAttempt];
-      const nextDelayMs = nextDelayMin * 60 * 1000;
-      console.log(`[${reason}] Scheduling automatic retry ${retryAttempt + 1}/${maxRetries} in ${nextDelayMin} minutes...`);
-
-      if (process.env.TELEGRAM_OWNER_ID) {
-        await sendTelegramMessage(
-          process.env.TELEGRAM_OWNER_ID,
-          `⚠️ Scheduled post encountered temporary high demand from Gemini:\n"${err.message.slice(0, 140)}"\n\n🔄 Automatic retry attempt ${retryAttempt + 1}/${maxRetries} scheduled in ${nextDelayMin} minutes (within the 7:00-8:00 PM IST posting window)...`
-        );
-      }
-
-      if (activeRetryTimeout) clearTimeout(activeRetryTimeout);
-      activeRetryTimeout = setTimeout(async () => {
-        try {
-          await triggerDailyPost("Scheduled Post Retry", retryAttempt + 1);
-        } catch (retryErr) {
-          console.error("[Scheduled Retry Warning]", retryErr.message);
-        }
-      }, nextDelayMs);
-
-      return { status: "retry_scheduled", attempt: retryAttempt + 1, delayMin: nextDelayMin };
-    } else {
-      if (process.env.TELEGRAM_OWNER_ID) {
-        await sendTelegramMessage(
-          process.env.TELEGRAM_OWNER_ID,
-          `❌ Scheduled post failed after ${maxRetries} automatic retry attempts:\n${err.message}\n\n💡 You can trigger a manual retry anytime with /post or /post <project>.`
-        );
-      }
-      throw err;
-    }
+    console.error(`[${reason}] Super Brain cycle encountered fatal error:`, err.message);
+    throw err;
   } finally {
     isPostingInProgress = false;
   }
@@ -239,10 +199,11 @@ async function handleTelegramMessage(message) {
   if (lower === "/help" || lower === "/start") {
     await sendTelegramMessage(
       chatId,
-      "🤖 *LinkedIn Automation Commands*:\n\n" +
+      "🤖 *Super Brain LinkedIn Automation Commands*:\n\n" +
         "• /post - autonomously research repos, pick an interesting project & publish\n" +
         "• /post <repo_or_topic> - publish about a specific project or topic (e.g. /post REXAI)\n" +
         "• /post github - immediately post your latest GitHub commit\n" +
+        "• /train - run Super Brain self-training suite & verify self-healing reflexes\n" +
         "• /repos - view all indexed repositories in your portfolio\n" +
         "• /sync - sync all GitHub repos & READMEs into cloud vector memory\n" +
         "• /sync force - force re-indexing of all repositories\n" +
@@ -253,6 +214,23 @@ async function handleTelegramMessage(message) {
         "• /schedule on/off - toggle daily automated posting\n" +
         "• /status - show current schedule and posting status"
     );
+    return;
+  }
+
+  if (lower === "/train") {
+    await sendTelegramMessage(chatId, "🧠 *Super Brain Self-Training Initiated*...\nRunning multi-pass fault simulation & self-healing reflex suite.");
+    try {
+      const trainRes = await trainSuperBrain();
+      await sendTelegramMessage(
+        chatId,
+        `✅ *Super Brain Self-Training Complete!*\n\n` +
+          `• Reflexes Passed: ${trainRes.passed}/${trainRes.total}\n` +
+          `• Cumulative Self-Healing Recipes: ${trainRes.cumulativeRecipes}\n` +
+          `• Status: Autonomous self-healing & 1-day gap logic 100% operational.`
+      );
+    } catch (trainErr) {
+      await sendTelegramMessage(chatId, `❌ Training error: ${trainErr.message}`);
+    }
     return;
   }
 
