@@ -295,13 +295,24 @@ async function uploadImageToLinkedIn(imageBuffer) {
 }
 
 // ---------- LinkedIn: publish post ----------
+function sanitizeLinkedInCommentary(text) {
+  if (!text || typeof text !== "string") return "";
+  let cleaned = text
+    .replace(/`([^`\n]+)`/g, "$1")
+    .replace(/```[\s\S]*?```/g, (m) => m.replace(/```/g, ""))
+    .replace(/`/g, "");
+  cleaned = cleaned.replace(/\\/g, "\\\\");
+  cleaned = cleaned.replace(/([()[\]{}<>|])/g, "\\$1");
+  return cleaned.trim();
+}
+
 async function publishPost(text, imageUrn) {
   const authorUrn = await getAuthorUrn();
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
   const body = {
     author: authorUrn,
-    commentary: text,
+    commentary: sanitizeLinkedInCommentary(text),
     visibility: "PUBLIC",
     distribution: {
       feedDistribution: "MAIN_FEED",

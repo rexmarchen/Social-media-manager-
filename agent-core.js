@@ -257,13 +257,37 @@ async function uploadImageToLinkedIn(imageBuffer) {
   return imageUrn;
 }
 
+/**
+ * Sanitize and escape commentary text for LinkedIn's Little Text Format parser.
+ * Prevents abrupt truncation caused by unescaped control characters
+ * such as (, ), [, ], {, }, |, <, >, and code backticks.
+ */
+function sanitizeLinkedInCommentary(text) {
+  if (!text || typeof text !== "string") return "";
+
+  // 1. Strip markdown code backticks (e.g. `mini-project.py` -> mini-project.py)
+  let cleaned = text
+    .replace(/`([^`\n]+)`/g, "$1")
+    .replace(/```[\s\S]*?```/g, (m) => m.replace(/```/g, ""))
+    .replace(/`/g, "");
+
+  // 2. Escape reserved LinkedIn control characters that trigger silent truncation:
+  // Little Text reserved: ( ) [ ] { } < > |
+  cleaned = cleaned.replace(/\\/g, "\\\\");
+  cleaned = cleaned.replace(/([()[\]{}<>|])/g, "\\$1");
+
+  return cleaned.trim();
+}
+
 async function publishPost(text, imageUrn) {
   const authorUrn = await getAuthorUrn();
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
+  const sanitizedCommentary = sanitizeLinkedInCommentary(text);
+
   const body = {
     author: authorUrn,
-    commentary: text,
+    commentary: sanitizedCommentary,
     visibility: "PUBLIC",
     distribution: {
       feedDistribution: "MAIN_FEED",
