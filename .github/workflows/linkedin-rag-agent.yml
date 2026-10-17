@@ -27,8 +27,15 @@ jobs:
           node-version: "20"
           cache: "npm"
 
+      - name: Setup Python for Poster Engine
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
       - name: Install dependencies
-        run: npm ci || npm install
+        run: |
+          npm ci || npm install
+          pip install pillow
 
       - name: Run LinkedIn Super Brain Agent
         env:
@@ -44,7 +51,7 @@ jobs:
           TELEGRAM_OWNER_ID: ${{ secrets.TELEGRAM_OWNER_ID }}
           GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME || 'rexmarchen' }}
           POST_FREQUENCY: ${{ secrets.POST_FREQUENCY || 'daily' }}
-          MIN_POST_GAP_HOURS: ${{ secrets.MIN_POST_GAP_HOURS || '20' }}
+          MIN_POST_GAP_HOURS: ${{ secrets.MIN_POST_GAP_HOURS || '14' }}
         run: node super-brain.js ${{ github.event.inputs.force == 'true' && '--force' || '' }}
 
       - name: Commit updated state
@@ -52,5 +59,8 @@ jobs:
           git config user.name "linkedin-agent-bot"
           git config user.email "actions@github.com"
           git add state.json
-          git diff --cached --quiet || git commit -m "Update rotation state [skip ci]"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update rotation state [skip ci]"
+            git pull --rebase origin main || true
+            git push origin main
+          fi

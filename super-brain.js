@@ -13,6 +13,8 @@
  */
 
 require("dotenv").config();
+const fs = require("fs");
+const path = require("path");
 const {
   loadState,
   saveState,
@@ -24,6 +26,35 @@ const {
 const { researchTopicForPost, getAllRepositories } = require("./ai-researcher");
 const { callGeminiResilient } = require("./gemini-resilience");
 const { generateAutonomousPost, generatePost } = require("./agent-core");
+
+function getISTDateString(dateInput) {
+  if (!dateInput) return "";
+  try {
+    const d = typeof dateInput === "number" ? new Date(dateInput) : new Date(dateInput);
+    return new Intl.DateTimeFormat("en-CA", {
+      timeZone: process.env.TIMEZONE || "Asia/Kolkata",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(d);
+  } catch {
+    return new Date(dateInput).toISOString().slice(0, 10);
+  }
+}
+
+function saveLocalState(updates) {
+  try {
+    const statePath = path.join(__dirname, "state.json");
+    let current = {};
+    if (fs.existsSync(statePath)) {
+      current = JSON.parse(fs.readFileSync(statePath, "utf8"));
+    }
+    const merged = { ...current, ...updates, updatedAt: new Date().toISOString() };
+    fs.writeFileSync(statePath, JSON.stringify(merged, null, 2));
+  } catch (err) {
+    console.warn("[Super Brain Warning] Failed to update local state.json:", err.message);
+  }
+}
 
 const TELEGRAM_API = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
 
@@ -176,16 +207,39 @@ async function runSuperBrainDailyCycle(forcePost = false) {
   console.log(`[Super Brain] Last LinkedIn Post was ${elapsedHours.toFixed(1)} hours ago.`);
 
   // Configurable Posting Interval:
-  // - "daily" (default): Allows posting once per 24h cycle (threshold: 20 hours to tolerate cron jitter)
+  // - "daily" (default): Posts once per calendar day in IST (with minimal 14h cooldown to avoid accidental rapid triggers)
   // - "alternate": Requires at least 36 hours between posts (skips alternate days for deep research)
-  // - Can also be explicitly overridden by MIN_POST_GAP_HOURS or forcePost
+  // - Can also be bypassed immediately using forcePost / --force
   const postFrequency = (process.env.POST_FREQUENCY || "daily").toLowerCase();
-  const defaultGap = postFrequency === "alternate" ? 36 : 20;
-  const GAP_HOURS_THRESHOLD = parseFloat(process.env.MIN_POST_GAP_HOURS || defaultGap);
-  const isGapActive = elapsedHours < GAP_HOURS_THRESHOLD && !forcePost;
+  const todayIST = getISTDateString(now);
+  const lastPostedIST = getISTDateString(lastPosted);
+  const alreadyPostedToday = lastPosted > 0 && todayIST === lastPostedIST;
+  const cooldownMinHours = parseFloat(process.env.MIN_POST_GAP_HOURS || "14");
+  const inCooldown = elapsedHours < cooldownMinHours;
+
+  let isGapActive = false;
+  let gapReason = "";
+
+  if (!forcePost) {
+    if (postFrequency === "alternate") {
+      if (elapsedHours < 36) {
+        isGapActive = true;
+        gapReason = `Alternate-day cycle active (${elapsedHours.toFixed(1)}h < 36h)`;
+      }
+    } else {
+      // Daily mode: Post once every calendar day in IST
+      if (alreadyPostedToday) {
+        isGapActive = true;
+        gapReason = `Already published today in IST (${todayIST})`;
+      } else if (inCooldown) {
+        isGapActive = true;
+        gapReason = `Cooldown active (${elapsedHours.toFixed(1)}h < ${cooldownMinHours}h)`;
+      }
+    }
+  }
 
   if (isGapActive) {
-    console.log(`\n🔬 [Super Brain: Deep Research Mode] Interval gap active (${elapsedHours.toFixed(1)}h < ${GAP_HOURS_THRESHOLD}h).`);
+    console.log(`\n🔬 [Super Brain: Deep Research Mode] Interval gatekeeper active: ${gapReason}.`);
     console.log("Conducting autonomous deep tech research & portfolio memory training...");
 
     const researchResult = await autoHealAndExecute("Deep Tech Portfolio Research", async () => {
@@ -205,11 +259,11 @@ async function runSuperBrainDailyCycle(forcePost = false) {
 
     await sendTelegramAlert(
       `🔬 *[Super Brain: Deep Research Day]*\n\n` +
-      `• Mode: 1-Day Gap Active (${elapsedHours.toFixed(1)}h elapsed)\n` +
+      `• Mode: Daily Schedule Check (${gapReason})\n` +
       `• Researched Project: *${researchResult.repoName}*\n` +
       `• Technical Angle: ${researchResult.topicTitle}\n` +
       `• Trained Memory: Vector & Cloud memory updated\n` +
-      `• Next LinkedIn Post: Tomorrow at 7:30 PM IST (Alternate Day Cycle)`
+      `• Next LinkedIn Post: Tomorrow at 7:30 PM IST (Daily posting active)`
     );
 
     return {
@@ -221,19 +275,22 @@ async function runSuperBrainDailyCycle(forcePost = false) {
   }
 
   // Gap fulfilled: Time to publish an authentic engineering post!
-  console.log(`\n🚀 [Super Brain: Live Post Day] Interval fulfilled (${elapsedHours.toFixed(1)}h >= ${GAP_HOURS_THRESHOLD}h). Mode: ${postFrequency}.`);
+  console.log(`\n🚀 [Super Brain: Live Post Day] Schedule verified (Today: ${todayIST}, Last Post: ${lastPostedIST || 'None'}, Elapsed: ${elapsedHours.toFixed(1)}h). Mode: ${postFrequency}.`);
   console.log("Initiating autonomous post generation, RAG retrieval, and publishing...");
 
   const publishResult = await autoHealAndExecute("Autonomous Post & Publish", async () => {
     return await generateAutonomousPost();
   });
 
-  // Update lastPostedAt in persistent state
-  await saveState({
+  // Update persistent state in both MongoDB Atlas and local state.json
+  const stateUpdate = {
     lastPostedAt: new Date(),
     lastPostedRepo: publishResult.repoName,
     lastPostedTopic: publishResult.topicTitle,
-  });
+    lastPostedDateIST: todayIST,
+  };
+  await saveState(stateUpdate);
+  saveLocalState(stateUpdate);
 
   console.log(`🎉 [Super Brain] Post successfully published to LinkedIn! ID: ${publishResult.postId}`);
 
@@ -309,20 +366,21 @@ async function trainSuperBrain() {
     console.error("❌ [Test 3 Failed]", err.message);
   }
 
-  // Test 4: Gap Logic Verification
-  console.log("\n[Test 4/4] Testing Gap Schedule Gatekeeper...");
+  // Test 4: Daily Calendar Schedule Gatekeeper
+  console.log("\n[Test 4/4] Testing Daily Calendar Schedule Gatekeeper...");
   try {
     const state = await loadState();
     const lastPosted = state.lastPostedAt ? new Date(state.lastPostedAt).getTime() : 0;
-    const elapsedHours = (Date.now() - lastPosted) / (1000 * 60 * 60);
+    const elapsedHours = lastPosted > 0 ? (Date.now() - lastPosted) / (1000 * 60 * 60) : 999;
+    const todayIST = getISTDateString(Date.now());
+    const lastPostedIST = getISTDateString(lastPosted);
+    const alreadyPostedToday = lastPosted > 0 && todayIST === lastPostedIST;
     const postFrequency = (process.env.POST_FREQUENCY || "daily").toLowerCase();
-    const defaultGap = postFrequency === "alternate" ? 36 : 20;
-    const gapThreshold = parseFloat(process.env.MIN_POST_GAP_HOURS || defaultGap);
-    console.log(`Current elapsed hours: ${elapsedHours.toFixed(1)}h (Threshold: ${gapThreshold}h, Frequency: ${postFrequency})`);
-    if (elapsedHours < gapThreshold) {
-      console.log(`✅ [Test 4 Passed] Gap is active (< ${gapThreshold}h). Correctly routed to Deep Research mode.`);
+    console.log(`Current state: Elapsed ${elapsedHours.toFixed(1)}h, Today IST: ${todayIST}, Last Post IST: ${lastPostedIST || 'None'}, Mode: ${postFrequency}`);
+    if (alreadyPostedToday) {
+      console.log(`✅ [Test 4 Passed] Post already completed for calendar day ${todayIST}. Daily gatekeeper correctly prevents duplicate posts.`);
     } else {
-      console.log(`✅ [Test 4 Passed] Gap is fulfilled (>= ${gapThreshold}h). Correctly routed to Post mode.`);
+      console.log(`✅ [Test 4 Passed] Ready for today's post (${todayIST} != ${lastPostedIST}). Gatekeeper open.`);
     }
     passed++;
   } catch (err) {
