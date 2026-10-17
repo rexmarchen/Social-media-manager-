@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+outputs/
+dataset/clean/
+models/
+*.zip
+.pytest_cache/

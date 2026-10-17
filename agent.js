@@ -298,11 +298,11 @@ async function uploadImageToLinkedIn(imageBuffer) {
 function sanitizeLinkedInCommentary(text) {
   if (!text || typeof text !== "string") return "";
   let cleaned = text
+    .replace(/```[a-zA-Z0-9_-]*\n?/g, "")
+    .replace(/```/g, "")
     .replace(/`([^`\n]+)`/g, "$1")
-    .replace(/```[\s\S]*?```/g, (m) => m.replace(/```/g, ""))
     .replace(/`/g, "");
-  cleaned = cleaned.replace(/\\/g, "\\\\");
-  cleaned = cleaned.replace(/([()[\]{}<>|])/g, "\\$1");
+  cleaned = cleaned.replace(/\r\n/g, "\n").replace(/\n{3,}/g, "\n\n");
   return cleaned.trim();
 }
 

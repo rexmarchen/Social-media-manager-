@@ -1,0 +1,52 @@
+brand:
+  name: "Anshu Pal"
+  tagline: "AI & Full-Stack Systems"
+  role: "AI/ML Engineer & Systems Builder"
+  flagship: "REXION"
+  handle: "@rexmarchen"
+  github: "github.com/rexmarchen"
+  target_audience: "Software Engineers, Tech Recruiters, AI/Systems Builders"
+
+trigger_word: "rexstyle"
+is_style: true
+
+colors:
+  primary: "#1832D7"      # Cobalt blue
+  secondary: "#F5BA04"    # Warm mustard yellow
+  accent: "#E85A18"       # Energetic orange / terracotta
+  background_light: "#FAF8F5"
+  background_dark: "#0F1218"
+  text_dark: "#1A1A1E"
+  text_light: "#FFFFFF"
+  card_surface: "#FFFFFF"
+  card_border: "#E2DDD7"
+
+fonts:
+  heading: "assets/fonts/heading.ttf"
+  body: "assets/fonts/body.ttf"
+  heading_size: 54
+  subheading_size: 24
+  body_size: 20
+  caption_size: 16
+
+composition:
+  default_aspect_ratio: "4:5"
+  raw_generate_size: [1024, 1280]
+  export_portrait_size: [1080, 1350]
+  export_square_size: [1080, 1080]
+  export_horizontal_size: [1200, 627]
+  margin_percent: 0.08
+
+style_rules:
+  - "Solid matte backgrounds or realistic tactile materials (paper fold creases, wooden desk, cutting mat)."
+  - "Prominent physical tech artifacts: vintage 90s personal computer, CRT monitor terminal, ceramic microchips, or paper document dossiers."
+  - "Elegant high-contrast display serif headlines with occasional italic words."
+  - "Spacious negative space (at least 40% clean area) to host clean typography overlays."
+  - "Witty engineering micro-annotations on left and right flanks."
+
+never_use:
+  - "Cheesy 3D plastic Pixar/cartoon characters."
+  - "Over-saturated rainbow neon glow or holographic gradients."
+  - "Generic corporate stock photo suits shaking hands in conference rooms."
+  - "AI-rendered messy fake text or garbled letters."
+  - "Cluttered compositions with zero negative space."

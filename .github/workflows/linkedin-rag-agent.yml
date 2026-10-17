@@ -3,7 +3,13 @@ name: LinkedIn RAG Agent
 on:
   schedule:
     - cron: "15 14 * * *" # Daily at 14:15 UTC (7:45 PM IST) - Off-peak to avoid :00 GitHub Actions queue delays
-  workflow_dispatch: {} # Allows manual execution from the GitHub Actions UI
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force immediate post (bypasses interval gap check)"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -30,11 +36,16 @@ jobs:
           LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
           LINKEDIN_PERSON_URN: ${{ secrets.LINKEDIN_PERSON_URN }}
           LINKEDIN_VERSION: ${{ secrets.LINKEDIN_VERSION || '202603' }}
-          GEMINI_TEXT_MODEL: ${{ secrets.GEMINI_TEXT_MODEL || 'gemini-flash-lite-latest' }}
+          GEMINI_TEXT_MODEL: ${{ secrets.GEMINI_TEXT_MODEL || 'gemini-3.6-flash' }}
           GEMINI_EMBEDDING_MODEL: ${{ secrets.GEMINI_EMBEDDING_MODEL || 'gemini-embedding-001' }}
           GEMINI_IMAGE_MODEL: ${{ secrets.GEMINI_IMAGE_MODEL || 'gemini-3.1-flash-image' }}
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
-        run: node super-brain.js
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_ID: ${{ secrets.TELEGRAM_OWNER_ID }}
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME || 'rexmarchen' }}
+          POST_FREQUENCY: ${{ secrets.POST_FREQUENCY || 'daily' }}
+          MIN_POST_GAP_HOURS: ${{ secrets.MIN_POST_GAP_HOURS || '20' }}
+        run: node super-brain.js ${{ github.event.inputs.force == 'true' && '--force' || '' }}
 
       - name: Commit updated state
         run: |

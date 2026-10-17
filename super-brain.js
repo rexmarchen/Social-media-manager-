@@ -175,12 +175,17 @@ async function runSuperBrainDailyCycle(forcePost = false) {
 
   console.log(`[Super Brain] Last LinkedIn Post was ${elapsedHours.toFixed(1)} hours ago.`);
 
-  // 1-Day Gap Rule: Requires at least 36 hours since last post (allows daily 7:30 PM run to skip alternating days)
-  const GAP_HOURS_THRESHOLD = 36;
+  // Configurable Posting Interval:
+  // - "daily" (default): Allows posting once per 24h cycle (threshold: 20 hours to tolerate cron jitter)
+  // - "alternate": Requires at least 36 hours between posts (skips alternate days for deep research)
+  // - Can also be explicitly overridden by MIN_POST_GAP_HOURS or forcePost
+  const postFrequency = (process.env.POST_FREQUENCY || "daily").toLowerCase();
+  const defaultGap = postFrequency === "alternate" ? 36 : 20;
+  const GAP_HOURS_THRESHOLD = parseFloat(process.env.MIN_POST_GAP_HOURS || defaultGap);
   const isGapActive = elapsedHours < GAP_HOURS_THRESHOLD && !forcePost;
 
   if (isGapActive) {
-    console.log(`\n🔬 [Super Brain: Deep Research Mode] 1-day gap active (${elapsedHours.toFixed(1)}h < 36h).`);
+    console.log(`\n🔬 [Super Brain: Deep Research Mode] Interval gap active (${elapsedHours.toFixed(1)}h < ${GAP_HOURS_THRESHOLD}h).`);
     console.log("Conducting autonomous deep tech research & portfolio memory training...");
 
     const researchResult = await autoHealAndExecute("Deep Tech Portfolio Research", async () => {
@@ -216,7 +221,7 @@ async function runSuperBrainDailyCycle(forcePost = false) {
   }
 
   // Gap fulfilled: Time to publish an authentic engineering post!
-  console.log(`\n🚀 [Super Brain: Live Post Day] Gap fulfilled (${elapsedHours.toFixed(1)}h >= 36h).`);
+  console.log(`\n🚀 [Super Brain: Live Post Day] Interval fulfilled (${elapsedHours.toFixed(1)}h >= ${GAP_HOURS_THRESHOLD}h). Mode: ${postFrequency}.`);
   console.log("Initiating autonomous post generation, RAG retrieval, and publishing...");
 
   const publishResult = await autoHealAndExecute("Autonomous Post & Publish", async () => {
@@ -232,13 +237,17 @@ async function runSuperBrainDailyCycle(forcePost = false) {
 
   console.log(`🎉 [Super Brain] Post successfully published to LinkedIn! ID: ${publishResult.postId}`);
 
+  const nextPostNotice = postFrequency === "alternate"
+    ? "📅 Next post scheduled after 1-day gap (in 48 hours). Tomorrow will be Deep Research Day."
+    : "📅 Next post scheduled tomorrow at 7:30 PM IST (Daily posting active).";
+
   await sendTelegramAlert(
     `🚀 *[Super Brain Post Published]*\n\n` +
     `• Project: *${publishResult.repoName}*\n` +
     `• Topic: ${publishResult.topicTitle}\n` +
     `• Post ID: \`${publishResult.postId}\`\n\n` +
     `"${publishResult.postText.slice(0, 180)}..."\n\n` +
-    `📅 Next post scheduled after 1-day gap (in 48 hours). Tomorrow will be Deep Research Day.`
+    nextPostNotice
   );
 
   return {
@@ -300,17 +309,20 @@ async function trainSuperBrain() {
     console.error("❌ [Test 3 Failed]", err.message);
   }
 
-  // Test 4: 1-Day Gap Logic Verification
-  console.log("\n[Test 4/4] Testing 1-Day Gap Schedule Gatekeeper...");
+  // Test 4: Gap Logic Verification
+  console.log("\n[Test 4/4] Testing Gap Schedule Gatekeeper...");
   try {
     const state = await loadState();
     const lastPosted = state.lastPostedAt ? new Date(state.lastPostedAt).getTime() : 0;
     const elapsedHours = (Date.now() - lastPosted) / (1000 * 60 * 60);
-    console.log(`Current elapsed hours: ${elapsedHours.toFixed(1)}h`);
-    if (elapsedHours < 36) {
-      console.log("✅ [Test 4 Passed] Gap is active (< 36h). Correctly routed to Deep Research mode.");
+    const postFrequency = (process.env.POST_FREQUENCY || "daily").toLowerCase();
+    const defaultGap = postFrequency === "alternate" ? 36 : 20;
+    const gapThreshold = parseFloat(process.env.MIN_POST_GAP_HOURS || defaultGap);
+    console.log(`Current elapsed hours: ${elapsedHours.toFixed(1)}h (Threshold: ${gapThreshold}h, Frequency: ${postFrequency})`);
+    if (elapsedHours < gapThreshold) {
+      console.log(`✅ [Test 4 Passed] Gap is active (< ${gapThreshold}h). Correctly routed to Deep Research mode.`);
     } else {
-      console.log("✅ [Test 4 Passed] Gap is fulfilled (>= 36h). Correctly routed to Post mode.");
+      console.log(`✅ [Test 4 Passed] Gap is fulfilled (>= ${gapThreshold}h). Correctly routed to Post mode.`);
     }
     passed++;
   } catch (err) {

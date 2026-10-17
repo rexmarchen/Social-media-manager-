@@ -1,0 +1,1880 @@
+{
+  "dataset_name": "photos_or_trainn_agent_gdrive",
+  "total_images_trained": 60,
+  "archetypes": {
+    "cobalt_terminal_poster": 3,
+    "modern_editorial_showcase": 27,
+    "tactile_desk_study_guide": 12,
+    "dark_cyber_void": 12,
+    "slate_kinetic_typography": 2,
+    "mustard_retro_computing": 3,
+    "hardware_macro_engineering": 1
+  },
+  "default_linkedin_dimensions": [
+    1080,
+    1080
+  ],
+  "default_feed_ratio": "1:1 Square (High Engagement Mobile Feed)",
+  "dna_records": [
+    {
+      "filename": "0138edc9bcd3bd215b9cf990c3fc4ddd.jpg",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        48,
+        127,
+        195
+      ],
+      "brightness": 0.44,
+      "is_dark_theme": true,
+      "palette": [
+        "#B8D3E1",
+        "#3EA0E6",
+        "#1C87D4",
+        "#156BBB",
+        "#0E4C96"
+      ],
+      "archetype": "cobalt_terminal_poster",
+      "style_name": "Cobalt Technical OS Terminal",
+      "concept": "Bold monochromatic cobalt blue canvas, glowing retro CRT computer terminal, 3D wireframe polygon globe, condensed grotesque Swiss typography.",
+      "recommended_font": "Condensed Grotesque / Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "03c5121667308bbbc7ed6bb4198e11d4.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        105,
+        112,
+        161
+      ],
+      "brightness": 0.45,
+      "is_dark_theme": false,
+      "palette": [
+        "#EDE5D9",
+        "#886898",
+        "#56253B",
+        "#0146B2",
+        "#01296B"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "041f04ab7418b8d5cf5d70e70811bb19.jpg",
+      "dimensions": [
+        736,
+        921
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        211,
+        224,
+        235
+      ],
+      "brightness": 0.87,
+      "is_dark_theme": false,
+      "palette": [
+        "#FFFFFF",
+        "#FEFEFE",
+        "#FFFEFC",
+        "#F8FFFE",
+        "#93B4D0"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "04e51607d3443b5875d1d44f82a5e046.jpg",
+      "dimensions": [
+        736,
+        1103
+      ],
+      "aspect_ratio": 0.67,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        91,
+        108,
+        110
+      ],
+      "brightness": 0.4,
+      "is_dark_theme": true,
+      "palette": [
+        "#B4C3C5",
+        "#6E8486",
+        "#4D514E",
+        "#1D4653",
+        "#10191A"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "058263129567a1ff819d56c620ae842c.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        70,
+        49,
+        77
+      ],
+      "brightness": 0.23,
+      "is_dark_theme": true,
+      "palette": [
+        "#DCC6B0",
+        "#755657",
+        "#331D2D",
+        "#210B52",
+        "#110528"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "0623fb1c14937cd1e67e980b566710ba.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        215,
+        129,
+        93
+      ],
+      "brightness": 0.59,
+      "is_dark_theme": false,
+      "palette": [
+        "#E3DFDA",
+        "#D9A289",
+        "#ED4402",
+        "#ED4202",
+        "#B33F10"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "0759a7e7ae0682dfcdb802997993268d.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        165,
+        158,
+        170
+      ],
+      "brightness": 0.63,
+      "is_dark_theme": false,
+      "palette": [
+        "#E8E6E9",
+        "#E0E0E0",
+        "#DFDEDF",
+        "#A59DA9",
+        "#251535"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "07f9aaeeee19079ac4822a2145d8bd98.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        191,
+        172,
+        201
+      ],
+      "brightness": 0.71,
+      "is_dark_theme": false,
+      "palette": [
+        "#F0E1F6",
+        "#ECDAF5",
+        "#E6D1F0",
+        "#D2BAE1",
+        "#524057"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "0a56c21659d9431324cedd36e056cb2f.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        103,
+        145,
+        131
+      ],
+      "brightness": 0.51,
+      "is_dark_theme": false,
+      "palette": [
+        "#EDEFEA",
+        "#9FB5AC",
+        "#174233",
+        "#02563D",
+        "#01553C"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "0c2364e0ad0a3586f1515c895e92f062.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        182,
+        171,
+        165
+      ],
+      "brightness": 0.68,
+      "is_dark_theme": false,
+      "palette": [
+        "#E9E7E5",
+        "#CAC5C5",
+        "#C0BDBC",
+        "#B0ACA9",
+        "#865E49"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "0cf6324e753974da6f27a637886edfb3.jpg",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        39,
+        56,
+        154
+      ],
+      "brightness": 0.24,
+      "is_dark_theme": true,
+      "palette": [
+        "#C0D0E1",
+        "#2A47B2",
+        "#1224A3",
+        "#0B1A90",
+        "#09156A"
+      ],
+      "archetype": "cobalt_terminal_poster",
+      "style_name": "Cobalt Technical OS Terminal",
+      "concept": "Bold monochromatic cobalt blue canvas, glowing retro CRT computer terminal, 3D wireframe polygon globe, condensed grotesque Swiss typography.",
+      "recommended_font": "Condensed Grotesque / Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "12e28b3a45aded7985f7cde2b22a18fb.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        144,
+        130,
+        119
+      ],
+      "brightness": 0.52,
+      "is_dark_theme": false,
+      "palette": [
+        "#E8E5DC",
+        "#E4E0D6",
+        "#D1C8BC",
+        "#704934",
+        "#111010"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "164b32f850a2f7adc961eae54e083b95.jpg",
+      "dimensions": [
+        735,
+        919
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        185,
+        58,
+        54
+      ],
+      "brightness": 0.37,
+      "is_dark_theme": true,
+      "palette": [
+        "#F8ECE9",
+        "#B88376",
+        "#88201A",
+        "#D40201",
+        "#AE0302"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "1c1b8f7bdb15804c0fc8871ad819af2c.jpg",
+      "dimensions": [
+        960,
+        1200
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        216,
+        207,
+        209
+      ],
+      "brightness": 0.82,
+      "is_dark_theme": false,
+      "palette": [
+        "#FDFDFD",
+        "#FAF9F9",
+        "#F0F1F2",
+        "#EAEAEB",
+        "#80565B"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "1f25f735286e95c2eecda36a41eef766.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        219,
+        212,
+        196
+      ],
+      "brightness": 0.83,
+      "is_dark_theme": false,
+      "palette": [
+        "#FFFFFF",
+        "#FEFEFD",
+        "#F8F7F7",
+        "#E1D6C0",
+        "#928056"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "250037c2ed4e94f88ae7272a36ef9323.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        123,
+        144,
+        166
+      ],
+      "brightness": 0.55,
+      "is_dark_theme": false,
+      "palette": [
+        "#E2DDD7",
+        "#8794A1",
+        "#6685A5",
+        "#6081A1",
+        "#60738E"
+      ],
+      "archetype": "slate_kinetic_typography",
+      "style_name": "Slate Blue Kinetic Typography & CRT",
+      "concept": "Deep muted slate blue fabric canvas, dual CRT displays, geometric waveform squiggles, bold modern typographic layout.",
+      "recommended_font": "Modern Serif & Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "26e7350999b77c6dca66eb14bee4a7f9.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        43,
+        35,
+        62
+      ],
+      "brightness": 0.16,
+      "is_dark_theme": true,
+      "palette": [
+        "#8072AC",
+        "#1C152A",
+        "#0F051D",
+        "#060211",
+        "#030207"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "2ad042684f2899af08aa9f7791b08f20.jpg",
+      "dimensions": [
+        736,
+        1104
+      ],
+      "aspect_ratio": 0.67,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        152,
+        151,
+        152
+      ],
+      "brightness": 0.59,
+      "is_dark_theme": false,
+      "palette": [
+        "#E1D7C7",
+        "#DCD0BF",
+        "#D6CBBA",
+        "#8C8B7B",
+        "#1C3066"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "2e925560f9ce406b2259c1bca9f9feb6.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        218,
+        213,
+        210
+      ],
+      "brightness": 0.84,
+      "is_dark_theme": false,
+      "palette": [
+        "#FFFFFF",
+        "#F2EFEC",
+        "#EFEBE8",
+        "#E5E1DB",
+        "#877D7B"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "363edc3f8b7d14f822bd521c66cc568e.jpg",
+      "dimensions": [
+        735,
+        972
+      ],
+      "aspect_ratio": 0.76,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        148,
+        136,
+        162
+      ],
+      "brightness": 0.56,
+      "is_dark_theme": false,
+      "palette": [
+        "#FBFAF5",
+        "#D6C9CA",
+        "#8258A9",
+        "#47296B",
+        "#111A37"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "368cc200385a2378e856053549fd8635.jpg",
+      "dimensions": [
+        736,
+        979
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        120,
+        139,
+        156
+      ],
+      "brightness": 0.53,
+      "is_dark_theme": false,
+      "palette": [
+        "#CBC1B3",
+        "#8694A2",
+        "#6181A4",
+        "#5F7FA2",
+        "#52626D"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "3728276c46343620446c15c229761654.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        101,
+        44,
+        195
+      ],
+      "brightness": 0.31,
+      "is_dark_theme": true,
+      "palette": [
+        "#8D61D4",
+        "#6F34D2",
+        "#692DD1",
+        "#6522CE",
+        "#44149A"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "38c16a0fc4adbcd4eeaf73ae25a6e5a4.jpg",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        39,
+        44,
+        77
+      ],
+      "brightness": 0.18,
+      "is_dark_theme": true,
+      "palette": [
+        "#858BC0",
+        "#141F60",
+        "#03050D",
+        "#01030A",
+        "#000207"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "3aae70e104bc77a19ea9d82a6890baa9.jpg",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        167,
+        168,
+        173
+      ],
+      "brightness": 0.66,
+      "is_dark_theme": false,
+      "palette": [
+        "#F7F6F7",
+        "#EDEDEF",
+        "#E2E1E4",
+        "#A8A4A4",
+        "#1F2838"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "3fc3c11f2966e33d9f922a153f87c814.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        173,
+        165,
+        167
+      ],
+      "brightness": 0.66,
+      "is_dark_theme": false,
+      "palette": [
+        "#E7E7E9",
+        "#E2E2EC",
+        "#E4E4E2",
+        "#C2A68E",
+        "#27213F"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "4273cfb3c931589826efc2ee5c27d8e2.jpg",
+      "dimensions": [
+        890,
+        1335
+      ],
+      "aspect_ratio": 0.67,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        223,
+        210,
+        193
+      ],
+      "brightness": 0.83,
+      "is_dark_theme": false,
+      "palette": [
+        "#FAF1E5",
+        "#FAEEE1",
+        "#FBEDE0",
+        "#FBEEDC",
+        "#AE9F87"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "485311fea5d9d85b8e5d7ca02cbc6c7c.jpg",
+      "dimensions": [
+        1046,
+        1504
+      ],
+      "aspect_ratio": 0.7,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        164,
+        156,
+        145
+      ],
+      "brightness": 0.62,
+      "is_dark_theme": false,
+      "palette": [
+        "#FAF6F2",
+        "#F6F2F1",
+        "#F6F2E8",
+        "#8F7857",
+        "#11100C"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "49f0245a234c9ac0855cd500e437dd78.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        169,
+        169,
+        185
+      ],
+      "brightness": 0.67,
+      "is_dark_theme": false,
+      "palette": [
+        "#FFFFFF",
+        "#FEFAE8",
+        "#EBEAED",
+        "#8D93A4",
+        "#231E4D"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "4e8e7b4752b36e1b02113714486af2e7.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        180,
+        171,
+        168
+      ],
+      "brightness": 0.68,
+      "is_dark_theme": false,
+      "palette": [
+        "#FDFEFE",
+        "#FBFBFE",
+        "#F3F6FA",
+        "#988F8F",
+        "#442714"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "5a86d8b950f6ddbe1b3170f4c5bbe2c6.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        158,
+        81,
+        42
+      ],
+      "brightness": 0.39,
+      "is_dark_theme": true,
+      "palette": [
+        "#FCD4AB",
+        "#F7AC61",
+        "#F37E1A",
+        "#800303",
+        "#0E0505"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "60344c2f666ae31d1ebe6863e9136641.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        112,
+        141,
+        100
+      ],
+      "brightness": 0.5,
+      "is_dark_theme": false,
+      "palette": [
+        "#FEFFFE",
+        "#919742",
+        "#1A522B",
+        "#18522A",
+        "#1B451D"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "61dbbcfc5ce4afcaae3ce3b9519e3fbc.jpg",
+      "dimensions": [
+        735,
+        919
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        37,
+        58,
+        84
+      ],
+      "brightness": 0.21,
+      "is_dark_theme": true,
+      "palette": [
+        "#7094C9",
+        "#153454",
+        "#151517",
+        "#080809",
+        "#011226"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "641ea31f9a5a0791278bd80a637840fb.jpg",
+      "dimensions": [
+        1199,
+        1499
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        58,
+        49,
+        27
+      ],
+      "brightness": 0.19,
+      "is_dark_theme": true,
+      "palette": [
+        "#D9B03C",
+        "#4C3E28",
+        "#2C271D",
+        "#1A1712",
+        "#0B0B0B"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "6b94b9fc22724c781950529672d9d2f6.jpg",
+      "dimensions": [
+        640,
+        1140
+      ],
+      "aspect_ratio": 0.56,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        185,
+        155,
+        15
+      ],
+      "brightness": 0.58,
+      "is_dark_theme": false,
+      "palette": [
+        "#FBD92B",
+        "#FCD303",
+        "#FBD201",
+        "#AF8D1D",
+        "#040302"
+      ],
+      "archetype": "mustard_retro_computing",
+      "style_name": "Mustard Yellow Retro-Computing Poster",
+      "concept": "Warm mustard yellow solid backdrop, centered vintage 1990s beige personal computer, high-contrast black editorial serif quotes, generous negative space.",
+      "recommended_font": "Modern Serif Display",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "7444ab02edba9643031c085195466fa7.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        213,
+        53,
+        22
+      ],
+      "brightness": 0.38,
+      "is_dark_theme": true,
+      "palette": [
+        "#E56C21",
+        "#D62413",
+        "#D72314",
+        "#D22312",
+        "#A71A0E"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "74ba0b2c05635867ecadcca8c23af701.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        115,
+        134,
+        166
+      ],
+      "brightness": 0.52,
+      "is_dark_theme": false,
+      "palette": [
+        "#F5E4D4",
+        "#D5CEBF",
+        "#427CBB",
+        "#7A506C",
+        "#065B9B"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "7b5386792e883f8567099ddb361a9a12.jpg",
+      "dimensions": [
+        1024,
+        1280
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        59,
+        31,
+        105
+      ],
+      "brightness": 0.19,
+      "is_dark_theme": true,
+      "palette": [
+        "#C39CE8",
+        "#461F83",
+        "#200654",
+        "#190247",
+        "#0D012F"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "864b230f28ed5658ac59d54c4ada307e.jpg",
+      "dimensions": [
+        736,
+        1041
+      ],
+      "aspect_ratio": 0.71,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        80,
+        79,
+        209
+      ],
+      "brightness": 0.37,
+      "is_dark_theme": true,
+      "palette": [
+        "#F0F0F8",
+        "#8687C9",
+        "#3333D0",
+        "#2621F5",
+        "#171782"
+      ],
+      "archetype": "cobalt_terminal_poster",
+      "style_name": "Cobalt Technical OS Terminal",
+      "concept": "Bold monochromatic cobalt blue canvas, glowing retro CRT computer terminal, 3D wireframe polygon globe, condensed grotesque Swiss typography.",
+      "recommended_font": "Condensed Grotesque / Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "86cadc2229a19231fbc4318ef299beb8.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        176,
+        40,
+        32
+      ],
+      "brightness": 0.31,
+      "is_dark_theme": true,
+      "palette": [
+        "#F0725B",
+        "#E8361B",
+        "#D02819",
+        "#C31513",
+        "#400F17"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "87879eb900e7e99a39ee645ef9195dfd.jpg",
+      "dimensions": [
+        1080,
+        1346
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        171,
+        157,
+        148
+      ],
+      "brightness": 0.63,
+      "is_dark_theme": false,
+      "palette": [
+        "#EFF0EC",
+        "#F3D2AB",
+        "#CED1C8",
+        "#7D736F",
+        "#6C3B29"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "88300d27094a515464e64eb17ebb1307.jpg",
+      "dimensions": [
+        540,
+        871
+      ],
+      "aspect_ratio": 0.62,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        37,
+        34,
+        33
+      ],
+      "brightness": 0.14,
+      "is_dark_theme": true,
+      "palette": [
+        "#A79E90",
+        "#141116",
+        "#03000A",
+        "#00000A",
+        "#000000"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "88e32065764f2699b881b1df914fdb65.jpg",
+      "dimensions": [
+        1200,
+        1200
+      ],
+      "aspect_ratio": 1.0,
+      "format": "square (1:1)",
+      "average_rgb": [
+        51,
+        53,
+        77
+      ],
+      "brightness": 0.22,
+      "is_dark_theme": true,
+      "palette": [
+        "#8795B2",
+        "#0E0B27",
+        "#0E0B1E",
+        "#0E0B1B",
+        "#0E0733"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "8976b3f3fcbc582b7611a7253839ff17.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        197,
+        204,
+        217
+      ],
+      "brightness": 0.8,
+      "is_dark_theme": false,
+      "palette": [
+        "#FDFDFD",
+        "#F8F8F9",
+        "#F1F2F4",
+        "#D8DAE0",
+        "#4F6B96"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "8a69192c30e72c8d82f13d699aa5a8b0.jpg",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        42,
+        51,
+        104
+      ],
+      "brightness": 0.21,
+      "is_dark_theme": true,
+      "palette": [
+        "#B0C4E9",
+        "#2B44A2",
+        "#111660",
+        "#090A37",
+        "#050516"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "8b778b1126159bb46d577b2f6b77c077.jpg",
+      "dimensions": [
+        960,
+        1200
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        80,
+        115,
+        199
+      ],
+      "brightness": 0.45,
+      "is_dark_theme": false,
+      "palette": [
+        "#8CB8CE",
+        "#4369E3",
+        "#4068E0",
+        "#4266DD",
+        "#29407D"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "903af49755ed8f657e5a525a800f765a.jpg",
+      "dimensions": [
+        1200,
+        1600
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        218,
+        218,
+        227
+      ],
+      "brightness": 0.86,
+      "is_dark_theme": false,
+      "palette": [
+        "#FFFFFF",
+        "#FEFEFE",
+        "#FEFEFC",
+        "#F7FFFD",
+        "#9B9DB4"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "91048046cfa7c07cd8742b9ee0cbee35.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        219,
+        204,
+        214
+      ],
+      "brightness": 0.82,
+      "is_dark_theme": false,
+      "palette": [
+        "#FBF9FA",
+        "#F5F6F6",
+        "#F3F0F3",
+        "#E0D4DC",
+        "#996C8A"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "95b8deec21205505efc8df544d82b4c5.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        53,
+        66,
+        66
+      ],
+      "brightness": 0.24,
+      "is_dark_theme": true,
+      "palette": [
+        "#688E7C",
+        "#201A22",
+        "#1B1B1B",
+        "#161A1A",
+        "#190D64"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "98636019c2fdb6fff8d3eb5d07de1f71.jpg",
+      "dimensions": [
+        1122,
+        1402
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        149,
+        152,
+        171
+      ],
+      "brightness": 0.6,
+      "is_dark_theme": false,
+      "palette": [
+        "#F0F0F0",
+        "#EFECF0",
+        "#ECEDED",
+        "#6E7189",
+        "#071044"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "9941495476bd0631eea5bd2497dd461d.jpg",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        228,
+        178,
+        19
+      ],
+      "brightness": 0.69,
+      "is_dark_theme": false,
+      "palette": [
+        "#F1C32A",
+        "#F5BC05",
+        "#F3BA04",
+        "#F0B804",
+        "#A98C33"
+      ],
+      "archetype": "mustard_retro_computing",
+      "style_name": "Mustard Yellow Retro-Computing Poster",
+      "concept": "Warm mustard yellow solid backdrop, centered vintage 1990s beige personal computer, high-contrast black editorial serif quotes, generous negative space.",
+      "recommended_font": "Modern Serif Display",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "995bb5bee2bcb4185d6af50171a0aad0.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        201,
+        214,
+        226
+      ],
+      "brightness": 0.83,
+      "is_dark_theme": false,
+      "palette": [
+        "#FFFFFF",
+        "#FEFEFE",
+        "#FFFEFC",
+        "#F5FFFE",
+        "#7B9CBA"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "9a798a5272a359bcecfc1da7dc836569.jpg",
+      "dimensions": [
+        1200,
+        1500
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        210,
+        215,
+        220
+      ],
+      "brightness": 0.84,
+      "is_dark_theme": false,
+      "palette": [
+        "#FDFDFD",
+        "#FBFBFB",
+        "#F8F9FA",
+        "#F2F3F4",
+        "#56697E"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "a556ed3692fd5fd2ea5b25f0f0115531.jpg",
+      "dimensions": [
+        736,
+        1104
+      ],
+      "aspect_ratio": 0.67,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        38,
+        27,
+        67
+      ],
+      "brightness": 0.14,
+      "is_dark_theme": true,
+      "palette": [
+        "#7572A4",
+        "#180732",
+        "#160233",
+        "#0D0323",
+        "#080318"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "af5546971883279158ed4f5d5e2351d0.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        216,
+        165,
+        43
+      ],
+      "brightness": 0.65,
+      "is_dark_theme": false,
+      "palette": [
+        "#FDDD71",
+        "#FECA2F",
+        "#FFCA29",
+        "#FECA26",
+        "#9E671E"
+      ],
+      "archetype": "mustard_retro_computing",
+      "style_name": "Mustard Yellow Retro-Computing Poster",
+      "concept": "Warm mustard yellow solid backdrop, centered vintage 1990s beige personal computer, high-contrast black editorial serif quotes, generous negative space.",
+      "recommended_font": "Modern Serif Display",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "c3b776f504137d6be9e0f541486f87df.jpg",
+      "dimensions": [
+        736,
+        981
+      ],
+      "aspect_ratio": 0.75,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        215,
+        199,
+        178
+      ],
+      "brightness": 0.79,
+      "is_dark_theme": false,
+      "palette": [
+        "#FFFFFF",
+        "#FDFFFF",
+        "#FFFFFC",
+        "#E8C794",
+        "#644017"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "c468e67bb37587763ca7ad055717b3d3.jpg",
+      "dimensions": [
+        736,
+        1308
+      ],
+      "aspect_ratio": 0.56,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        84,
+        21,
+        26
+      ],
+      "brightness": 0.16,
+      "is_dark_theme": true,
+      "palette": [
+        "#85645E",
+        "#4C0810",
+        "#9B0110",
+        "#570109",
+        "#140102"
+      ],
+      "archetype": "dark_cyber_void",
+      "style_name": "Dark Void Retro-Hardware Isometric",
+      "concept": "Pure black void background, floating vintage personal computer with ejecting floppy disk, monochrome wireframe grid reflections, cyberpunk minimalism.",
+      "recommended_font": "Technical Monospace",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "c89653e30313c45f134394272d7a536e.jpg",
+      "dimensions": [
+        736,
+        920
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        198,
+        183,
+        164
+      ],
+      "brightness": 0.73,
+      "is_dark_theme": false,
+      "palette": [
+        "#F8E4C1",
+        "#F7DEB7",
+        "#DDD6C4",
+        "#BFB4AA",
+        "#806E64"
+      ],
+      "archetype": "tactile_desk_study_guide",
+      "style_name": "Tactile Desk & Spiral Notebook",
+      "concept": "Warm cozy bookstore flatlay, textured spiral-bound notebook, silver binder clip, red A+ rubber stamp, inviting tangible paper learning aesthetic.",
+      "recommended_font": "Humanist Sans / Chunky Editorial Serif",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "e0aaa76d562c6cc3f268efb30494bd2c.jpg",
+      "dimensions": [
+        800,
+        1000
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        81,
+        101,
+        119
+      ],
+      "brightness": 0.38,
+      "is_dark_theme": true,
+      "palette": [
+        "#C2BDAE",
+        "#415B72",
+        "#395672",
+        "#375470",
+        "#344556"
+      ],
+      "archetype": "slate_kinetic_typography",
+      "style_name": "Slate Blue Kinetic Typography & CRT",
+      "concept": "Deep muted slate blue fabric canvas, dual CRT displays, geometric waveform squiggles, bold modern typographic layout.",
+      "recommended_font": "Modern Serif & Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "e0e976224bd37c856c1f1eec56a3928e.jpg",
+      "dimensions": [
+        736,
+        1014
+      ],
+      "aspect_ratio": 0.73,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        98,
+        106,
+        101
+      ],
+      "brightness": 0.4,
+      "is_dark_theme": true,
+      "palette": [
+        "#BCC2B9",
+        "#888F8B",
+        "#383A3B",
+        "#202D28",
+        "#18231E"
+      ],
+      "archetype": "modern_editorial_showcase",
+      "style_name": "Modern Technical Editorial Showcase",
+      "concept": "Studio lighting, clean solid background with crisp grid borders, high-contrast typography, premium product engineering aesthetic.",
+      "recommended_font": "Swiss Geometric Sans",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "filename": "ea23267abb5944ef3ccc876550c03094.jpg",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "aspect_ratio": 0.8,
+      "format": "portrait (4:5)",
+      "average_rgb": [
+        93,
+        134,
+        160
+      ],
+      "brightness": 0.49,
+      "is_dark_theme": false,
+      "palette": [
+        "#9BB2B3",
+        "#5285B1",
+        "#4F81AC",
+        "#4B7CA2",
+        "#456772"
+      ],
+      "archetype": "hardware_macro_engineering",
+      "style_name": "Powder Blue Silicon CPU Macro",
+      "concept": "Macro photography of golden microchip processor pins and silicon die, tactile denim blue textured background, elegant editorial serif typography.",
+      "recommended_font": "High-Contrast Serif Display",
+      "ideal_aspect": [
+        1080,
+        1080
+      ]
+    }
+  ]
+}

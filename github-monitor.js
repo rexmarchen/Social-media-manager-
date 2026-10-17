@@ -155,7 +155,7 @@ function isWithinPostingWindow() {
  * Check if there is a new push on GitHub that hasn't been posted yet.
  * If new and within the allowed 7-8 PM window, posts it automatically!
  */
-async function checkAndAutoPostGitHub(username = GITHUB_USERNAME, minCooldownHours = 12) {
+async function checkAndAutoPostGitHub(username = GITHUB_USERNAME, minCooldownHours = 24) {
   const activity = await getLatestGitHubActivity(username);
   if (!activity) return { status: "no_activity" };
 

@@ -21,3 +21,11 @@ vector-index/
 # OS artifacts
 .DS_Store
 Thumbs.db
+
+# Large repos and heavy test artifacts
+diffusers/
+*.zip
+generated_images/
+drafts/
+test_artifacts/
+

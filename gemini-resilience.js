@@ -16,16 +16,16 @@ try {
   // Gracefully fallback if dotenv is not installed
 }
 
-// Default high-availability model hierarchy
+// Default high-availability model hierarchy (verified live models prioritized)
 const DEFAULT_TEXT_MODELS = [
   process.env.GEMINI_TEXT_MODEL,
-  "gemini-flash-lite-latest",
-  "gemini-3.5-flash",
-  "gemini-3.5-flash-lite",
-  "gemini-3.1-flash-lite",
-  "gemini-flash-latest",
   "gemini-3.6-flash",
+  "gemini-3-flash-preview",
+  "gemini-3.5-flash-lite",
+  "gemini-3.5-flash",
   "gemini-3.8-flash",
+  "gemini-flash-latest",
+  "gemini-flash-lite-latest",
 ].filter(Boolean);
 
 // Cooldown tracker: modelName -> expiration timestamp (ms)

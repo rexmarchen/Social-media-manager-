@@ -1,0 +1,154 @@
+{
+  "brand_name": "Anshu Pal",
+  "handle": "@rexmarchen",
+  "github": "github.com/rexmarchen",
+  "flagship_project": "REXION",
+  "tagline": "AI & Full-Stack Systems",
+  "max_posts_per_day": 1,
+  "require_approval": true,
+  "colors": {
+    "primary": "#00E5FF",
+    "secondary": "#7C4DFF",
+    "background_dark": "#0B0F17",
+    "surface_dark": "#161B22",
+    "card_border": "#30363D",
+    "text_primary": "#F0F6FC",
+    "text_muted": "#8B949E",
+    "accent_success": "#39D353",
+    "accent_warning": "#F5A623"
+  },
+  "typography": {
+    "title_size": 42,
+    "subtitle_size": 22,
+    "tag_size": 18,
+    "font_family": "Arial"
+  },
+  "dimensions": {
+    "linkedin_feed": [
+      1080,
+      1080
+    ],
+    "square": [
+      1080,
+      1080
+    ],
+    "carousel": [
+      1080,
+      1350
+    ],
+    "linkedin_default": [
+      1080,
+      1080
+    ]
+  },
+  "watermark_enabled": true,
+  "qa_thresholds": {
+    "min_width": 1200,
+    "min_height": 627,
+    "min_sharpness": 10.0,
+    "min_contrast": 20.0,
+    "pass_score": 75.0,
+    "max_retries": 2
+  },
+  "presets": {
+    "warm_editorial": {
+      "name": "Warm Editorial Workspace (REXION Signature)",
+      "background": "#F6F2EC",
+      "surface": "#EAE4DC",
+      "text_primary": "#2D241E",
+      "text_muted": "#6E6258",
+      "accent": "#4A3B32",
+      "lighting": "Soft natural daylight with gentle window plant shadows",
+      "scene": "Minimalist oak wooden desk with slim laptop, speckled ceramic coffee mug, and notebook",
+      "typography": "High-contrast editorial serif display headline, clean geometric sans subheads",
+      "layout": "Left editorial copy with circular badge icons, right desk workspace mockup, dark pill CTA button"
+    },
+    "halftone_wireframe": {
+      "name": "Monochrome Halftone & 3D Wireframe",
+      "background": "#0A0A0A",
+      "surface": "#141414",
+      "text_primary": "#FFFFFF",
+      "text_muted": "#888888",
+      "accent": "#F5A623",
+      "lighting": "High-contrast stark monochrome",
+      "scene": "Dual rendering with half halftone bitmap dots and half 3D wireframe polygon mesh",
+      "typography": "Minimalist technical monospace and clean Swiss sans-serif",
+      "layout": "Technical schematic blueprint with coordinate grids and telemetry circles"
+    },
+    "retro_tech": {
+      "name": "Vintage Retro-Computing & Risograph",
+      "background": "#3B5F7F",
+      "surface": "#EAE6DF",
+      "text_primary": "#FAF8F5",
+      "text_muted": "#CBD5E1",
+      "accent": "#F28B82",
+      "lighting": "Matte textured screenprint and CRT tube luminescence",
+      "scene": "Vintage 80s/90s CRT desktop computer with mechanical keyboard and floppy drive",
+      "typography": "Bitmapped pixelated serif display font and clean modernist secondary text",
+      "layout": "Editorial poster composition with subtle paper grain texture and retro stickers"
+    },
+    "minimal_plain": {
+      "name": "Swiss Minimalist Flat Wireframe",
+      "background": "#121417",
+      "surface": "#1A1D24",
+      "text_primary": "#FFFFFF",
+      "text_muted": "#8A9099",
+      "accent": "#00E5FF",
+      "lighting": "Flat matte studio",
+      "scene": "Monochrome architectural node diagrams and clean geometric vectors",
+      "typography": "Clean Swiss sans-serif",
+      "layout": "Flat architectural flow diagram with crisp line borders"
+    },
+    "cobalt_os": {
+      "name": "Cobalt Blue OS & Retro Terminal",
+      "background": "#1A36E8",
+      "surface": "#1225B0",
+      "text_primary": "#FFFFFF",
+      "text_muted": "#A2B4FF",
+      "accent": "#FF4B4B",
+      "lighting": "Vibrant single-ink poster lighting with CRT luminescence",
+      "scene": "Vintage desktop computer terminal with code on CRT screen, 3D wireframe geometric globe",
+      "typography": "Bold condensed grotesque headline, technical monospace system labels",
+      "layout": "Monochromatic high-impact Swiss poster with large title, sidebar explanation, and wireframe sphere"
+    },
+    "mustard_retro": {
+      "name": "Mustard Yellow Retro-Computing Poster",
+      "background": "#E5A922",
+      "surface": "#D49814",
+      "text_primary": "#1A1A1A",
+      "text_muted": "#4A3B18",
+      "accent": "#FFFFFF",
+      "lighting": "Warm uniform matte studio with soft floor shadow",
+      "scene": "Vintage 90s beige personal computer setup centered with keyboard and mouse",
+      "typography": "High-contrast editorial serif quotes and minimal modern captions",
+      "layout": "Spacious minimalist poster layout with generous negative space and centered retro hardware"
+    },
+    "macro_hardware": {
+      "name": "Powder Blue Processor Macro",
+      "background": "#4B6B8A",
+      "surface": "#39526C",
+      "text_primary": "#FFFFFF",
+      "text_muted": "#D0DFEE",
+      "accent": "#F5A623",
+      "lighting": "Cinematic macro photography with glinting gold pins and ceramic reflections",
+      "scene": "Close-up angled macro of a ceramic CPU microprocessor with golden contact pins and silicon die",
+      "typography": "Elegant high-contrast editorial serif title ('Trust the Processor'), technical sub-labels",
+      "layout": "Centered microchip hero photo on textured denim-blue background with editorial typography"
+    },
+    "tactile_notebook": {
+      "name": "Tactile Desk & Study Notebook",
+      "background": "#F2EDE4",
+      "surface": "#E5DCCE",
+      "text_primary": "#1F1B18",
+      "text_muted": "#6E6258",
+      "accent": "#E63946",
+      "lighting": "Warm cozy indoor ambient lighting with bookstore atmosphere",
+      "scene": "Textured spiral-bound notebook on wooden desk with silver paper clip, red A+ stamp, colorful book spines",
+      "typography": "Chunky modern serif or rounded display title, playful candid hand-notated accents",
+      "layout": "Close-up desk arrangement with tangible paper textures and educational layout"
+    }
+  },
+  "trained_model_status": "fully_trained_on_gdrive_dataset",
+  "trained_dataset_count": 60,
+  "default_preset": "cobalt_os"
+}

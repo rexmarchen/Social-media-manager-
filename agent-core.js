@@ -7,6 +7,9 @@
  * many documents you feed it, and only re-embeds what's changed.
  */
 
+const fs = require("fs");
+const path = require("path");
+const { execFile } = require("child_process");
 const { retrieveRelevantChunks } = require("./vector-store");
 const { findRelevantMemories, getRecentMemories, addMemory } = require("./mongo-store");
 const { researchTopicForPost, markRepoAsPosted } = require("./ai-researcher");
@@ -89,7 +92,13 @@ HUMAN WRITING & VOICE GUIDELINES (STRICT):
 3. BANNED AI WORDS (NEVER USE THESE):
    - delve, tapestry, testament, beacon, game-changer, revolutionize, embark, landscape, bespoke, leverage, seamless, transformative, supercharge, dive into, in today's world, thrilled to announce.
 
-Decision: Decide if a simple supporting graphic or diagram meaningfully enhances this post. Only set needs_image to true if visual aid is truly valuable.
+4. VISUAL IMAGE GUIDELINES (TRAINED ON REFERENCE DATASET):
+   - When an image is needed, format as a 1:1 square graphic poster matching one of these trained aesthetic archetypes:
+     * Cobalt Technical OS Poster: Bold cobalt blue canvas (#1A36E8), vintage CRT terminal, 3D wireframe polygon mesh, condensed grotesque Swiss typography.
+     * Mustard Retro-Computing: Warm mustard yellow background (#E5A922), centered vintage 90s beige PC, high-contrast serif quotes.
+     * Silicon Macro Engineering: Macro photo of golden microchip CPU pins on powder blue textured canvas, editorial serif headline ('Trust the Processor' style).
+     * Tactile Desk Study Guide: Warm bookstore desk flatlay, textured spiral notebook, brass paper clip, red A+ stamp.
+   - Do NOT use generic cartoon 3D or neon gradient buzzwords. Keep compositions clean, matte, and tactile.
 
 Respond with ONLY valid JSON in this exact structure:
 {
@@ -97,7 +106,7 @@ Respond with ONLY valid JSON in this exact structure:
   "primary_keyword": "<primary technical keyword>",
   "skills_demonstrated": ["<skill1>", "<skill2>"],
   "needs_image": false,
-  "image_prompt": ""
+  "image_prompt": "<detailed 1:1 square prompt following the trained visual aesthetic>"
 }`;
 
 const { callGeminiResilient } = require("./gemini-resilience");
@@ -122,9 +131,73 @@ const { callGeminiResilient } = require("./gemini-resilience");
   throw new Error("Invalid or truncated post_text received from model.");
 }
 
-async function generateImage(imagePrompt) {
+async function generateReferencePoster(topic, imagePrompt) {
+  return new Promise((resolve) => {
+    const outFilename = `poster_${Date.now()}.jpg`;
+    const cleanTopic = (topic || "System Architecture 2026").replace(/["\\]/g, "");
+
+    // Dynamically choose archetype based on topic keywords or rotate across all 3
+    const archetypes = ["cutting_mat_stack", "mustard_retro_poster", "cobalt_blueprint"];
+    let archetype = archetypes[Date.now() % archetypes.length];
+    const lower = cleanTopic.toLowerCase();
+    if (lower.includes("blueprint") || lower.includes("terminal") || lower.includes("cobalt")) {
+      archetype = "cobalt_blueprint";
+    } else if (lower.includes("retro") || lower.includes("mustard") || lower.includes("vintage")) {
+      archetype = "mustard_retro_poster";
+    } else if (lower.includes("grind") || lower.includes("paper") || lower.includes("stack") || lower.includes("mat")) {
+      archetype = "cutting_mat_stack";
+    }
+
+    const args = [
+      "-m",
+      "agent_skills.reference_poster_engine",
+      "--archetype",
+      archetype,
+      "--title",
+      cleanTopic,
+      "--tag",
+      "ENGINEERING ARCHITECTURE",
+      "--subtitle",
+      "Autonomous systems, deterministic pipelines, and modern full-stack workflows.",
+      "--out-file",
+      outFilename,
+    ];
+
+    execFile("python", args, { cwd: __dirname, timeout: 20000 }, (error) => {
+      if (error) {
+        console.warn("[Agent Core] Reference poster engine notice:", error.message);
+        return resolve(null);
+      }
+      const fullPath = path.join(__dirname, "generated_images", outFilename);
+      if (fs.existsSync(fullPath)) {
+        try {
+          const buf = fs.readFileSync(fullPath);
+          if (isValidImageBuffer(buf)) {
+            console.log(`[Agent Core] Synthesized authentic graphic poster via ReferencePosterEngine (${archetype}): ${fullPath}`);
+            return resolve(buf);
+          }
+        } catch (readErr) {
+          console.warn("[Agent Core] Error reading generated poster:", readErr.message);
+        }
+      }
+      resolve(null);
+    });
+  });
+}
+
+async function generateImage(imagePrompt, topic = null) {
   if (!imagePrompt || !imagePrompt.trim()) {
     throw new Error("Empty image prompt provided.");
+  }
+
+  // Tier 0: Authentic Graphic Design Reference Poster Engine (Matching reference dataset)
+  try {
+    const posterBuffer = await generateReferencePoster(topic || imagePrompt, imagePrompt);
+    if (posterBuffer) {
+      return posterBuffer;
+    }
+  } catch (posterErr) {
+    console.warn("[Agent Core] Reference poster engine notice:", posterErr.message);
   }
 
   const configuredImageModel = process.env.GEMINI_IMAGE_MODEL || "gemini-3.1-flash-image";
@@ -199,6 +272,22 @@ async function generateImage(imagePrompt) {
       lastErr = err;
     }
   }
+
+  // Tier 2 Fallback: High-Definition Graphic Design synthesis (matching brand palette)
+  try {
+    const encoded = encodeURIComponent(`rexstyle, ${imagePrompt}, graphic design poster, tactile editorial minimalism, cutting mat, typography, retro computing, muted clean colors, authentic physical print`);
+    const fallbackUrl = `https://image.pollinations.ai/prompt/${encoded}?width=1080&height=1350&nologo=true`;
+    const res = await fetch(fallbackUrl);
+    if (res.ok) {
+      const buf = Buffer.from(await res.arrayBuffer());
+      if (isValidImageBuffer(buf)) {
+        return buf;
+      }
+    }
+  } catch (fallbackErr) {
+    console.warn("[Agent Core] High-res visual fallback error:", fallbackErr.message);
+  }
+
   throw lastErr || new Error("All image candidate models failed.");
 }
 
@@ -258,23 +347,22 @@ async function uploadImageToLinkedIn(imageBuffer) {
 }
 
 /**
- * Sanitize and escape commentary text for LinkedIn's Little Text Format parser.
- * Prevents abrupt truncation caused by unescaped control characters
- * such as (, ), [, ], {, }, |, <, >, and code backticks.
+ * Sanitize commentary text for LinkedIn's REST Posts API.
+ * Cleans markdown code fences, backticks, and normalizes line breaks
+ * without inserting literal backslashes into standard English punctuation.
  */
 function sanitizeLinkedInCommentary(text) {
   if (!text || typeof text !== "string") return "";
 
-  // 1. Strip markdown code backticks (e.g. `mini-project.py` -> mini-project.py)
+  // 1. Strip markdown code fences and backticks cleanly
   let cleaned = text
+    .replace(/```[a-zA-Z0-9_-]*\n?/g, "")
+    .replace(/```/g, "")
     .replace(/`([^`\n]+)`/g, "$1")
-    .replace(/```[\s\S]*?```/g, (m) => m.replace(/```/g, ""))
     .replace(/`/g, "");
 
-  // 2. Escape reserved LinkedIn control characters that trigger silent truncation:
-  // Little Text reserved: ( ) [ ] { } < > |
-  cleaned = cleaned.replace(/\\/g, "\\\\");
-  cleaned = cleaned.replace(/([()[\]{}<>|])/g, "\\$1");
+  // 2. Normalize Windows/Unix line endings and avoid excessive blank lines (> 2 newlines)
+  cleaned = cleaned.replace(/\r\n/g, "\n").replace(/\n{3,}/g, "\n\n");
 
   return cleaned.trim();
 }
@@ -320,7 +408,7 @@ async function runAgentForTopic(topic) {
   let imageUrn = null;
   if (needs_image && image_prompt) {
     try {
-      const imageBuffer = await generateImage(image_prompt);
+      const imageBuffer = await generateImage(image_prompt, topic);
       imageUrn = await uploadImageToLinkedIn(imageBuffer);
     } catch (imgErr) {
       console.warn("Optional image generation skipped:", imgErr.message);
@@ -351,7 +439,7 @@ async function generateAutonomousPost(targetRepoName = null) {
   if (needs_image && image_prompt) {
     console.log(`[Autonomous Agent] Generating unique visual graphic for this topic...`);
     try {
-      const imageBuffer = await generateImage(image_prompt);
+      const imageBuffer = await generateImage(image_prompt, promptTopic);
       imageUrn = await uploadImageToLinkedIn(imageBuffer);
       console.log(`[Autonomous Agent] Custom image uploaded to LinkedIn. URN: ${imageUrn}`);
     } catch (imgErr) {
