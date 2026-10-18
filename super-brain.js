@@ -244,12 +244,16 @@ async function runSuperBrainDailyCycle(forcePost = false) {
 
     const researchResult = await autoHealAndExecute("Deep Tech Portfolio Research", async () => {
       const research = await researchTopicForPost();
-      await addMemory(
-        `Deep research completed on ${research.repoName}: ${research.topicTitle}. Key architecture: ${research.technicalAngle}. Context: ${research.ragContext.slice(0, 300)}`,
-        "deep_research",
-        `research:${research.repoName}`,
-        { repoName: research.repoName, topicTitle: research.topicTitle }
-      );
+      try {
+        await addMemory(
+          `Deep research completed on ${research.repoName}: ${research.topicTitle}. Key architecture: ${research.technicalAngle}. Context: ${research.ragContext.slice(0, 300)}`,
+          "deep_research",
+          `research:${research.repoName}`,
+          { repoName: research.repoName, topicTitle: research.topicTitle }
+        );
+      } catch (memErr) {
+        console.warn("[Super Brain] Cloud memory persistence notice:", memErr.message);
+      }
       return research;
     });
 

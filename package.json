@@ -13,7 +13,12 @@
     "brain:force": "node super-brain.js --force",
     "jobs": "node job-monitor.js",
     "jobs:dry": "node job-monitor.js --dry-run",
-    "jobs:test-email": "node job-monitor.js --test-email"
+    "jobs:test-email": "node job-monitor.js --test-email",
+    "bot:start": "pm2 start server.js --name linkedin-agent",
+    "bot:status": "pm2 status",
+    "bot:logs": "pm2 logs linkedin-agent --lines 50",
+    "bot:stop": "pm2 stop linkedin-agent",
+    "bot:restart": "pm2 restart linkedin-agent"
   },
   "keywords": [
     "linkedin",
@@ -33,6 +38,7 @@
     "node-cron": "^3.0.3",
     "nodemailer": "^10.0.10",
     "pdf-parse": "^1.1.1",
+    "pm2": "^7.0.4",
     "vectra": "^0.9.0"
   }
 }

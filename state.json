@@ -2,17 +2,18 @@
   "lastIndex": -1,
   "scheduleEnabled": true,
   "_id": "bot_state",
-  "lastPostedAt": "2026-10-17T15:38:51.430Z",
+  "lastPostedAt": "2026-10-18T15:08:05.604Z",
   "lastPostedGitHubCommit": "196ac3f",
   "lastPostedGitHubEventId": "21021909193",
-  "updatedAt": "2026-10-17T15:38:51.430Z",
+  "updatedAt": "2026-10-18T15:08:05.649Z",
   "lastTestedAt": "2026-09-18T21:12:51.990Z",
   "testPing": true,
-  "lastPostedRepo": "Portfolio",
+  "lastPostedRepo": "resturent-",
   "recentlyPostedRepos": [
     "Portfolio",
     "resturant-app-second-",
     "student-managment-system-"
   ],
-  "lastPostedTopic": "Building a 'No-DB' CMS: Managing dynamic portfolio state with TypeScript and JSON exports"
+  "lastPostedTopic": "Type-safe AI integration: Handling unstructured Gemini responses in a TypeScript restaurant app",
+  "lastPostedDateIST": "2026-10-18"
 }
