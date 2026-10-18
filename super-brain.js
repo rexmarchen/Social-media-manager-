@@ -293,6 +293,7 @@ async function runSuperBrainDailyCycle(forcePost = false) {
     lastPostedAt: new Date(),
     lastPostedRepo: publishResult.repoName,
     lastPostedTopic: publishResult.topicTitle,
+    lastPostCategory: publishResult.category || "project",
     lastPostedDateIST: todayIST,
   };
   await saveState(stateUpdate);

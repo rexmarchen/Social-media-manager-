@@ -439,7 +439,9 @@ async function generateAutonomousPost(targetRepoName = null) {
   const research = await researchTopicForPost(targetRepoName);
   console.log(`[Autonomous Agent] Researched project "${research.repoName}": ${research.topicTitle}`);
 
-  const promptTopic = `${research.topicTitle} (${research.repoName} in ${research.language})`;
+  const promptTopic = research.category === "tech_research"
+    ? `${research.topicTitle} (Deep Technical Insight & Systems Architecture)`
+    : `${research.topicTitle} (${research.repoName} in ${research.language})`;
   const { post_text, needs_image, image_prompt } = await generatePost(promptTopic, research.ragContext);
 
   let imageUrn = null;
@@ -459,7 +461,9 @@ async function generateAutonomousPost(targetRepoName = null) {
   const postId = await publishPost(post_text, imageUrn);
 
   // Mark repository as posted to ensure rotation across all projects
-  await markRepoAsPosted(research.repoName);
+  if (research.category === "project") {
+    await markRepoAsPosted(research.repoName);
+  }
 
   // Save to MongoDB memories
   try {
@@ -467,7 +471,7 @@ async function generateAutonomousPost(targetRepoName = null) {
       `LinkedIn post published about ${research.repoName} (${research.topicTitle}): ${post_text}`,
       "published_post",
       `linkedin:${research.repoKey}`,
-      { repoName: research.repoName, topic: research.topicTitle, postId }
+      { repoName: research.repoName, topic: research.topicTitle, category: research.category, postId }
     );
   } catch (err) {
     console.warn("Could not save published post memory:", err.message);
@@ -479,6 +483,7 @@ async function generateAutonomousPost(targetRepoName = null) {
     hadImage: Boolean(imageUrn),
     repoName: research.repoName,
     topicTitle: research.topicTitle,
+    category: research.category,
   };
 }
 

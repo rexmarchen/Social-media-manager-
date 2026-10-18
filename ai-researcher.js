@@ -112,16 +112,136 @@ async function pickRepositoryToResearch(explicitRepoName = null) {
 }
 
 /**
- * Autonomous Research Step:
- * 1. Takes the chosen repository
- * 2. Uses Gemini to brainstorm an authentic, engaging technical post angle
- * 3. Retrieves RAG chunks from MongoDB vector store for that angle
+/**
+ * Autonomous Research for Cutting-Edge Tech & Architecture Topics:
+ * Explores software engineering, database internals, AI systems, and concurrency.
  */
-async function researchTopicForPost(targetRepoName = null) {
+async function researchTechTopic() {
+  const fs = require("fs");
+  const path = require("path");
+
+  let topicsList = [];
+  try {
+    const topicsPath = path.join(__dirname, "topics.json");
+    if (fs.existsSync(topicsPath)) {
+      topicsList = JSON.parse(fs.readFileSync(topicsPath, "utf8"));
+    }
+  } catch {}
+
+  let notesContext = "";
+  try {
+    const notesPath = path.join(__dirname, "knowledge_base", "notes.md");
+    if (fs.existsSync(notesPath)) {
+      notesContext = fs.readFileSync(notesPath, "utf8");
+    }
+  } catch {}
+
+  const state = await loadState({ recentTechTopics: [] });
+  const recentTopics = state.recentTechTopics || [];
+
+  const techPrompt = `You are the technical AI brain of Anshu Pal, a computer science student and software systems engineer.
+Generate an authentic, cutting-edge technical post topic focused on deep software engineering, system design, or AI architecture.
+
+SEED TOPICS & INSPIRATION:
+${topicsList.map((t) => `- ${t}`).join("\n")}
+
+AUTHOR'S ENGINEERING BACKGROUND & NOTES:
+${notesContext}
+
+RECENTLY COVERED TOPICS (AVOID REPEATING THESE):
+${recentTopics.slice(0, 5).map((t) => `- ${t}`).join("\n")}
+
+CORE THEMES TO EXPLORE:
+- Database internals & query latency (e.g. MongoDB compound indexes, execution plans, B-trees)
+- Systems design & caching (e.g. Redis caching layers, measuring p95/p99 latency)
+- Asynchronous concurrency & runtime edge cases (e.g. Node.js event loop, race conditions)
+- Modern AI & LLM engineering (e.g. deterministic RAG pipelines, type-safe schema validation)
+- Real-world DSA in production code (e.g. hash maps, two-pointer search optimization)
+- Security & auth architecture (e.g. JWT vs secure HTTP-only cookies, token rotation)
+
+Choose a fresh, authentic engineering angle that sounds like a developer sharing hard-earned technical wisdom.
+Respond with ONLY valid JSON in this exact shape:
+{
+  "topic_title": "<concise title, e.g. 'MongoDB compound indexes vs single-field indexes in high-throughput query pipelines'>",
+  "technical_angle": "<1-2 sentences summarizing the core technical insight, benchmark, or trade-off>",
+  "search_query": "<keywords to query vector database for supporting context>"
+}`;
+
+  console.log("[AI Researcher] Synthesizing cutting-edge tech research angle...");
+  const idea = await callGeminiText(techPrompt);
+
+  const searchQuery = idea.search_query || idea.topic_title;
+  const ragParts = [];
+
+  try {
+    const memories = await findRelevantMemories(searchQuery, 4);
+    for (const m of memories) {
+      if (m.score > 0.35) {
+        ragParts.push(`- [Memory (${m.type})]: ${m.content}`);
+      }
+    }
+  } catch (ragErr) {
+    console.warn("[AI Researcher] Memory retrieval notice:", ragErr.message);
+  }
+
+  try {
+    const localChunks = await retrieveRelevantChunks(searchQuery, 3);
+    for (const c of localChunks) {
+      ragParts.push(`- [Document Chunk from ${c.source}]: ${c.text}`);
+    }
+  } catch {}
+
+  if (ragParts.length === 0 && notesContext) {
+    ragParts.push(`- [Author Engineering Context]: ${notesContext}`);
+  }
+
+  return {
+    category: "tech_research",
+    repoName: "System Architecture & CS",
+    repoKey: "rexmarchen/engineering-research",
+    repoUrl: "https://github.com/rexmarchen",
+    language: "Systems & Architecture",
+    topicTitle: idea.topic_title,
+    technicalAngle: idea.technical_angle,
+    ragContext: ragParts.join("\n"),
+  };
+}
+
+/**
+ * Autonomous Research Step:
+ * Intelligently balances between:
+ * 1. Project Architecture Deep-Dives (hands-on code from user's GitHub repos)
+ * 2. Cutting-Edge Tech Research (system design, databases, AI pipelines, concurrency)
+ */
+async function researchTopicForPost(targetParam = null) {
+  const isExplicitTech = targetParam && ["tech", "research", "architecture", "cs"].includes(targetParam.toLowerCase());
+
+  if (isExplicitTech) {
+    return await researchTechTopic();
+  }
+
+  if (targetParam) {
+    // Explicit project requested
+    return await researchProjectTopic(targetParam);
+  }
+
+  // Autonomous mode: check last category to alternate between projects and tech research
+  const state = await loadState({ lastPostCategory: "project" });
+  const lastCategory = state.lastPostCategory || "project";
+
+  if (lastCategory === "project") {
+    console.log("[AI Researcher] Smart rotation active: Previous post was a Project. Selected mode: CUTTING-EDGE TECH RESEARCH.");
+    return await researchTechTopic();
+  } else {
+    console.log("[AI Researcher] Smart rotation active: Previous post was Tech Research. Selected mode: PROJECT ARCHITECTURE DEEP-DIVE.");
+    return await researchProjectTopic();
+  }
+}
+
+async function researchProjectTopic(targetRepoName = null) {
   const repo = await pickRepositoryToResearch(targetRepoName);
   const db = await getDb();
 
-  // Fetch the full stored memory for this repo to understand its README & details
   const repoMemory = await db.collection("memories").findOne({
     type: "github",
     "metadata.repoName": repo.name,
@@ -157,7 +277,6 @@ Respond with ONLY valid JSON in this exact shape:
   console.log(`[AI Researcher] Brainstorming technical angle for project: ${repo.name}...`);
   const idea = await callGeminiText(ideationPrompt);
 
-  // Retrieve RAG context using semantic search
   const searchQuery = idea.search_query || idea.topic_title || repo.name;
   console.log(`[AI Researcher] Retrieving RAG context for query: "${searchQuery}"...`);
 
@@ -173,7 +292,6 @@ Respond with ONLY valid JSON in this exact shape:
     console.warn("[AI Researcher] Memory retrieval warning:", ragErr.message);
   }
 
-  // Also query local chunks if any exist
   try {
     const localChunks = await retrieveRelevantChunks(searchQuery, 3);
     for (const c of localChunks) {
@@ -181,12 +299,12 @@ Respond with ONLY valid JSON in this exact shape:
     }
   } catch {}
 
-  // If semantic search was sparse, include the repo's own technical memory
   if (ragParts.length === 0 && repoMemory) {
     ragParts.push(`- [Repository Profile]: ${repoMemory.content}`);
   }
 
   return {
+    category: "project",
     repoName: repo.name,
     repoKey: repo.repoKey,
     repoUrl: repo.url || repo.repoUrl || `https://github.com/rexmarchen/${repo.name}`,
@@ -219,5 +337,7 @@ module.exports = {
   getAllRepositories,
   pickRepositoryToResearch,
   researchTopicForPost,
+  researchTechTopic,
+  researchProjectTopic,
   markRepoAsPosted,
 };
