@@ -51,7 +51,7 @@ jobs:
           TELEGRAM_OWNER_ID: ${{ secrets.TELEGRAM_OWNER_ID }}
           GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME || 'rexmarchen' }}
           POST_FREQUENCY: ${{ secrets.POST_FREQUENCY || 'daily' }}
-          MIN_POST_GAP_HOURS: ${{ secrets.MIN_POST_GAP_HOURS || '14' }}
+          MIN_POST_GAP_HOURS: ${{ secrets.MIN_POST_GAP_HOURS || '12' }}
         run: node super-brain.js ${{ github.event.inputs.force == 'true' && '--force' || '' }}
 
       - name: Commit updated state

@@ -214,7 +214,9 @@ async function runSuperBrainDailyCycle(forcePost = false) {
   const todayIST = getISTDateString(now);
   const lastPostedIST = getISTDateString(lastPosted);
   const alreadyPostedToday = lastPosted > 0 && todayIST === lastPostedIST;
-  const cooldownMinHours = parseFloat(process.env.MIN_POST_GAP_HOURS || "14");
+  const cooldownMinHours = postFrequency === "daily"
+    ? Math.min(parseFloat(process.env.MIN_POST_GAP_HOURS || "12"), 12)
+    : parseFloat(process.env.MIN_POST_GAP_HOURS || "36");
   const inCooldown = elapsedHours < cooldownMinHours;
 
   let isGapActive = false;

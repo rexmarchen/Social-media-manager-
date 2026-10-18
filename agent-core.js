@@ -163,25 +163,32 @@ async function generateReferencePoster(topic, imagePrompt) {
       outFilename,
     ];
 
-    execFile("python", args, { cwd: __dirname, timeout: 20000 }, (error) => {
-      if (error) {
-        console.warn("[Agent Core] Reference poster engine notice:", error.message);
-        return resolve(null);
-      }
-      const fullPath = path.join(__dirname, "generated_images", outFilename);
-      if (fs.existsSync(fullPath)) {
-        try {
-          const buf = fs.readFileSync(fullPath);
-          if (isValidImageBuffer(buf)) {
-            console.log(`[Agent Core] Synthesized authentic graphic poster via ReferencePosterEngine (${archetype}): ${fullPath}`);
-            return resolve(buf);
+    const tryRunPython = (binName) => {
+      execFile(binName, args, { cwd: __dirname, timeout: 20000 }, (error) => {
+        if (error) {
+          if (binName === "python" && error.code === "ENOENT") {
+            return tryRunPython("python3");
           }
-        } catch (readErr) {
-          console.warn("[Agent Core] Error reading generated poster:", readErr.message);
+          console.warn("[Agent Core] Reference poster engine notice:", error.message);
+          return resolve(null);
         }
-      }
-      resolve(null);
-    });
+        const fullPath = path.join(__dirname, "generated_images", outFilename);
+        if (fs.existsSync(fullPath)) {
+          try {
+            const buf = fs.readFileSync(fullPath);
+            if (isValidImageBuffer(buf)) {
+              console.log(`[Agent Core] Synthesized authentic graphic poster via ReferencePosterEngine (${archetype}): ${fullPath}`);
+              return resolve(buf);
+            }
+          } catch (readErr) {
+            console.warn("[Agent Core] Error reading generated poster:", readErr.message);
+          }
+        }
+        resolve(null);
+      });
+    };
+
+    tryRunPython(process.env.PYTHON_BIN || "python");
   });
 }
 

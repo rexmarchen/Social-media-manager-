@@ -33,13 +33,13 @@ def get_font(size: int, bold: bool = False, serif: bool = False, mono: bool = Fa
     """Loads system fonts on Windows/Linux or falls back gracefully."""
     candidates = []
     if mono:
-        candidates = ["consola.ttf", "consolab.ttf" if bold else "consola.ttf", "cour.ttf", "courbd.ttf"]
+        candidates = ["consola.ttf", "consolab.ttf" if bold else "consola.ttf", "cour.ttf", "courbd.ttf", "DejaVuSansMono.ttf", "DejaVuSansMono-Bold.ttf" if bold else "DejaVuSansMono.ttf"]
     elif serif:
-        candidates = ["georgia.ttf", "georgiab.ttf" if bold else "georgia.ttf", "times.ttf", "timesbd.ttf"]
+        candidates = ["georgia.ttf", "georgiab.ttf" if bold else "georgia.ttf", "times.ttf", "timesbd.ttf", "DejaVuSerif.ttf", "DejaVuSerif-Bold.ttf" if bold else "DejaVuSerif.ttf"]
     elif bold:
-        candidates = ["impact.ttf", "arialbd.ttf", "segoeuib.ttf", "trebucbd.ttf", "arial.ttf"]
+        candidates = ["impact.ttf", "arialbd.ttf", "segoeuib.ttf", "trebucbd.ttf", "arial.ttf", "DejaVuSans-Bold.ttf", "LiberationSans-Bold.ttf"]
     else:
-        candidates = ["arial.ttf", "segoeui.ttf", "calibri.ttf"]
+        candidates = ["arial.ttf", "segoeui.ttf", "calibri.ttf", "DejaVuSans.ttf", "LiberationSans-Regular.ttf"]
 
     for name in candidates:
         try:
