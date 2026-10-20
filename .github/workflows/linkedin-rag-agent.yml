@@ -52,7 +52,7 @@ jobs:
           GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME || 'rexmarchen' }}
           POST_FREQUENCY: ${{ secrets.POST_FREQUENCY || 'daily' }}
           MIN_POST_GAP_HOURS: ${{ secrets.MIN_POST_GAP_HOURS || '12' }}
-        run: node super-brain.js ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+        run: node super-brain.js --force
 
       - name: Commit updated state
         run: |
