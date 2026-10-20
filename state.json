@@ -1,21 +1,3 @@
 {
-  "lastIndex": -1,
-  "scheduleEnabled": true,
-  "_id": "bot_state",
-  "lastPostedAt": "2026-10-18T15:08:05.604Z",
-  "lastPostedGitHubCommit": "196ac3f",
-  "lastPostedGitHubEventId": "21021909193",
-  "updatedAt": "2026-10-18T15:08:05.604Z",
-  "lastTestedAt": "2026-09-18T21:12:51.990Z",
-  "testPing": true,
-  "lastPostedRepo": "resturent-",
-  "recentlyPostedRepos": [
-    "resturent-",
-    "Portfolio",
-    "resturant-app-second-",
-    "student-managment-system-"
-  ],
-  "lastPostedTopic": "Type-safe AI integration: Handling unstructured Gemini responses in a TypeScript restaurant app",
-  "lastPostedDateIST": "2026-10-18",
-  "lastPostCategory": "project"
+  "lastIndex": 0
 }

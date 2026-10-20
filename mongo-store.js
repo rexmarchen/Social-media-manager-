@@ -114,10 +114,11 @@ async function findRelevantMemories(queryText, topK = 4) {
 /**
  * Persistent state in MongoDB (replaces local state.json)
  */
-async function loadState(fallback = { lastIndex: -1, scheduleEnabled: true }) {
+async function loadState(fallback = { lastIndex: -1, scheduleEnabled: true }, userId = null) {
   try {
     const db = await getDb();
-    const doc = await db.collection("state").findOne({ _id: "bot_state" });
+    const stateId = (userId && userId !== 1 && userId !== "1") ? `bot_state_${userId}` : "bot_state";
+    const doc = await db.collection("state").findOne({ _id: stateId });
     if (doc) {
       return {
         ...fallback,
@@ -132,11 +133,11 @@ async function loadState(fallback = { lastIndex: -1, scheduleEnabled: true }) {
   return fallback;
 }
 
-async function saveState(updates) {
+async function saveState(updates, userId = null) {
   try {
     const db = await getDb();
     await db.collection("state").updateOne(
-      { _id: "bot_state" },
+      { _id: (userId && userId !== 1 && userId !== "1") ? `bot_state_${userId}` : "bot_state" },
       { $set: { ...updates, updatedAt: new Date() } },
       { upsert: true }
     );

@@ -69,9 +69,21 @@ function isValidImageBuffer(buffer) {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function generatePost(topic, context) {
-  const prompt = `You are Anshu Pal, a B.Tech student in Artificial Intelligence and Machine Learning at CGC University, learning full-stack development and building real-world projects.
-Your main flagship project is REXION — an AI-powered web platform focused on simplifying job discovery and application workflows.
+async function generatePost(topic, context, options = {}) {
+  const isOwner = Boolean(options.isOwner || (!options.authorName && (options.userId == 1 || options.userId === '1')));
+  const authorName = options.authorName || (isOwner ? "Anshu Pal" : "Software Engineer");
+
+  let personaContext = "";
+  if (isOwner) {
+    personaContext = `You are Anshu Pal, a Software Engineer in AI/ML and Full-Stack development building real-world platforms including REXION (an AI-powered career OS).`;
+  } else {
+    personaContext = `You are ${authorName}, an experienced Software Engineer and technology practitioner writing for your professional LinkedIn network.
+CRITICAL IDENTITY RULES (MANDATORY):
+- This is ${authorName}'s personal LinkedIn profile.
+- NEVER mention Anshu Pal, CGC University, or any external student coursework (such as library or student management systems).
+- Ground your post in real-world software engineering, architecture trade-offs, scalability, and practical technical lessons.`;
+  }
+  const prompt = `${personaContext}
 
 TOPIC: ${topic}
 
@@ -298,7 +310,18 @@ async function generateImage(imagePrompt, topic = null) {
   throw lastErr || new Error("All image candidate models failed.");
 }
 
-async function getAuthorUrn() {
+async function getAuthorUrn(overrideToken = null, overrideUrn = null) {
+  if (overrideUrn && String(overrideUrn).trim()) {
+    const trimmed = String(overrideUrn).trim();
+    return trimmed.startsWith("urn:li:person:") ? trimmed : ("urn:li:person:" + trimmed);
+  }
+  const token = overrideToken || process.env.LINKEDIN_ACCESS_TOKEN;
+  if (!overrideToken) {
+    let urn = (process.env.LINKEDIN_PERSON_URN || "").trim();
+    if (urn) {
+      return urn.startsWith("urn:li:person:") ? urn : ("urn:li:person:" + urn);
+    }
+  }
   let urn = (process.env.LINKEDIN_PERSON_URN || "").trim();
   if (urn) {
     return urn.startsWith("urn:li:person:") ? urn : `urn:li:person:${urn}`;
@@ -317,13 +340,13 @@ async function getAuthorUrn() {
   return `urn:li:person:${data.sub}`;
 }
 
-async function uploadImageToLinkedIn(imageBuffer) {
+async function uploadImageToLinkedIn(imageBuffer, options = {}) {
+  const accessToken = options.accessToken || process.env.LINKEDIN_ACCESS_TOKEN;
+  const authorUrn = await getAuthorUrn(options.accessToken, options.authorUrn);
   if (!isValidImageBuffer(imageBuffer)) {
     throw new Error("Cannot upload invalid or empty image buffer to LinkedIn.");
   }
 
-  const authorUrn = await getAuthorUrn();
-  const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
 
   const initResponse = await fetch(
     "https://api.linkedin.com/rest/images?action=initializeUpload",
@@ -374,9 +397,9 @@ function sanitizeLinkedInCommentary(text) {
   return cleaned.trim();
 }
 
-async function publishPost(text, imageUrn) {
-  const authorUrn = await getAuthorUrn();
-  const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
+async function publishPost(text, imageUrn, options = {}) {
+  const accessToken = options.accessToken || process.env.LINKEDIN_ACCESS_TOKEN;
+  const authorUrn = options.authorUrn ? (options.authorUrn.startsWith("urn:li:person:") ? options.authorUrn : ("urn:li:person:" + options.authorUrn)) : await getAuthorUrn(options.accessToken, options.authorUrn);
 
   const sanitizedCommentary = sanitizeLinkedInCommentary(text);
 
@@ -408,7 +431,7 @@ async function publishPost(text, imageUrn) {
   return response.headers.get("x-restli-id");
 }
 
-async function runAgentForTopic(topic) {
+async function runAgentForTopic(topic, options = {}) {
   const context = await retrieveContext(topic);
   const { post_text, needs_image, image_prompt } = await generatePost(topic, context);
 
@@ -416,13 +439,13 @@ async function runAgentForTopic(topic) {
   if (needs_image && image_prompt) {
     try {
       const imageBuffer = await generateImage(image_prompt, topic);
-      imageUrn = await uploadImageToLinkedIn(imageBuffer);
+      imageUrn = await uploadImageToLinkedIn(imageBuffer, options);
     } catch (imgErr) {
       console.warn("Optional image generation skipped:", imgErr.message);
     }
   }
 
-  const postId = await publishPost(post_text, imageUrn);
+  const postId = await publishPost(post_text, imageUrn, options);
 
   return { postId, postText: post_text, hadImage: Boolean(imageUrn) };
 }
@@ -435,21 +458,33 @@ async function runAgentForTopic(topic) {
  * 4. Image handling: NO static banner photos. Only generates a custom image if AI truly requests visual aid.
  * 5. Publishes to LinkedIn and updates MongoDB state to avoid repeating the same repo.
  */
-async function generateAutonomousPost(targetRepoName = null) {
-  const research = await researchTopicForPost(targetRepoName);
+async function generateAutonomousPost(targetRepoName = null, options = {}) {
+  let research = null;
+  if (options.topic && options.topic.trim()) {
+    console.log(`[Autonomous Agent] Utilizing configured user topic for ${options.authorName || 'user'}: "${options.topic}"`);
+    research = {
+      repoName: "System Architecture",
+      topicTitle: options.topic.trim(),
+      language: "Architecture",
+      ragContext: "",
+      category: "tech_research"
+    };
+  } else {
+    research = await researchTopicForPost(targetRepoName, options);
+  }
   console.log(`[Autonomous Agent] Researched project "${research.repoName}": ${research.topicTitle}`);
 
   const promptTopic = research.category === "tech_research"
     ? `${research.topicTitle} (Deep Technical Insight & Systems Architecture)`
     : `${research.topicTitle} (${research.repoName} in ${research.language})`;
-  const { post_text, needs_image, image_prompt } = await generatePost(promptTopic, research.ragContext);
+  const { post_text, needs_image, image_prompt } = await generatePost(promptTopic, research.ragContext, options);
 
   let imageUrn = null;
   if (needs_image && image_prompt) {
     console.log(`[Autonomous Agent] Generating unique visual graphic for this topic...`);
     try {
       const imageBuffer = await generateImage(image_prompt, promptTopic);
-      imageUrn = await uploadImageToLinkedIn(imageBuffer);
+      imageUrn = await uploadImageToLinkedIn(imageBuffer, options);
       console.log(`[Autonomous Agent] Custom image uploaded to LinkedIn. URN: ${imageUrn}`);
     } catch (imgErr) {
       console.warn("[Autonomous Agent] Optional image generation skipped:", imgErr.message);
@@ -458,7 +493,7 @@ async function generateAutonomousPost(targetRepoName = null) {
     console.log(`[Autonomous Agent] Clean text post selected (no unnecessary photos attached).`);
   }
 
-  const postId = await publishPost(post_text, imageUrn);
+  const postId = await publishPost(post_text, imageUrn, options);
 
   // Mark repository as posted to ensure rotation across all projects
   if (research.category === "project") {

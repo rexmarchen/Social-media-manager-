@@ -1,0 +1,306 @@
+[
+  {
+    "post_id": "mem-20261015-222126",
+    "created_at": "2026-10-15T22:21:26.972125",
+    "topic": "MongoDB Compound Indexes in REXION",
+    "category": "Software Engineering",
+    "hook": "Optimizing database performance is a continuous journey. Lately, I've been diving into MongoDB compound indexes in REXION. Understanding how to structure multi-field indexes properly can make a massive difference when querying complex datasets efficiently. ",
+    "caption_snippet": "Optimizing database performance is a continuous journey. Lately, I've been diving into MongoDB compound indexes in REXION. Understanding how to struct...",
+    "image_prompt": "A clean, modern graphic showing a stylized MongoDB database node connected to a compound index schema diagram on a dark blue background.",
+    "visual_brief": {
+      "style_category": "Modern 3D Technical Infographic",
+      "dominant_colors": [
+        "#00E5FF",
+        "#7C4DFF",
+        "#0B0F17"
+      ],
+      "lighting_style": "Dark mode with cyan glow",
+      "contrast_level": "High",
+      "composition": "Balanced",
+      "subject_placement": "Focal center",
+      "aspect_ratio": "1.91:1",
+      "width": 1200,
+      "height": 627,
+      "recommended_prompt_modifiers": "A clean, modern graphic showing a stylized MongoDB database node connected to a compound index schema diagram on a dark blue background.",
+      "preserve_subject": false,
+      "reference_id": "none",
+      "extra_notes": []
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261015-222126.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261015-222256",
+    "created_at": "2026-10-15T22:22:56.563750",
+    "topic": "MongoDB Compound Indexes in REXION",
+    "category": "Software Engineering",
+    "hook": "Optimizing database performance is a constant learning curve, especially when scaling data architectures. Lately, I've been diving deep into MongoDB compound indexes within REXION to better understand how multiple fields work together to speed up query execution.",
+    "caption_snippet": "Optimizing database performance is a constant learning curve, especially when scaling data architectures. Lately, I've been diving deep into MongoDB c...",
+    "image_prompt": "A clean, minimalist workspace showing a laptop screen with a MongoDB query performance graph and code editor open.",
+    "visual_brief": {
+      "style_category": "Modern 3D Technical Infographic",
+      "dominant_colors": [
+        "#00E5FF",
+        "#7C4DFF",
+        "#0B0F17"
+      ],
+      "lighting_style": "Dark mode with cyan glow",
+      "contrast_level": "High",
+      "composition": "Balanced",
+      "subject_placement": "Focal center",
+      "aspect_ratio": "1.91:1",
+      "width": 1200,
+      "height": 627,
+      "recommended_prompt_modifiers": "A clean, minimalist workspace showing a laptop screen with a MongoDB query performance graph and code editor open.",
+      "preserve_subject": false,
+      "reference_id": "none",
+      "extra_notes": []
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261015-222256.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261015-222354",
+    "created_at": "2026-10-15T22:23:54.262611",
+    "topic": "Redis Caching vs MongoDB Queries",
+    "category": "Software Engineering",
+    "hook": "When building high-performance applications, choosing where to fetch your data matters immensely. Should you rely on direct MongoDB queries or implement a Redis caching layer?",
+    "caption_snippet": "When building high-performance applications, choosing where to fetch your data matters immensely. Should you rely on direct MongoDB queries or impleme...",
+    "image_prompt": "A clean, minimalist diagram comparing Redis in-memory storage with MongoDB database queries, using professional tech blue and green accent colors.",
+    "visual_brief": {},
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\comparison-20261015-222354.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261015-230420",
+    "created_at": "2026-10-15T23:04:20.614193",
+    "topic": "Operating Systems & Low-Level Memory Management",
+    "category": "Software Engineering",
+    "hook": "There is something uniquely fascinating about peeling back the abstraction layers and looking at how operating systems actually manage memory. When you spend time studying low-level memory management, you gain a whole new appreciation for how software interacts with hardware.",
+    "caption_snippet": "There is something uniquely fascinating about peeling back the abstraction layers and looking at how operating systems actually manage memory. When yo...",
+    "image_prompt": "A clean, minimalist desk setup featuring a laptop displaying a terminal with C code or a memory architecture diagram, alongside a notebook with handwritten notes on operating systems.",
+    "visual_brief": {
+      "preset": "cobalt_os",
+      "style_label": "Cobalt Blue OS & Retro Terminal"
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261015-230420.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261015-231500",
+    "created_at": "2026-10-15T23:15:00.243517",
+    "topic": "Why Low-Level Code Makes You a Better Engineer",
+    "category": "Software Engineering",
+    "hook": "Writing low-level code fundamentally changes how you think about software engineering. When you strip away the frameworks and abstractions, you are forced to confront the actual machine beneath your programs.",
+    "caption_snippet": "Writing low-level code fundamentally changes how you think about software engineering. When you strip away the frameworks and abstractions, you are fo...",
+    "image_prompt": "A minimalist, clean graphic showing the contrast between a high-level software abstraction layer and bare-metal low-level code, styled with a modern dark mode developer aesthetic.",
+    "visual_brief": {
+      "preset": "mustard_retro",
+      "style_label": "Mustard Yellow Retro-Computing Poster"
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261015-231500.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261015-231956",
+    "created_at": "2026-10-15T23:19:56.345277",
+    "topic": "REXION Architecture: Scaling Real-Time Job Ingestion",
+    "category": "Software Engineering",
+    "hook": "How do you scale real-time job ingestion without breaking your pipeline?",
+    "caption_snippet": "How do you scale real-time job ingestion without breaking your pipeline?\n\nLately, I've been thinking a lot about the REXION Architecture and what it t...",
+    "image_prompt": "A clean, minimalist white-board diagram showing data flow nodes for a real-time ingestion pipeline, professional tech aesthetic.",
+    "visual_brief": {
+      "preset": "cobalt_os",
+      "style_label": "Cobalt Blue OS & Retro Terminal"
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261015-231956.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261015-232040",
+    "created_at": "2026-10-15T23:20:40.845811",
+    "topic": "How REXION Scores Job Fit: Reverse-Engineering ATS Algorithms",
+    "category": "Software Engineering",
+    "hook": "Ever wonder why your resume vanishes into the black hole of an Applicant Tracking System?",
+    "caption_snippet": "Ever wonder why your resume vanishes into the black hole of an Applicant Tracking System?\n\nIt comes down to algorithms. Most ATS platforms don't just ...",
+    "image_prompt": "A clean, modern graphic showing a split screen: one side displaying a standard resume and the other showing a digital algorithm score breakdown with data charts, professional tech aesthetic.",
+    "visual_brief": {
+      "preset": "tactile_notebook",
+      "style_label": "Tactile Desk & Study Notebook"
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261015-232040.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261015-232113",
+    "created_at": "2026-10-15T23:21:13.530632",
+    "topic": "Trust the Pipeline: Low-Latency Deduplication in REXION",
+    "category": "Software Engineering",
+    "hook": "When building high-performance systems, handling redundant data efficiently without creating bottlenecks is always a key engineering challenge.",
+    "caption_snippet": "When building high-performance systems, handling redundant data efficiently without creating bottlenecks is always a key engineering challenge.\n\nThat ...",
+    "image_prompt": "A clean, professional diagram illustration showing a data pipeline with a deduplication node processing data streams with low latency.",
+    "visual_brief": {
+      "preset": "macro_hardware",
+      "style_label": "Powder Blue Processor Macro"
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261015-232113.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261015-232222",
+    "created_at": "2026-10-15T23:22:22.381513",
+    "topic": "Why We Built REXION: Reimagining Job Discovery for Engineers",
+    "category": "Software Engineering",
+    "hook": "Traditional job discovery for engineers often feels broken, which is why we built REXION: Reimagining Job Discovery for Engineers. Engineers deserve a better way to find roles that genuinely match their skills, interests, and career goals without wading through endless noise and irrelevant listings.",
+    "caption_snippet": "Traditional job discovery for engineers often feels broken, which is why we built REXION: Reimagining Job Discovery for Engineers. Engineers deserve a...",
+    "image_prompt": "A clean, professional graphic featuring the text 'Why We Built REXION: Reimagining Job Discovery for Engineers' on a modern dark blue background with subtle geometric engineering motifs.",
+    "visual_brief": {
+      "preset": "mustard_retro",
+      "style_label": "Mustard Yellow Retro-Computing Poster"
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261015-232222.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261016-203545",
+    "created_at": "2026-10-16T20:35:45.011810",
+    "topic": "REXION Architecture: How I designed the job matching pipeline to filter noise for candidates",
+    "category": "Software Engineering",
+    "hook": "Job searching often feels like shouting into a void of irrelevant listings and endless noise.",
+    "caption_snippet": "Job searching often feels like shouting into a void of irrelevant listings and endless noise.\n\nThat exact frustration is why I designed the REXION arc...",
+    "image_prompt": "A clean, modern architectural diagram on a dark background showing data flowing through a job matching pipeline, highlighting filtering and precision stages.",
+    "visual_brief": {
+      "preset": "cobalt_os",
+      "style_label": "Cobalt Blue OS & Retro Terminal"
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261016-203544.jpg",
+    "qa_score": 100.0,
+    "status": "draft",
+    "performance_metrics": {}
+  },
+  {
+    "post_id": "mem-20261016-203727",
+    "created_at": "2026-10-16T20:37:27.782254",
+    "topic": "REXION Architecture: How I designed the job matching pipeline to filter noise for candidates",
+    "category": "Software Engineering",
+    "hook": "Job searching often feels like shouting into a void of irrelevant postings and algorithmic noise. That is why I designed the REXION Architecture—a job matching pipeline focused entirely on filtering out the noise for candidates.",
+    "caption_snippet": "Job searching often feels like shouting into a void of irrelevant postings and algorithmic noise. That is why I designed the REXION Architecture—a job...",
+    "image_prompt": "A clean, minimalist system architecture diagram showing a data pipeline labeled REXION, filtering messy incoming job data into clean, targeted candidate matches.",
+    "visual_brief": {
+      "preset": "cobalt_os",
+      "style_label": "Cobalt Blue OS & Retro Terminal"
+    },
+    "reference_id": "none",
+    "model_settings": {
+      "model": "flux-synthesis",
+      "dimensions": [
+        1200,
+        627
+      ]
+    },
+    "output_asset_path": "C:\\Users\\anshupal\\OneDrive\\Documents\\linkdin automation\\generated_images\\final-20261016-203727.jpg",
+    "qa_score": 100.0,
+    "status": "published",
+    "performance_metrics": {},
+    "linkedin_post_urn": "urn:li:share:7516877487046414336",
+    "published_at": "2026-10-16T20:37:31.884775"
+  }
+]

@@ -116,7 +116,9 @@ async function pickRepositoryToResearch(explicitRepoName = null) {
  * Autonomous Research for Cutting-Edge Tech & Architecture Topics:
  * Explores software engineering, database internals, AI systems, and concurrency.
  */
-async function researchTechTopic() {
+async function researchTechTopic(options = {}) {
+  const isOwner = Boolean(options.isOwner || (!options.authorName && (options.userId == 1 || options.userId === '1')));
+  const authorName = options.authorName || (isOwner ? "Anshu Pal" : "Software Engineer");
   const fs = require("fs");
   const path = require("path");
 
@@ -139,8 +141,12 @@ async function researchTechTopic() {
   const state = await loadState({ recentTechTopics: [] });
   const recentTopics = state.recentTechTopics || [];
 
-  const techPrompt = `You are the technical AI brain of Anshu Pal, a computer science student and software systems engineer.
-Generate an authentic, cutting-edge technical post topic focused on deep software engineering, system design, or AI architecture.
+  const personaPrompt = isOwner
+    ? "You are the technical AI brain of Anshu Pal, a software systems engineer and builder."
+    : `You are the technical AI brain of ${authorName}, an experienced Senior Software Engineer and systems architect.\nCRITICAL IDENTITY RULE: This is ${authorName}'s personal LinkedIn account. NEVER mention Anshu Pal, CGC University, or unrelated student projects (like library or student management systems).`;
+
+  const techPrompt = `${personaPrompt}
+Generate an authentic, cutting-edge technical post topic focused on deep software engineering, system design, or distributed systems architecture.
 
 SEED TOPICS & INSPIRATION:
 ${topicsList.map((t) => `- ${t}`).join("\n")}
@@ -213,11 +219,32 @@ Respond with ONLY valid JSON in this exact shape:
  * 1. Project Architecture Deep-Dives (hands-on code from user's GitHub repos)
  * 2. Cutting-Edge Tech Research (system design, databases, AI pipelines, concurrency)
  */
-async function researchTopicForPost(targetParam = null) {
+async function researchTopicForPost(targetParam = null, options = {}) {
+  const isOwner = Boolean(options.isOwner || (!options.authorName && (options.userId == 1 || options.userId === '1')));
+
+  // 1. If explicit user topic provided, use it directly
+  if (options.topic && options.topic.trim()) {
+    return {
+      category: "tech_research",
+      repoName: "System Architecture",
+      repoKey: "architecture/engineering",
+      repoUrl: "",
+      language: "System Design",
+      topicTitle: options.topic.trim(),
+      technicalAngle: options.topic.trim(),
+      ragContext: "",
+    };
+  }
+
+  // 2. If NOT owner (e.g. any new user like Apurav Sharma), NEVER feature owner's personal student repos!
+  // Always provide authentic industry-grade technical engineering topics!
+  if (!isOwner) {
+    return await researchTechTopic(options);
+  }
   const isExplicitTech = targetParam && ["tech", "research", "architecture", "cs"].includes(targetParam.toLowerCase());
 
   if (isExplicitTech) {
-    return await researchTechTopic();
+    return await researchTechTopic(options);
   }
 
   if (targetParam) {

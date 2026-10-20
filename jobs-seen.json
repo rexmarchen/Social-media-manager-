@@ -1054,5 +1054,6485 @@
     "title": "Platform Engineer",
     "company": "Leidos Australia",
     "seenAt": "2026-10-14T18:31:22.094Z"
+  },
+  {
+    "id": "4479821038",
+    "title": "Web Developer Internship (Unpaid)(Remote)",
+    "company": "BasketHunt Pvt Ltd",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479676732",
+    "title": "AI Intern",
+    "company": "Innovfix Pvt. Ltd.",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479682717",
+    "title": "Machine Learning Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480837779",
+    "title": "Machine Learning Intern",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480847445",
+    "title": "Machine Learning Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480841664",
+    "title": "Machine Learning Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4454314689",
+    "title": "AI Engineering Intern",
+    "company": "Crowe",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4454569547",
+    "title": "AI & Robotics Intern",
+    "company": "Trench Group",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472069407",
+    "title": "Data & AI Intern",
+    "company": "Copart",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470190672",
+    "title": "Summer 2027 Internship in AI/Machine Learning and Computer Vision - Secret Clearance Required",
+    "company": "Expedition Technology",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4416715734",
+    "title": "Machine Learning Engineer Intern",
+    "company": "Neuralink",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470193563",
+    "title": "Machine Learning Intern (Masters) - Summer 2027",
+    "company": "DoorDash",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470186728",
+    "title": "Machine Learning Intern (Masters) - Summer 2027",
+    "company": "DoorDash",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470192577",
+    "title": "Machine Learning Intern (Masters) - Summer 2027",
+    "company": "DoorDash",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4454870350",
+    "title": "Machine Learning Intern",
+    "company": "Crowe",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4454868335",
+    "title": "Machine Learning Intern",
+    "company": "Crowe",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479692440",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "UM IT Solutions",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480840619",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "Devryxa",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480829426",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "WebBoost Solutions by UM",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479663952",
+    "title": "Python AI Intern",
+    "company": "techolution",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472070630",
+    "title": "Intern Software Developer - Java",
+    "company": "Motorola Solutions",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477776933",
+    "title": "Frontend Developer Intern",
+    "company": "Developer Bazaar Technologies",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480838210",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "Webs IT Solution",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479688427",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "UM IT Solutions",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479678772",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480828730",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480828711",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Devryxa",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480833612",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480823657",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Devryxa",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479687117",
+    "title": "Software Developer Intern",
+    "company": "Company Avenue Advisory Pvt.Ltd.",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480837348",
+    "title": "MERN STACK DEVELOPMENT INTERN",
+    "company": "Webs IT Solution",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479689381",
+    "title": "MEAN STACK DEVELOPMENT INTERN",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480850347",
+    "title": "Web Development Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479670892",
+    "title": "Artificial Intelligence Intern",
+    "company": "D2N Solutions",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479680813",
+    "title": "Artificial Intelligence Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480834273",
+    "title": "Data Science Intern",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480845184",
+    "title": "Data Science Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472081272",
+    "title": "Software Engineer Intern - Summer 2027",
+    "company": "Motorola Solutions",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470751661",
+    "title": "Software Developer Co-op - Hyperconverged Solutions (Winter Term - January - April 2027)",
+    "company": "Ross Video",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4463348035",
+    "title": "2027 Summer Intern: Software Engineer",
+    "company": "Spectrum",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4462361373",
+    "title": "Software Engineering Intern - Connected Systems (January - August 2027)",
+    "company": "Rivian and Volkswagen Group Technologies",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4463346079",
+    "title": "2027 Summer Intern: Software Engineer",
+    "company": "Spectrum",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4463145050",
+    "title": "Software Engineer Intern - Summer 2027",
+    "company": "McKesson",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4462353620",
+    "title": "Software Engineer Intern, BCI Applications",
+    "company": "Neuralink",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470092490",
+    "title": "Intern, Software Development Engineer [PSET - Product Data - Document Management]",
+    "company": "Autodesk",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4462368531",
+    "title": "Software Engineer Intern, BCI Applications",
+    "company": "Neuralink",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4463398644",
+    "title": "Intern - Front End Developer (Computer Science, Web Development, or Information Sciences Majors)",
+    "company": "Simon Property Group",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470185831",
+    "title": "Back End Developer Intern 2027 - Tucson",
+    "company": "IBM",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472219668",
+    "title": "Intern Developer, Back End Technologies",
+    "company": "Kinaxis",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470316912",
+    "title": "Gen AI -Software Engineer II",
+    "company": "Deloitte",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479674972",
+    "title": "Data Scientist",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470166659",
+    "title": "Senior Devops Engineer-AWS & AI tool",
+    "company": "UST",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472204970",
+    "title": "Software Development Engineer, Consumer Domains",
+    "company": "Audible",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479679981",
+    "title": "Senior Full Stack Engineer (MERN/ Python)",
+    "company": "Codewinglet Private Limited",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479687119",
+    "title": "Python Developer",
+    "company": "Inventam Tech Solution PVT. LTD",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477796121",
+    "title": "Senior Software Developer – Java Full stack (Java + Angular + OracleDB)",
+    "company": "Siemens",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4434639696",
+    "title": "Software Engineer - Backend Services",
+    "company": "Truveta",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4444732591",
+    "title": "Senior Software Engineer - Java API developer",
+    "company": "PubMatic",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477790420",
+    "title": "Java Software Engineer",
+    "company": "Garmin Hyderabad",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4448747440",
+    "title": "Software Developer - Python, Hyderabad",
+    "company": "Schrödinger",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472095352",
+    "title": "Senior Software Engineer-Java Fullstack",
+    "company": "Wells Fargo",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470188052",
+    "title": "Software Engineer (Core Java , Microservices)",
+    "company": "Mobility Global",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479689065",
+    "title": "NODEJS DEVELOPER (EXP 2 – 4 YEARS)",
+    "company": "Betasoft Solutions Pvt. Ltd.",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4478200040",
+    "title": "Backend Engineer - Node JS",
+    "company": "NonStop io Technologies",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4414777081",
+    "title": "Node.js Developer (5–10 Years of Hands-on Experience in Node.js, TypeScript, Data Migration, and Messaging Systems such as Kafka, SQS, RabbitMQ, or similar)",
+    "company": "Stellantis",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479687834",
+    "title": "Backend Engineer (Remote - India)",
+    "company": "LocalOps Inc",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479695296",
+    "title": "Backend Engineer – AI/LLM Applications (AWS) USA",
+    "company": "COSENTUS",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479693135",
+    "title": "Node.js & QA Automation Engineer - Corporate Banking",
+    "company": "TruTalent.ai",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480830415",
+    "title": "Backend Engineer",
+    "company": "Flexiple",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479667837",
+    "title": "Python Developer",
+    "company": "Training Basket",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4471019344",
+    "title": "Senior Python Engineer",
+    "company": "Citi",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477797153",
+    "title": "Software Engineer - Backend Focus",
+    "company": "Gitforce",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479675489",
+    "title": "Senior Backend Developer | Onsite",
+    "company": "SRM Technologies",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477782480",
+    "title": "Sr. Software Engineer - Python Job",
+    "company": "YASH Technologies Middle East",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4463614188",
+    "title": "Lead, Tech (Python Infra)",
+    "company": "D. E. Shaw India Private Limited",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479696257",
+    "title": "Python Developer",
+    "company": "Rackloom",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470185424",
+    "title": "Software Engineer II (Python + AWS)",
+    "company": "FactSet",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4243677076",
+    "title": "Développeur Fullstack Java Confirmé (JS) H/F",
+    "company": "Extia",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470548078",
+    "title": "Senior Software Engineer (Java Backend)",
+    "company": "Walmart Global Tech",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4207823512",
+    "title": "Software Engineer III - Backend Engineering - Java/Kotlin",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4427177307",
+    "title": "Senior Software Engineer (Java Microservices, BSS/CPQ)",
+    "company": "Singtel",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4225731965",
+    "title": "Software Engineer III - Backend Engineer - Chase UK",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470790002",
+    "title": "Senior Backend Engineer (Node.js / MongoDB)",
+    "company": "Planet",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4405576040",
+    "title": "Backend Software Engineer",
+    "company": "ASSA ABLOY Group",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477780726",
+    "title": "Senior Node.js Developer (f/m/x)",
+    "company": "Sii Poland",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480828356",
+    "title": "Senior Backend Engineer (Node.js)",
+    "company": "Caisse Manager",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477779053",
+    "title": "Backend Developer Node.js (Portugal, remote)",
+    "company": "Zero to One Search | Recruitment Agency",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477775727",
+    "title": "Senior Software Engineer (Backend)",
+    "company": "Closr",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470187852",
+    "title": "Senior Software Engineer - Backend",
+    "company": "ARIVE",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479900129",
+    "title": "Python Engineer",
+    "company": "Citi",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479698174",
+    "title": "Python Developer",
+    "company": "Citi",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4212805345",
+    "title": "Software Engineering - Sr Python Developer",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470702307",
+    "title": "Engenheiro de Software Sr. (Python)",
+    "company": "PagBank",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480830369",
+    "title": "Python Developer",
+    "company": "Illumen Group, Inc.",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4458257777",
+    "title": "Backend Software Engineer II – AWS & Data Platforms",
+    "company": "LPL Financial",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479112348",
+    "title": "Backend Engineer Python | LegalTech | Paris | 65 / 72k | CDI | Remote hybride",
+    "company": "URBAN LINKER",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4461972086",
+    "title": "DevOps PaaS - Sr. Technology Engineer",
+    "company": "Synechron",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4466679652",
+    "title": "Devops Engineer- INDIA",
+    "company": "BMC Helix",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4434611893",
+    "title": "Cloud DevOps Engineer",
+    "company": "Tarana Wireless",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4462378090",
+    "title": "Senior Azure DevOps Engineer",
+    "company": "Sonatype",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470748699",
+    "title": "Azure DevOps",
+    "company": "Infosys",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479695093",
+    "title": "Aws Devops Engineer",
+    "company": "TruTalent.ai",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480816718",
+    "title": "DevOps Engineer",
+    "company": "Hireologist",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479695397",
+    "title": "Senior DevOps Engineer",
+    "company": "Pravar AI",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472019757",
+    "title": "Azure DevOps Engineer",
+    "company": "Arcadis",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470196570",
+    "title": "Senior DevOps Engineer",
+    "company": "HUB24 Limited",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4450466244",
+    "title": "Cloud Senior DevOps Engineer",
+    "company": "Bitdeer (NASDAQ: BTDR)",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4450456278",
+    "title": "Cloud Senior DevOps Engineer",
+    "company": "Bitdeer (NASDAQ: BTDR)",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4407590770",
+    "title": "Agentic Azure DevOps Engineer - Remote - Colombia",
+    "company": "FullStack",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4407587771",
+    "title": "Agentic Azure DevOps Engineer - Remote - Colombia",
+    "company": "FullStack",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4270259912",
+    "title": "Senior Cloud Engineer (US)",
+    "company": "BlinkRx",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4444285235",
+    "title": "DevOps Engineer",
+    "company": "Analog",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4454350776",
+    "title": "Cloud DevOps Engineer, Senior",
+    "company": "Booz Allen Hamilton",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479684746",
+    "title": "Frontend Developer",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479677870",
+    "title": "Frontend Developer",
+    "company": "Nexal IIT",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479677063",
+    "title": "Frontend Developer",
+    "company": "Zetheta Algorithms Private Limited",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470176339",
+    "title": "Lead I - Software Engineering-Nest.js and Node.js and react",
+    "company": "UST",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477772525",
+    "title": "Software Engineer - Frontend Focus",
+    "company": "Gitforce",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4463390485",
+    "title": "Software Engineer - 6+yrs - React.js/Angular/Java",
+    "company": "Cisco",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4468608643",
+    "title": "Junior Golang Developer with React",
+    "company": "NCR Voyix",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479685601",
+    "title": "Full-Stack Developer (React + Node.js/TypeScript) · Scale-up alemana de software de sostenibilidad | Madrid (Híbrido) | 60–80 K€",
+    "company": "Joppy",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4463630502",
+    "title": "Desenvolvedor Front-end React Sênior",
+    "company": "Stefanini Brasil",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4195258183",
+    "title": "Software Engineer, Frontend",
+    "company": "Glean",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480837246",
+    "title": "Software Engineer (Frontend)",
+    "company": "Polygon Technology",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472062216",
+    "title": "Senior Software Engineer – Front-End",
+    "company": "Speechmatics",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470726560",
+    "title": "Senior Frontend Engineer, Discovery UX",
+    "company": "Roblox",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472055384",
+    "title": "Senior Software Engineer – Front-End",
+    "company": "Speechmatics",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479685681",
+    "title": "Frontend Developer",
+    "company": "Gakk Media Limited",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4406424543",
+    "title": "Senior Web Engineer – Frontend (React/Next.js)",
+    "company": "Gen",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4443418065",
+    "title": "Senior Frontend Engineer (React)",
+    "company": "Medal",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480823799",
+    "title": "Junior Full Stack Engineer",
+    "company": "ServQual - Security",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479661831",
+    "title": "Full Stack Engineer",
+    "company": "Zetheta Algorithms Private Limited",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479688492",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477354806",
+    "title": "Full Stack Engineer",
+    "company": "Mvaak",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477760961",
+    "title": "Agentic Full Stack Engineer",
+    "company": "InCommon",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4443984676",
+    "title": "Full Stack Engineer – .NET/C#, Angular, SQL, Cloud",
+    "company": "LPL Financial Global Capability Center",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479678370",
+    "title": "Full Stack Developer",
+    "company": "Inventam Tech Solution PVT. LTD",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470144790",
+    "title": ".NET Full Stack Developer",
+    "company": "Concentrix",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479680665",
+    "title": "Full Stack Developer",
+    "company": "Citi",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479686234",
+    "title": "Senior Full Stack Engineer",
+    "company": "Persistent Systems",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4427196667",
+    "title": "Senior Full Stack Developer - Sitecore",
+    "company": "TeamViewer",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479668596",
+    "title": "Senior Full Stack Developer",
+    "company": "Siemens Energy",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4454836319",
+    "title": "Full-Stack Engineer, Enterprise Scale",
+    "company": "Scribe",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4480843545",
+    "title": "Desenvolvedor Full Stack TMS",
+    "company": "Jobbol",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479663540",
+    "title": "Full Stack Engineer",
+    "company": "iCode Tech",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4454396726",
+    "title": "Senior Fullstack Engineer (Creative & Asset Library)",
+    "company": "Smartly",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479681663",
+    "title": "Full Stack Developer (Spring Boot + Angular) | Infraestructura de mercados financieros | Madrid (Híbrido)",
+    "company": "Joppy",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479681753",
+    "title": "Back End Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479684739",
+    "title": "Back End Developer",
+    "company": "Nexal IIT",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479663865",
+    "title": "Application Developer",
+    "company": "AbsoluteHub",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477761988",
+    "title": "Software Engineer",
+    "company": "Planfirma",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4477786234",
+    "title": "Software Engineer",
+    "company": "Virtusa",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4462835523",
+    "title": "Software Engineer",
+    "company": "Cohere Health",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479691359",
+    "title": "Senior Software Engineer",
+    "company": "Kumaran Systems",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4462816114",
+    "title": "Senior Software Engineer",
+    "company": "ServiceTitan",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4470195226",
+    "title": "Senior Engineer I, Software Development - Insight",
+    "company": "NETGEAR",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479686113",
+    "title": "Custom Software Engineer",
+    "company": "Accenture services Pvt Ltd",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479674976",
+    "title": "Artificial Intelligence Engineer",
+    "company": "internmo",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4400874414",
+    "title": "Software Developer",
+    "company": "Fidelity Canada",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4460720768",
+    "title": "Software Engineer",
+    "company": "Sony Interactive Entertainment",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4452388555",
+    "title": "Staff CIAM Software Engineer",
+    "company": "Affirm",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4479683118",
+    "title": "Software Development Engineer II",
+    "company": "Expedia Group",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4472225059",
+    "title": "Front End / UI Engineer, Associate",
+    "company": "DWS Group",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4435400517",
+    "title": "Software Developer II",
+    "company": "Jeppesen ForeFlight",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4461919799",
+    "title": "Infrastructure Developer, Platform Engineering",
+    "company": "MaintainX",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4461930164",
+    "title": "Infrastructure Developer, Platform Engineering",
+    "company": "MaintainX",
+    "seenAt": "2026-10-17T18:31:01.934Z"
+  },
+  {
+    "id": "4478235165",
+    "title": "MernStack Developer Intern (UnPaid)",
+    "company": "EventsBridge",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480905215",
+    "title": "Machine Learning Intern",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479945001",
+    "title": "Machine Learning Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480885868",
+    "title": "Machine Learning Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480884950",
+    "title": "Machine Learning Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480889868",
+    "title": "Intern- Digital Health, AI & MedTech",
+    "company": "PATH",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4461412334",
+    "title": "Software Engineering Intern - Applications, Infotainment & Mobile (January - August 2027)",
+    "company": "Rivian and Volkswagen Group Technologies",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4454557773",
+    "title": "AI & ML Developer Intern",
+    "company": "Trench Group",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4454559685",
+    "title": "AI & ML Intern – Applied Sciences",
+    "company": "Trench Group",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480891095",
+    "title": "Trainee AI Engineer (m/w/d)",
+    "company": "statworx",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479920193",
+    "title": "AI/ML Internship: Self-Improving AI Agents for Cybersecurity, SEAR",
+    "company": "Apple",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4454874266",
+    "title": "Machine Learning Intern",
+    "company": "Crowe",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4454868334",
+    "title": "Machine Learning Intern",
+    "company": "Crowe",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479928672",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "UM IT Solutions",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480899821",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "WebBoost Solutions by UM",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479936372",
+    "title": "AI DATABASE & BACKEND SYSTEMS DEVELOPER INTERN",
+    "company": "Interact Health PRO",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480904587",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "Webs IT Solution",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479934444",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "UM IT Solutions",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479938408",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480912145",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Devryxa",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480903811",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480874811",
+    "title": "Frontend Development Intern",
+    "company": "NovaEdge Digital Labs",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480891726",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480904540",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480891731",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Devryxa",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4472291504",
+    "title": "Internship – Full-stack Software Engineer",
+    "company": "Hitachi Energy",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4444476352",
+    "title": "Full-Stack Software Development Intern",
+    "company": "Covestro",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480896500",
+    "title": "MERN STACK DEVELOPMENT INTERN",
+    "company": "Webs IT Solution",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479915482",
+    "title": "LARAVEL DEVELOPER INTERN",
+    "company": "Winggo Soft",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479937199",
+    "title": "MEAN STACK DEVELOPMENT INTERN",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479933309",
+    "title": "MERN STACK DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480906088",
+    "title": "Web Development Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479941091",
+    "title": "Artificial Intelligence Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480901365",
+    "title": "Data Science Intern",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480886901",
+    "title": "Data Science Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480900140",
+    "title": "Data Science Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478224275",
+    "title": "Software Engineering Intern",
+    "company": "Bessemer Trust",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4462350505",
+    "title": "Software Engineering Intern - Connected Systems (January - August 2027)",
+    "company": "Rivian and Volkswagen Group Technologies",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4462369488",
+    "title": "Software Engineer Intern, BCI Applications",
+    "company": "Neuralink",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4463664998",
+    "title": "Software Engineer Intern - Automotive OEM",
+    "company": "Garmin",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4463603697",
+    "title": "Software Engineer Intern - Aviation Web Development",
+    "company": "Garmin",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4462342718",
+    "title": "Software Development Intern-RR",
+    "company": "HDR",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480903449",
+    "title": "Data Science INTERN",
+    "company": "Microsoft",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4448230866",
+    "title": "Senior Software Engineer (AI / LLM)",
+    "company": "Cvent",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478226082",
+    "title": "AI - Software Engineering",
+    "company": "Antal International",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479928627",
+    "title": "Data Scientist",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4371255690",
+    "title": "[AI Research Div.] Research Engineer - Vision Language Action Game Agent (2년 이상 / 인턴)",
+    "company": "KRAFTON Inc.",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480885366",
+    "title": "AI Agent 应用开发实习生（车载 Agent 方向）",
+    "company": "Neusoft Reach",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4436996438",
+    "title": "Senior Java Developer",
+    "company": "Cognologix Technologies",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4454582094",
+    "title": "Z2_Python Developer",
+    "company": "NTT DATA North America",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479922139",
+    "title": "Expert Engineer-Node.JS and MySQL",
+    "company": "TalentMicro",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480891720",
+    "title": "Backend Engineer",
+    "company": "Flexiple",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4477010308",
+    "title": "Backend Engineer",
+    "company": "NymbleUp",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479933416",
+    "title": "Python Backend Developer – Distributed & Event-Driven Systems",
+    "company": "techolution",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4463609258",
+    "title": "Lead, Tech (Python Infra)",
+    "company": "D. E. Shaw India Private Limited",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479690506",
+    "title": "Python AI Engineer",
+    "company": "techolution",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4408556567",
+    "title": "Lead Python Engineer",
+    "company": "Ciklum India",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4477795976",
+    "title": "实习Java web研发工程师",
+    "company": "广州丰石科技有限公司",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4444208039",
+    "title": "Software Engineer II - Java, AWS",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4443948088",
+    "title": "Senior Backend Software Engineer - GM Energy",
+    "company": "General Motors",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4436371317",
+    "title": "Senior Software Engineer, Java",
+    "company": "CLEAR",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4454553466",
+    "title": "AWS Software Engineer III-Full Stack/Java/Spring Boot",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4416365897",
+    "title": "Senior Software Engineer- Backend",
+    "company": "Walmart Global Tech",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4444969249",
+    "title": "Senior Backend Engineer (Golang) - BeReal",
+    "company": "BeReal.",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478212469",
+    "title": "Backend Developer Node.js (Portugal, remote)",
+    "company": "Zero to One Search | Recruitment Agency",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478204800",
+    "title": "Senior Backend Engineer",
+    "company": "Xpend",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479947009",
+    "title": "Fullstack Javascript Developer (Shift Rotation)",
+    "company": "CLT ODC",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479921356",
+    "title": "Backend Engineer",
+    "company": "Unico Connect",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4306210395",
+    "title": "Banco de Talentos | Desenvolvedor Backend Sênior (PHP/Node)",
+    "company": "FCamara",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480882665",
+    "title": "Backend Engineer",
+    "company": "Netrolynx AI",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478207267",
+    "title": "Backend Engineer_Fully Remote",
+    "company": "BLOOMTECH, Inc",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4454812137",
+    "title": "Python Developer III",
+    "company": "Bank of America",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4433241984",
+    "title": "Développeur Python Senior / AWS",
+    "company": "eXalt",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480875538",
+    "title": "(Senior) Python Software Engineer (M/W/D)",
+    "company": "Techify",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4454099846",
+    "title": "Python Software Engineer III",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480879498",
+    "title": "Senior Backend Engineer (Python / FastAPI)",
+    "company": "Careerowl.in",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479945012",
+    "title": "Python Developer",
+    "company": "HiredBuddy",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4386217331",
+    "title": "Software Engineer (Python/PL-SQL)",
+    "company": "Scotiabank",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480894914",
+    "title": "Python Developer",
+    "company": "S M Software Solutions Inc",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480871799",
+    "title": "Senior Software Engineer | Golang, Microservices, Cloud | 7 to 11 Years | Bangalore",
+    "company": "Cisco",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4426940119",
+    "title": "Senior Azure DevOps & Platform Engineer (6 to 8 Years)",
+    "company": "Fractal",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4436197883",
+    "title": "Cloud Platforms Infrastructure Engineer",
+    "company": "Guidehouse",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480872601",
+    "title": "Senior DevOps Tooling Engineer / Platform Engineer",
+    "company": "Innova ESI",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4450499432",
+    "title": "Lead II - DevOps Engineering",
+    "company": "UST",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480906133",
+    "title": "DevOps Engineer Thursday Drive",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4472291486",
+    "title": "Senior Consultant - DevOps",
+    "company": "Value Creed",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4432384915",
+    "title": "Ingénieur Devops/Cloud - F/H",
+    "company": "Niji",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4385087465",
+    "title": "Senior DevOps Engineer - Digital Health Excellence Center (w/m/d)",
+    "company": "EY",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480893878",
+    "title": "Senior DevOps Engineer",
+    "company": "HealthVerity",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4407593446",
+    "title": "Agentic Azure DevOps Engineer - Remote - Colombia",
+    "company": "FullStack",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4463780031",
+    "title": "Senior DevOps Engineer",
+    "company": "SimCorp",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4407584793",
+    "title": "Agentic Azure DevOps Engineer - Remote - Colombia",
+    "company": "FullStack",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4444960842",
+    "title": "DevOps Engineer, Senior",
+    "company": "Booz Allen Hamilton",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4441838876",
+    "title": "DevOps Cloud Engineer",
+    "company": "BAE Systems, Inc.",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479928480",
+    "title": "Senior DevOps Engineer",
+    "company": "Ericsson",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479937433",
+    "title": "Frontend Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479926689",
+    "title": "Frontend Developer",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479929177",
+    "title": "Frontend Developer",
+    "company": "Zetheta Algorithms Private Limited",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479944063",
+    "title": "Frontend Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479906925",
+    "title": "Frontend Developer (React)",
+    "company": "Unico Connect",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4477015085",
+    "title": "Frontend Engineer",
+    "company": "NymbleUp",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479920378",
+    "title": "Senior Frontend Developer (React)",
+    "company": "Unico Connect",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479906920",
+    "title": "Frontend Developer",
+    "company": "Data Eminence",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4374946439",
+    "title": "React Native Developer",
+    "company": "Skild AI",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479910817",
+    "title": "Frontend Developer",
+    "company": "India's Future Investors - Money Entertainment Reality Show",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479913421",
+    "title": "AI-Driven Python / FastAPI / React Developer",
+    "company": "Quick Code Pty Ltd",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479917509",
+    "title": "Full-Stack Developer (React + Node.js/TypeScript) | Scale-up | 60–80 K€",
+    "company": "Joppy",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4451747893",
+    "title": "Fullstack Developer (Python/React)",
+    "company": "Filed",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478206352",
+    "title": "Full-Stack Developer (Laravel 12 / Vue 3)",
+    "company": "Illuminos Solutions",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480903281",
+    "title": "FullStack Developer (Java + React)",
+    "company": "Integer Consulting",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479922861",
+    "title": "Senior Typescript (Node/React) Developer (BRL 15-18K/month CLT + benefits + bonus)",
+    "company": "NOUS LATAM",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480853659",
+    "title": "Desenvolvedor Front End React Sênior",
+    "company": "Jobbol",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480853639",
+    "title": "Desenvolvedor Front End React Sênior",
+    "company": "Jobbol",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478201609",
+    "title": "React Front-End Developer",
+    "company": "Present Technologies",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4387483962",
+    "title": "Software Engineer, Frontend",
+    "company": "Ramp",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4387260108",
+    "title": "Frontend Engineer (B2B Products)",
+    "company": "Proton",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4395436255",
+    "title": "Senior Frontend Engineer",
+    "company": "LSEG",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4472265841",
+    "title": "FRONTEND ENGINEER (LISBON - PORTUGAL)",
+    "company": "GAMING1",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479929178",
+    "title": "Full Stack Engineer",
+    "company": "Zetheta Algorithms Private Limited",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479943160",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479945114",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4411586387",
+    "title": "Developer III - Software Engineering - .NET Fullstack",
+    "company": "UST",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478204417",
+    "title": "Software Engineer - Full Stack",
+    "company": "Innovun Global",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479933473",
+    "title": "Senior Full-Stack Engineer",
+    "company": "BrightCHAMPS",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479933229",
+    "title": "Full Stack Engineer - II",
+    "company": "Kapiva",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4423143384",
+    "title": "Full stack Developer 2 for Ongoing production Support Team",
+    "company": "Alight Solutions",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480861649",
+    "title": "Full Stack Developer",
+    "company": "Flexiple",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479917661",
+    "title": "Full-Stack Engineer (AI & Product)",
+    "company": "LYSI",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4435041482",
+    "title": "Full Stack Developer",
+    "company": "Auto & General Australia",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4436777439",
+    "title": "Senior Fullstack Engineer (Django)",
+    "company": "Svea Solar",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4453529947",
+    "title": "Senior fullstackutvecklare (.NET)",
+    "company": "Skandia",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479924504",
+    "title": "Full Stack Developer (Spring Boot + Angular) | Infraestructura de mercados financieros",
+    "company": "Joppy",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4435254862",
+    "title": "Senior Full Stack Engineer",
+    "company": "Versant Media",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4444731611",
+    "title": "Software Development Engineer III, Full Stack Web & Middleware Development",
+    "company": "Premera Blue Cross",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479931598",
+    "title": "Back End Developer",
+    "company": "Nexal IIT",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479947048",
+    "title": "Back End Developer",
+    "company": "F6IT Fintech & IT Solutions",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478232141",
+    "title": "Back End Developer",
+    "company": "Echo Initiative by Joveo",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479925745",
+    "title": "Application Developer",
+    "company": "AbsoluteHub",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4408781172",
+    "title": "Software Engineer-Senior II-1",
+    "company": "FedEx",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4472436777",
+    "title": "Software Development Engineer, Time & Pay Innovation",
+    "company": "Amazon",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4469687322",
+    "title": "Senior Software Engineer",
+    "company": "Thomson Reuters",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4399857726",
+    "title": "Senior Software Engineer",
+    "company": "Guidehouse",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4478235032",
+    "title": "Software Engineer",
+    "company": "bp",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4443159109",
+    "title": "Linux Software Engineer",
+    "company": "Qualcomm",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4460983367",
+    "title": "Software Engineer",
+    "company": "The Robotics Ledger",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4417750578",
+    "title": "Engineer II Software Development",
+    "company": "Anaplan",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480892089",
+    "title": "Product Engineer",
+    "company": "Uplers",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4443889543",
+    "title": "Senior Developer - UI",
+    "company": "MillerKnoll",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479904764",
+    "title": "Front End Engineering",
+    "company": "Infosys",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479928628",
+    "title": "Artificial Intelligence Engineer",
+    "company": "internmo",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479910801",
+    "title": "Junior Software Engineer",
+    "company": "DRISKO.ai",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4426243483",
+    "title": "Dev Ops Engineer II",
+    "company": "MiQ",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4451217589",
+    "title": "Senior Associate Infrastructure L2_Azure",
+    "company": "Publicis Sapient",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4477077813",
+    "title": "Engineer Platform",
+    "company": "Empower India",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4451215597",
+    "title": "Specialist Infrastructure_Azure",
+    "company": "Publicis Sapient",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4477797766",
+    "title": "golang开发工程师(实习)(RD44)",
+    "company": "浙江宇视科技有限公司",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4425988977",
+    "title": "Senior Software Engineer (Golang - Platform team)",
+    "company": "Workato",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4461165550",
+    "title": "Staff Software Developer (IAM)",
+    "company": "JetBrains",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4426297811",
+    "title": "Senior Software Engineer, Digital Economy Products",
+    "company": "GovTech Singapore",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4480896316",
+    "title": "Stage - Data Engineer - ML (H/F)",
+    "company": "Withings",
+    "seenAt": "2026-10-18T15:31:03.016Z"
+  },
+  {
+    "id": "4479937532",
+    "title": "Machine Learning Intern",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479930773",
+    "title": "Machine Learning Intern",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479935120",
+    "title": "Regional Large Language Model (LLM) Agent & Prompt Engineering Intern (Spring 2027)",
+    "company": "Shopee",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479936575",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480910503",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4478223940",
+    "title": "Frontend Developer Intern",
+    "company": "EduLinkUp",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480921084",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479939360",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479926833",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479934690",
+    "title": "MERN STACK DEVELOPMENT INTERN",
+    "company": "SKOOLLAGE",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479944278",
+    "title": "Web Development Intern",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480918195",
+    "title": "Web Development Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480922068",
+    "title": "Web Development Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480913417",
+    "title": "Data Science Intern",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480920082",
+    "title": "Data Science Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4454528400",
+    "title": "Intern, Software Engineering (November 2026)",
+    "company": "Dolby Laboratories",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4454590867",
+    "title": "Software Engineer Intern (Summer 2027)",
+    "company": "Notion",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4440124290",
+    "title": "Application Developer-Experience Front End - Internship",
+    "company": "IBM",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479941191",
+    "title": "Data Scientist",
+    "company": "Nexal IIT",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4425803750",
+    "title": "Fullstack Python Engineer",
+    "company": "Azuga, Inc.",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479938428",
+    "title": "Python Developer with AI/LLM",
+    "company": "Artech L.L.C.",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480912253",
+    "title": "Python Developer",
+    "company": "HRM Counsel",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480906655",
+    "title": "Back-End Development",
+    "company": "Extramus.eu",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4455843679",
+    "title": "NodeJS Developer",
+    "company": "OBSS",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4471075135",
+    "title": "Senior DevOps Engineer",
+    "company": "Kaleris",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479924497",
+    "title": "DevOps Engineer",
+    "company": "Unico Connect",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479911784",
+    "title": "Senior DevOps Engineer",
+    "company": "Unico Connect",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4385085483",
+    "title": "Senior DevOps Engineer - Digital Health Excellence Center (w/m/d)",
+    "company": "EY",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4478222603",
+    "title": "Frontend Developer",
+    "company": "Echo Initiative by Joveo",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480910484",
+    "title": "Full Stack Web Developer (.Net + Reactjs)",
+    "company": "The DevHouse",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4478225744",
+    "title": "Fullstack Software Engineer (Python/React) - Up to €130k EUR Base + Discretionary Bonus! - Madrid (Hybrid) - Elite Trading Firm!",
+    "company": "Hunter Bond",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479931601",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479927611",
+    "title": "Full Stack Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4425877575",
+    "title": "Senior Software Engineer - Full stack",
+    "company": "Barco",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4480872665",
+    "title": "Full Stack Engineer_ walk in _ indore",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4435047858",
+    "title": "Senior Full Stack Engineer",
+    "company": "Vialto",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4426616868",
+    "title": "Full Stack App Development Manager - C12 - PUNE",
+    "company": "Citi",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479936600",
+    "title": "Full Stack Developer",
+    "company": "Namifyx Pvt. Ltd",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479939255",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4463718858",
+    "title": "Full Stack Software Engineer",
+    "company": "SpaceX",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4450803762",
+    "title": "Software Engineer - Level III (Full-Stack)",
+    "company": "Arch Global Services Philippines",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479925797",
+    "title": "Back End Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4424876477",
+    "title": "Senior Software Engineer",
+    "company": "Milliman India",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4444359051",
+    "title": "Senior Analyst Engineer",
+    "company": "ICON plc",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4397280383",
+    "title": "Senior Product Software Engineer",
+    "company": "Wolters Kluwer",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4472452177",
+    "title": "Software Development Engineer II, Timehub Experience",
+    "company": "Amazon",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4472437678",
+    "title": "Software Development Engineer, Time & Pay Innovation",
+    "company": "Amazon",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4446629922",
+    "title": "Software Engineer- III - FactSet Wealth Platform-FY26",
+    "company": "FactSet",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4432348372",
+    "title": "Software Engineer",
+    "company": "The Depository Trust & Clearing Corporation (DTCC)",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479942213",
+    "title": "Back End Developer",
+    "company": "RovorAi",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479357098",
+    "title": "Integration Developer - Freshworks / ITSM",
+    "company": "RCK Techiees",
+    "seenAt": "2026-10-18T18:31:00.695Z"
+  },
+  {
+    "id": "4479981345",
+    "title": "Generative AI Engineering Intern — Venxr",
+    "company": "Venxr",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479956651",
+    "title": "AI/ML Intern",
+    "company": "Scyverge",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479972080",
+    "title": "Machine Learning Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480945589",
+    "title": "Machine Learning Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479983125",
+    "title": "Machine Learning Intern",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4469305821",
+    "title": "Internship AI Engineer",
+    "company": "CRIF",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480941903",
+    "title": "R&D Data Scientist - Intern",
+    "company": "Descartes Underwriting",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480941645",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "Zenithbyte",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479965856",
+    "title": "Python Developer Intern (Remote)",
+    "company": "MediNex Workforce",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479956862",
+    "title": "Web Developer Intern (HTML, CSS, JavaScript, Bootstrap) | Remote",
+    "company": "Crossing Infotech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479976299",
+    "title": "Backend Developer Intern (Remote)",
+    "company": "MediNex Workforce",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479967405",
+    "title": "Backend Developer Intern (Node.js, Python, REST APIs, SQL) | Remote",
+    "company": "Crossing Infotech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479976421",
+    "title": "Backend Developer Intern",
+    "company": "Infineo",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479961760",
+    "title": "Java Developer Intern (Java, SQL, Spring Boot, Git) | Remote",
+    "company": "Crossing Infotech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479967080",
+    "title": "Python AI Intern",
+    "company": "techolution",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479962684",
+    "title": "Artificial Intelligence Intern (Python, Machine Learning, NLP, Prompt Engineering) | Remote",
+    "company": "Crossing Infotech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479969402",
+    "title": "Machine Learning Intern (Python, Scikit-learn, Pandas, Data Preprocessing) | Remote",
+    "company": "Crossing Infotech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479965487",
+    "title": "Full Stack Developer Intern (React, Node.js, JavaScript, SQL) | Remote",
+    "company": "Crossing Infotech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479964409",
+    "title": "React Native Mobile App Developer Intern",
+    "company": "Fawrit Technologies",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479960765",
+    "title": "Front End Developer Intern (HTML, CSS, JavaScript, React) | Remote",
+    "company": "Crossing Infotech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478246563",
+    "title": "Full Stack Developer Intern",
+    "company": "Vobble",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479980249",
+    "title": "Full Stack Developer Intern (Remote)",
+    "company": "MediNex Workforce",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480940696",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479982012",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479906183",
+    "title": "Software Engineer Intern",
+    "company": "Seedoly",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479974201",
+    "title": "Software Engineer Intern",
+    "company": "NEXTHIRE",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479977262",
+    "title": "Web Developer Intern (Remote)",
+    "company": "MediNex Workforce",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479986109",
+    "title": "Artificial Intelligence Intern (Remote)",
+    "company": "MediNex Workforce",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480951354",
+    "title": "Data Science Intern",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480954066",
+    "title": "Data Science Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480947501",
+    "title": "Software Developer Intern",
+    "company": "Motorola Solutions",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478848409",
+    "title": "Software Engineer Intern",
+    "company": "8Creation (former Cre8tech)",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479948806",
+    "title": "Wed Developer - Intern",
+    "company": "Tin City Impact",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478262652",
+    "title": "Web Application Developer Intern",
+    "company": "Seagate Technology",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479961939",
+    "title": "Front End Developer Intern (Remote)",
+    "company": "MediNex Workforce",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480939812",
+    "title": "Web Development Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480943655",
+    "title": "Web Development Intern",
+    "company": "Zenithbyte",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478262010",
+    "title": "EAI Software Engineer",
+    "company": "Mattel, Inc.",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478250362",
+    "title": "Gen AI Developer",
+    "company": "HCLTech",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479949754",
+    "title": "python full stack",
+    "company": "VOLTO Consulting",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479960738",
+    "title": "Java full stack Engineer",
+    "company": "Artech Infosystem Private Limited",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4477659925",
+    "title": "Java Full Stack Developer - Assistant Vice President -",
+    "company": "State Street",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480957140",
+    "title": "Staff Software Engineer - Java/Golang",
+    "company": "SailPoint",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479984032",
+    "title": "SDE-I (Backend)",
+    "company": "1% Club",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480963001",
+    "title": "Java Fullstack Quarkus",
+    "company": "Wipro",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479972095",
+    "title": "NodeJS Developer (WFO - Ahmedabad)",
+    "company": "SolGuruz®",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480948563",
+    "title": "Principal Engineer – Node.js / TypeScript / AWS",
+    "company": "Applicantz",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479943852",
+    "title": "Python Developer",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478270304",
+    "title": "Python Developer - 6+yrs,Bangalore, Immediate joiners only",
+    "company": "Global Technologies",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480960082",
+    "title": "Python Developer",
+    "company": "Vertage",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479982246",
+    "title": "Python Developer",
+    "company": "India's Future Investors - Money Entertainment Reality Show",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479967656",
+    "title": "Python Backend Developer – Distributed & Event-Driven Systems",
+    "company": "techolution",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478248674",
+    "title": "Senior Python Developer",
+    "company": "ACROSSTEK™",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480940348",
+    "title": "Senior Manager - Python Developer",
+    "company": "Charles Schwab India",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4477299995",
+    "title": "[STAGE Bac+4/5] Développement Mobile & Back-End – IA & Sécurité – Paytech (H/F)",
+    "company": "Market Pay",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480961215",
+    "title": "Stage – Développement Python/C++ & optimisation logicielle - H/F",
+    "company": "Exail",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478385265",
+    "title": "Développeur Full-Stack (JavaScript) H/F",
+    "company": "Kicklox",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478268260",
+    "title": "Full-Stack Software Engineer (Python/Django + AI)",
+    "company": "Kutuma Kenya Limited",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480937479",
+    "title": "Développeur Full-Stack (JavaScript) H/F",
+    "company": "Kicklox",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4444976779",
+    "title": "Java Software Engineer III",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4454885576",
+    "title": "Experienced Software Engineer Java / Python (Full Stack or Back End)",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478242775",
+    "title": "Senior Java Developer",
+    "company": "Habib Bank AG Zurich",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479946538",
+    "title": "SENIOR FULLSTACK ENGINEER (PYTHON, FASTAPI)",
+    "company": "STATION F",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480920974",
+    "title": "Backend Software Engineer - AI Finance Agent",
+    "company": "BJAK",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479956637",
+    "title": "Software Engineer II - Java - GMNST",
+    "company": "American Express",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479961297",
+    "title": "Middle Backend Developer (NodeJS - Domain ITSM)",
+    "company": "FPT IS",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479962222",
+    "title": "Middle Platform Core Developer (NodeJS)",
+    "company": "VORTECH SERVICE COMPANY LIMITED",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4470064390",
+    "title": "Backend Developer (Node.js)",
+    "company": "Newtone consulting",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480961088",
+    "title": "Backend Entwickler, Node.js (m/w/d)",
+    "company": "LearningSuite",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480948120",
+    "title": "Développeur Back-End (Node.js) H/F",
+    "company": "Kicklox",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479978475",
+    "title": "Senior Backend Engineer (Node.js) – eCommerce - £80,000 – London (Hybrid)",
+    "company": "Ventula Consulting",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478253519",
+    "title": "Backend Developer Node.js (Portugal, remote)",
+    "company": "Zero to One Search | Recruitment Agency",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479988095",
+    "title": "Python Developer",
+    "company": "KCS iT",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478266248",
+    "title": "Senior Python Developer",
+    "company": "Decskill",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478382476",
+    "title": "Développeur Back-End (Python) H/F",
+    "company": "Kicklox",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478240595",
+    "title": "南京Python开发工程师",
+    "company": "上海玄信资产管理中心（有限合伙）",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479983006",
+    "title": "Développeur(se) Backend Senior (Python/Django) – SaaS",
+    "company": "URBAN LINKER",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4472688908",
+    "title": "Python Developer",
+    "company": "Decskill",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479965909",
+    "title": "Staff DevOps Engineer",
+    "company": "LogixHealth",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478268273",
+    "title": "GCP Devops with Release Management",
+    "company": "Virtusa",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479976352",
+    "title": "DevOps Engineer",
+    "company": "HRS Group",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479960803",
+    "title": "Azure Devops",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478254508",
+    "title": "DevOps Engineer | Hybrid & Multi-Cloud",
+    "company": "ACROSSTEK™",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479967264",
+    "title": "Azure DevOps Engineer – Platform Engineering",
+    "company": "iVoyant",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480934684",
+    "title": "Senior Devops Engineer",
+    "company": "o9 Solutions, Inc.",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478265443",
+    "title": "Azure Cloud / DevOps Engineer",
+    "company": "Liqvid",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479956553",
+    "title": "Senior DevOps Engineer | Fluent English",
+    "company": "SmartOSC",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480964042",
+    "title": "DevOps Engineer | Release Engineer",
+    "company": "Front Office U",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479984117",
+    "title": "Principal DevOps Engineer (Azure)",
+    "company": "Digital Waffle",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4472438911",
+    "title": "DevOps Pleno",
+    "company": "Serasa Experian",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479982270",
+    "title": "Lead DevOps Engineer (Azure)",
+    "company": "Digital Waffle",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480955132",
+    "title": "DevOps Engineer",
+    "company": "Noir",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4444978210",
+    "title": "DevOps Engineer, Senior",
+    "company": "Booz Allen Hamilton",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4444966555",
+    "title": "DevOps Engineer, Mid",
+    "company": "Booz Allen Hamilton",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4438991770",
+    "title": "DevOps Engineer",
+    "company": "Experis UK",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4452409054",
+    "title": "Senior DevOps Engineer | GCP | Terraform | Platform Engineering",
+    "company": "Luxoft",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479968011",
+    "title": "Frontend Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4470254217",
+    "title": "Sr Software Engineer - ReactJS, TypeScript & SQL/NoSQL",
+    "company": "Blue Yonder",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480935720",
+    "title": "Developer IV (React.JS+Node.JS)",
+    "company": "Realpage India",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480945263",
+    "title": "React Developer",
+    "company": "Capco",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479953891",
+    "title": "Frontend Developer",
+    "company": "Capco",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480948196",
+    "title": "Frontend Developer",
+    "company": "Viamagus Select",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479982019",
+    "title": "Frontend Developer",
+    "company": "EdgeVerve",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4470845262",
+    "title": "Staff Software Engineer- Frontend (ReactJS)",
+    "company": "ChargePoint",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480950143",
+    "title": "Frontend Engineer",
+    "company": "Mercari India",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479946998",
+    "title": "Frontend Developer",
+    "company": "Truwave Software",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478233927",
+    "title": "Frontend Developer",
+    "company": "TalentRabbit",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479960365",
+    "title": "Frontend Developer",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479962448",
+    "title": "Frontend Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479971373",
+    "title": "Full-Stack Developer (React + Node.js/TypeScript) | Scale-up | 60–80 K€",
+    "company": "Joppy",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478240536",
+    "title": "Développeur REACT",
+    "company": "Free-Work",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479965191",
+    "title": "Senior React Software Engineer",
+    "company": "Accenture Greece",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479965679",
+    "title": "Développeur JavaScript / React (H/F)",
+    "company": "ACENSI",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4462187074",
+    "title": "Senior Frontend Engineer (React Native)",
+    "company": "Bridgit",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479946968",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479958411",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479954977",
+    "title": "Full-Stack Software Engineer I SDE-1",
+    "company": "Babaclick",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480931684",
+    "title": "Software Engineer I - Product / Full-Stack",
+    "company": "Kulfi",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4477976407",
+    "title": "Full Stack Engineer",
+    "company": "Fabric",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478248696",
+    "title": "Senior Full Stack Developer (Angular/.Net/Azure)",
+    "company": "Dow",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480940548",
+    "title": "Full Stack Engineer – MNC Experience Mandatory",
+    "company": "Innova ESI",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478266291",
+    "title": "Application Developer-Google Cloud FullStack",
+    "company": "IBM",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480943271",
+    "title": "Full Stack Developer",
+    "company": "Innova ESI",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478255714",
+    "title": "Full Stack Engineer",
+    "company": "BestSafari.africa",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478252864",
+    "title": "Développeur·se Full-Stack",
+    "company": "Kanal",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478249975",
+    "title": "(Senior) Full Stack Developer (all genders)",
+    "company": "Exxeta Georgia",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479978002",
+    "title": "Full Stack Developer (Spring Boot + Angular) | Infraestructura de mercados financieros",
+    "company": "Joppy",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479965653",
+    "title": "Back End Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479956454",
+    "title": "Back End Developer",
+    "company": "Nexal IIT",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479956456",
+    "title": "Back End Developer",
+    "company": "F6IT Fintech & IT Solutions",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480939389",
+    "title": "Dotnet Developer",
+    "company": "Prudent Corporate Advisory Services Ltd.",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480949135",
+    "title": "Senior Software Developer (.NET)",
+    "company": "Charles Schwab India",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479949898",
+    "title": "Software Development Engineer 1",
+    "company": "Umanist NA",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478260027",
+    "title": "Software Engineer Professional_104964",
+    "company": "MyCareernet",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480930778",
+    "title": "Sr Specialist - Software Development & Engineering (.NET)",
+    "company": "Charles Schwab India",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479957785",
+    "title": "Back End Developer",
+    "company": "EnglishYaari: English For Professionals",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479963285",
+    "title": "Back End Developer",
+    "company": "Truwave Software",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480940172",
+    "title": "Back End Developer",
+    "company": "Publicis Production",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478259112",
+    "title": "Senior MERN Developer (Ahmedabad)",
+    "company": "Brainy Neurals - AI Development Company",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4478251824",
+    "title": "MEAN Stack Developer (US Shift)",
+    "company": "Vensure Employer Solutions",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480946657",
+    "title": "SENIOR SOFTWARE ENGINEER",
+    "company": "NIIT",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479954883",
+    "title": "Developer",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479955586",
+    "title": "Associate UI Developer",
+    "company": "techolution",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479967013",
+    "title": "Artificial Intelligence Engineer",
+    "company": "internmo",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4476084863",
+    "title": "Lead Engineer Platform_104127",
+    "company": "MyCareernet",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480937451",
+    "title": "Platform Engineer",
+    "company": "foundit",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479960214",
+    "title": "STAGE - Ingénieure / Ingénieur Développement Software - Evolution de logiciel de simulation",
+    "company": "ArianeGroup",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479957262",
+    "title": "Sr. Software Engineer",
+    "company": "RevComm Indonesia",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479986236",
+    "title": "Software Engineer - Business Applications (Phython/Odoo)",
+    "company": "PT. Integra Putra Mandiri",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4480953119",
+    "title": "Django Developer",
+    "company": "PeopleLogic",
+    "seenAt": "2026-10-19T09:30:59.833Z"
+  },
+  {
+    "id": "4479987351",
+    "title": "AI/ML Intern (LLM & Applied AI)",
+    "company": "EaseHawk Technologies",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480210615",
+    "title": "Machine Learning Intern",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478266644",
+    "title": "Software Engineering (Internship)",
+    "company": "SwiftB2B",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480965630",
+    "title": "Intern Bachelors Software Eng",
+    "company": "Honeywell Technologies",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480959767",
+    "title": "Web Development Intern",
+    "company": "Zenithbyte",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4471339525",
+    "title": "Associate Software Engineer - Intern",
+    "company": "Monzo",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480955594",
+    "title": "Software Developer Intern",
+    "company": "Odoo",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480226103",
+    "title": "Back End Developer - AI Agentic Infrastructure",
+    "company": "Raysoft.ai",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480215258",
+    "title": "Generative AI Engineer",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480952922",
+    "title": "Praktikum Künstliche Intelligenz & Machine Learning",
+    "company": "Deutsche Telekom",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480980331",
+    "title": "Praktikum Künstliche Intelligenz & Machine Learning",
+    "company": "Deutsche Telekom IoT",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479978511",
+    "title": "Software Engineer (Java, AWS)",
+    "company": "Autodesk",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479971865",
+    "title": "Software Engineer (Java, AWS)",
+    "company": "Autodesk",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479972992",
+    "title": "Staff Software Engineer - Sync CRM (Backend - 5 to 9 years)",
+    "company": "Outreach",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480958909",
+    "title": "Senior Python Developer",
+    "company": "Mindstix Software Labs",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480962415",
+    "title": "Senior Backend Developer",
+    "company": "Credgenics",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478283031",
+    "title": "Sr.Python Developer – Python+SSH/paramiko+Pytest/Robot-C/C++, 6+ years,Bangalore,Immediate joiners",
+    "company": "Global Technologies",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4469841662",
+    "title": "Python AI Developer",
+    "company": "JRD Systems",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480976156",
+    "title": "Senior Full Stack Python Software Developer",
+    "company": "Eduvos",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480954971",
+    "title": "Intermediate Full Stack Python Software Developer",
+    "company": "Eduvos",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479987234",
+    "title": "Middle NodeJS Developer",
+    "company": "FPT Corporation",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4424645614",
+    "title": "Développeur Back-end Python",
+    "company": "Extia",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4475789344",
+    "title": "Python Developer (ENG/FR, Hybrid)",
+    "company": "Adentis Portugal",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478278585",
+    "title": "Azure DevOps / SRE Engineer",
+    "company": "Sajal Tech",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480218243",
+    "title": "DevOps Engineer",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478278132",
+    "title": "DevOps & Cloud Engineer (AWS)",
+    "company": "Emkay Global Financial Services Ltd",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4472711379",
+    "title": "Lead DevOps Engineer",
+    "company": "Emerson",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4474280672",
+    "title": "DevOps Engineer",
+    "company": "Arcana",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480972431",
+    "title": "DevOps Engineer",
+    "company": "smallest.ai",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480217483",
+    "title": "Senior DevOps Engineer (m/w/d)",
+    "company": "Rocken®",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479985495",
+    "title": "DevOps Engineer",
+    "company": "NLB Services",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480976503",
+    "title": "Ingénieur Cloud-DevOps (H/F)",
+    "company": "Thales",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478281160",
+    "title": "Cloud, DevOps & SRE",
+    "company": "Hays",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480222400",
+    "title": "Cloud DevOps Engineer (m/w/d)",
+    "company": "Rocken®",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480224304",
+    "title": "Frontend Developer",
+    "company": "Zetheta Algorithms Private Limited",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479991098",
+    "title": "Full Stack Developer (Node.js/TypeScript + React.js)",
+    "company": "DeskDay",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478270870",
+    "title": "Full Stack Engineer (React + Node.js)",
+    "company": "Sublime Data",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479988591",
+    "title": "ReactJs Developer",
+    "company": "Moonstack",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478268499",
+    "title": "Frontend Developer (React) – Trading Platform",
+    "company": "Alpha Alternatives",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480972758",
+    "title": "Frontend Developer",
+    "company": "Credgenics",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4400333869",
+    "title": "QC - Stagiaire Développeur Frontend (Angular)",
+    "company": "KPMG Canada",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479988883",
+    "title": "Experienced Front End developer (React) at YoungCapital - Studentjob.fr",
+    "company": "Jobster",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480965622",
+    "title": "Frontend Engineer",
+    "company": "Source.ai",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479964086",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480215630",
+    "title": "Full Stack Engineer",
+    "company": "Zetheta Algorithms Private Limited",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478282058",
+    "title": "Full Stack Developer",
+    "company": "0101.Today",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4444343443",
+    "title": "Software Engineer (Full Stack)",
+    "company": "Energy Exemplar",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480959944",
+    "title": "Programador full stack",
+    "company": "Banco Falabella",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480983159",
+    "title": "Full Stack Yazılım Geliştirme Uzmanı",
+    "company": "TeamSystem Türkiye",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4472703950",
+    "title": "FullStack Software Engineer .Net Angular - 100% (f/m/d)",
+    "company": "Julius Baer",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480965089",
+    "title": "Full Stack Engineer",
+    "company": "VTXRM - Software Factory",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480964203",
+    "title": "Fullstack Software Engineer (x/f/m) - Saudi Arabia 🇸🇦",
+    "company": "Alan",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4478263843",
+    "title": "Software Engineer II",
+    "company": "Mastercard",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4444335337",
+    "title": "Senior Software Engineer – Global Employer Services Technology Center (GESTC) - Pega, .NET & Integration",
+    "company": "Deloitte",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4479975599",
+    "title": "Software Development Engineer III",
+    "company": "Tesco Bengaluru",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480980079",
+    "title": "Software Development Engineer, JP Seller Tech team",
+    "company": "Amazon",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480952842",
+    "title": "Software Developer, Vehicle Applications Software",
+    "company": "Sonatus",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480948902",
+    "title": "Senior Software Engineer",
+    "company": "Parloa",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480978321",
+    "title": "Stage ingénieur IA / Deep Learning pour la classification sur images - H/F",
+    "company": "Thales",
+    "seenAt": "2026-10-19T12:31:01.534Z"
+  },
+  {
+    "id": "4480222613",
+    "title": "Machine Learning Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4481205219",
+    "title": "Machine Learning Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480236583",
+    "title": "Machine Learning Intern",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4416712707",
+    "title": "Machine Learning Engineer Intern",
+    "company": "Neuralink",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478069581",
+    "title": "INTERNSHIP - DATA SCIENTIST (W/M)",
+    "company": "Allianz Trade en France",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480990909",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "Zenithbyte",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480217931",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4459902149",
+    "title": "Backend Developer Intern",
+    "company": "Eulerity",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480229470",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480999597",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480236294",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478275876",
+    "title": "Internship - Android Software Engineer",
+    "company": "Netatmo",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478273859",
+    "title": "Software Engineer Intern",
+    "company": "Six Ladders",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480240285",
+    "title": "MERN STACK DEVELOPMENT INTERN",
+    "company": "SKOOLLAGE",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4453416357",
+    "title": "Software Engineer Intern",
+    "company": "Weekday (YC W21)",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478269967",
+    "title": "Software Engineer Intern",
+    "company": "Tranzily.com",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480245148",
+    "title": "Web Development Intern",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4474276717",
+    "title": "Software Engineer Intern (1st Shift) - Spring 2027",
+    "company": "First Solar",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478287282",
+    "title": "Software Engineer Intern - Summer 2027",
+    "company": "Lockheed Martin",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480237236",
+    "title": "[2027 Internship] Software Engineer - Application Development (Jan-Apr 2027)",
+    "company": "ABACUS digital",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4481208108",
+    "title": "Software Engineer III- Java AWS",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478291077",
+    "title": "Python Developer",
+    "company": "Rudra Cloudtech Pvt Ltd",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4471390497",
+    "title": "Python Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480964066",
+    "title": "Python Software Engineer",
+    "company": "NatWest Group",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4471395224",
+    "title": "Python Lead",
+    "company": "Infosys",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4481204468",
+    "title": "Sr Software Engineer - Python",
+    "company": "PayPal",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478288565",
+    "title": "Informatikpraktikum E-Commerce im Verlag () (Front/Backend)",
+    "company": "Verlag Homöopathie + Symbol",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478286524",
+    "title": "Stage - Développeur.se Back-End (F/H)",
+    "company": "Crédit Agricole Technologies et Services",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480225296",
+    "title": "Software Development Engineer II (Java) - Identity",
+    "company": "Tesco",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480215677",
+    "title": "Software Development Engineer II (Java) - Identity",
+    "company": "Tesco Technology",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478296370",
+    "title": "Senior Backend Software Engineer – Node.js & Data",
+    "company": "Sharkhood Tech",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478297469",
+    "title": "Backend Developer (Go/ NodeJS/ TypeScript) (m/f/d) - Startup - Hybrid/Remote",
+    "company": "Logicc",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480958102",
+    "title": "Senior Node.js Developer",
+    "company": "Zeely – AI Admaker",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480983451",
+    "title": "Python Developer",
+    "company": "Dellent",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480999743",
+    "title": "Ingénieur en Développement Python H/F",
+    "company": "KAIZEN Solutions (KZS)",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4479360440",
+    "title": "Python Developer",
+    "company": "Open Systems Technologies",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4418974011",
+    "title": "Développeur Python Confirmé F/H",
+    "company": "ITrust",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478282760",
+    "title": "DevOps Engineer Backend",
+    "company": "Air Apps",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478292552",
+    "title": "DevOps Engineer Backend",
+    "company": "Air Apps",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4471378837",
+    "title": "GCP Devops Senior Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4472742275",
+    "title": "Senior DevOps Engineer - Tieto Banktech",
+    "company": "Tieto",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4470842394",
+    "title": "Devops Engineer - SDE 2",
+    "company": "Jupiter",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480219842",
+    "title": "AWS DevOps Engineer",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480222692",
+    "title": "Frontend Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480220665",
+    "title": "Frontend Developer",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480224452",
+    "title": "Frontend Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480222839",
+    "title": "Software Engineer (Frontend: ReactJS/NextJS)",
+    "company": "TechXSherpa",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480232338",
+    "title": "Senior Front-End Developer (React. React.js, Redux, TypeScript )",
+    "company": "Compest Solutions Inc.",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480981830",
+    "title": "Stage - développeur front-end Design System",
+    "company": "Loto-Québec",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480998255",
+    "title": "Stage - développeur front-end (loteries)",
+    "company": "Loto-Québec",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4426049302",
+    "title": "[SDx] Frontend Developer - Robot/Smart Factory",
+    "company": "Hyundai AutoEver",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480235144",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4471387676",
+    "title": ".NET full stack Senior Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4427524465",
+    "title": "Sr Engineer - .Net Fullstack",
+    "company": "Clean Harbors",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480997741",
+    "title": ".NET Full Stack Developer - Software Engineer I (IND)",
+    "company": "Carelon Global Solutions India",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480213833",
+    "title": "Full Stack Laravel Developer",
+    "company": "innopay",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4481200693",
+    "title": "Senior Full Stack Engineer",
+    "company": "Ciklum India",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478293049",
+    "title": "Full-Stack Developer",
+    "company": "رؤية المستقبل للتدريب الصحي | Future Vision",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480999740",
+    "title": "Sr Fullstack Software Engineer",
+    "company": "Grupo Falabella",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478286421",
+    "title": "Full-Stack Software Engineer / Developer",
+    "company": "Frankfurt School International Advisory Services Türkiye",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478603140",
+    "title": "Fullstack Entwickler:in",
+    "company": "BLP Software",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480234069",
+    "title": "Back End Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480214859",
+    "title": "Back End Developer",
+    "company": "Nexal IIT",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478280951",
+    "title": "Software Engineer",
+    "company": "Virtusa",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4471381784",
+    "title": ".NET core Senior Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478290604",
+    "title": "Lead Software Engineer",
+    "company": "Virtusa",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480225446",
+    "title": "Artificial Intelligence Engineer",
+    "company": "internmo",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480955531",
+    "title": "Senior Infrastructure Engineer",
+    "company": "Populace World Solutions",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480228542",
+    "title": "Senior Software Engineer, App Ads, Data and Measurement",
+    "company": "Google",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480219562",
+    "title": "Engenheiro de Software .NET Core - Trabalho Remoto",
+    "company": "BairesDev",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480212871",
+    "title": "Engenheiro de Software .NET Core - Trabalho Remoto",
+    "company": "BairesDev",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480216608",
+    "title": "Software Developer, Vehicle Applications Software",
+    "company": "Sonatus",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4480230572",
+    "title": "Stage Ingénieur IA - Computer Vision et estimation de pose 3D/6D H/F",
+    "company": "Bertrandt Group",
+    "seenAt": "2026-10-19T15:31:03.514Z"
+  },
+  {
+    "id": "4478601438",
+    "title": "Machine Learning Intern | Remote | India",
+    "company": "Skillzenloop",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4480249533",
+    "title": "Software Development Intern, Year-Round (UMaine Internship Program)",
+    "company": "Tyler Technologies",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478297623",
+    "title": "Backend Developer Intern | Remote | India",
+    "company": "Skillzenloop",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478288876",
+    "title": "Java Developer Intern | Remote | India",
+    "company": "Skillzenloop",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4480260577",
+    "title": "Full Stack Developer Intern",
+    "company": "Spectent™",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4480238090",
+    "title": "2026 B.Tech Graduates: Gurgaon: Intern Full Stack (Agentic AI Applications) Development",
+    "company": "Tecnod8.AI",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478603278",
+    "title": "Full Stack Developer Intern | Remote | India",
+    "company": "Skillzenloop",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4480235968",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481203819",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4471322071",
+    "title": "Associate Software Engineer Intern - YMS",
+    "company": "Kaleris",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4471308785",
+    "title": "Associate Software Engineer Intern",
+    "company": "Kaleris",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481216323",
+    "title": "Software Engineer Intern",
+    "company": "Wayfair",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478299444",
+    "title": "Web Developer Intern | Remote | India",
+    "company": "Skillzenloop",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478601412",
+    "title": "Front End Developer Intern | Remote | India",
+    "company": "Skillzenloop",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481206708",
+    "title": "Web Development Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481207663",
+    "title": "Web Development Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478609005",
+    "title": "Artificial Intelligence Intern | Remote | India",
+    "company": "Skillzenloop",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481218685",
+    "title": "Data Science Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478603671",
+    "title": "Software Engineering Intern (2027)",
+    "company": "Databricks",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481233017",
+    "title": "Software Development - Public Websites - Internship(EN)",
+    "company": "Van Lanschot Kempen",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4480954526",
+    "title": "EAI Software Engineer",
+    "company": "Mattel, Inc.",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478608447",
+    "title": "AI Software Engineer",
+    "company": "Societe Generale",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4464087414",
+    "title": "STAGE - Ingenieur R&D Generative IA - Aix-en-Provence (F/H)",
+    "company": "Dassault Systèmes",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4387271287",
+    "title": "Python Developer",
+    "company": "Tower Research Capital",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4470808994",
+    "title": "Stage : Développeur full stack TypeScript (dominanteback-end)",
+    "company": "Stellantis",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4471388524",
+    "title": ".NET cloud Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4480224982",
+    "title": "DevOps Engineer",
+    "company": "Mizuho",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4418110387",
+    "title": "Senior DevOps Engineer (Product Launch Team)",
+    "company": "Delasport",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478137132",
+    "title": "DevOps Engineer 2",
+    "company": "IQVIA",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478602843",
+    "title": "Cloud / DevOps Specialist",
+    "company": "MEDFAR",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478617177",
+    "title": "[TEST] Senior Frontend Engineer (React)",
+    "company": "ealana",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478416049",
+    "title": "Junior Developer – Frontend & REST API",
+    "company": "Hire-a-Friend",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4480251066",
+    "title": "Senior Frontend Software Engineer ReactJS - Paris - H/F",
+    "company": "Groupe iliad",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478602296",
+    "title": "Desenvolvedor de front-end",
+    "company": "Infotera",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478512215",
+    "title": "Front-end Developer (React / TypeScript) – Investment Management",
+    "company": "Orbis Group",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4472774120",
+    "title": "Dotnet Fullstack Developer Senior (C# & Angular)",
+    "company": "FIS",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481236655",
+    "title": "STAGE - Développement web full-stack et UX/UI - F/H",
+    "company": "Thales",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4478602604",
+    "title": "Fullstack Developer Middle",
+    "company": "Jumpit Srl",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4463779884",
+    "title": "Software Dev Engineer II, Paragon Workbench",
+    "company": "Amazon",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481248132",
+    "title": "Software Development Engineer, CAM",
+    "company": "Amazon",
+    "seenAt": "2026-10-19T18:31:04.377Z"
+  },
+  {
+    "id": "4481258543",
+    "title": "AI Engineer Intern",
+    "company": "Rogue Fitness",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4480260830",
+    "title": "Frontend Engineering Internship",
+    "company": "Liablix",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4478275625",
+    "title": "Software Developer Engineer Intern",
+    "company": "Qeno AI",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481275256",
+    "title": "Software Developer Intern",
+    "company": "Nuovo Artistic Photography",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4478609859",
+    "title": "Software Engineer Intern",
+    "company": "Rapid Labs",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481265269",
+    "title": "Senior Backend Engineer (Node.js)",
+    "company": "Surfshark",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481257712",
+    "title": "Senior Backend Engineer (Node.js)",
+    "company": "Surfshark",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4476687289",
+    "title": "Node.js Developer with LLM",
+    "company": "Glorium Technologies",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481207985",
+    "title": "Software Engineer, Backend",
+    "company": "Showpad",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4452427117",
+    "title": "Software Engineer API (f/m/d) - Node.js, SQL",
+    "company": "Instaffo",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4480259912",
+    "title": "Développeur Python / Django (H/F)",
+    "company": "YEVO",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481208770",
+    "title": "Python Developer",
+    "company": "ALGOTEQUE Innovation Hub",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4387974547",
+    "title": "Software Development| Python Developer",
+    "company": "Devoteam",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4480233411",
+    "title": "Senior DevOps Engineer",
+    "company": "Burns & McDonnell India",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4471394282",
+    "title": "React AI Lead",
+    "company": "Infosys",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4480971010",
+    "title": "Senior Software Engineer - Frontend",
+    "company": "Procore Technologies",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481264557",
+    "title": "Middle Reactjs Developer",
+    "company": "VTI",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481236792",
+    "title": "Senior Web Engineer (React) - Remote friendly",
+    "company": "Qonto",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4478612059",
+    "title": "Senior Frontend Developer (React, typescript) | Gothenburg",
+    "company": "Infosys",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4480262882",
+    "title": "Senior Software Engineer (Full Stack)",
+    "company": "CallTek",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481223567",
+    "title": "Ingeniero de Software Full-Stack (IA & Negocio)",
+    "company": "TP-Link de Venezuela",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481254918",
+    "title": "Senior Fullstack Software Engineer",
+    "company": "Obviant",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4478626219",
+    "title": "Fullstack Developer Sr. (.NET&Angular)",
+    "company": "Flux IT",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4472740855",
+    "title": "Software Engineer (.NET, C# and Angular)",
+    "company": "Numerator",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4408764982",
+    "title": "Software Engineer-Senior II-2",
+    "company": "FedEx",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4481258141",
+    "title": "Front End Engineer",
+    "company": "Cohesity",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4480589470",
+    "title": "Senior Software Engineer",
+    "company": "CVS Health",
+    "seenAt": "2026-10-19T21:30:57.297Z"
+  },
+  {
+    "id": "4480408910",
+    "title": "Machine Learning Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481532206",
+    "title": "Machine Learning Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4454437310",
+    "title": "Campus Graduate Masters Summer Internship Program - 2027 AI Engineer, Enterprise Technology Services- Phoenix, AZ",
+    "company": "American Express",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4454474704",
+    "title": "Campus Graduate Masters Summer Internship Program - 2027 AI Engineer, Enterprise Technology Services- Atlanta, GA",
+    "company": "American Express",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481510028",
+    "title": "Applied Machine Learning and AI Engineering Intern",
+    "company": "Ricoh USA, Inc.",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478612802",
+    "title": "AI Software Engineer Intern 2027",
+    "company": "IBM",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481512392",
+    "title": "Machine Learning Research Intern (Summer 2027)",
+    "company": "Jobverse.io",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481526763",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "Zenithbyte",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480437100",
+    "title": "Python AI Intern",
+    "company": "techolution",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481537139",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "WebBoost Solutions by UM",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481510420",
+    "title": "Frontend Developer Intern (vibe code)",
+    "company": "Ampliflow",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481521975",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Devryxa",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481522857",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481281386",
+    "title": "Front-End Developer Intern",
+    "company": "Moody's Corporation",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481538082",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481528695",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480431098",
+    "title": "Software Engineering Intern",
+    "company": "Bear Systems",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481534281",
+    "title": "MERN STACK DEVELOPMENT INTERN",
+    "company": "WebBoost Solutions by UM",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478626834",
+    "title": "Software Engineer Intern",
+    "company": "Headline",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480427904",
+    "title": "Next JS INTERN",
+    "company": "PPStack",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481528705",
+    "title": "Web Development Intern",
+    "company": "Zenithbyte",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481537278",
+    "title": "Web Development Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481531497",
+    "title": "Web Development Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480281518",
+    "title": "Artificial Intelligence Intern",
+    "company": "Droisys",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481521840",
+    "title": "Data Science Intern",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481524766",
+    "title": "Data Science Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478630010",
+    "title": "Intern DDIT APD D&A Agentic Orchestration Integration Engineering",
+    "company": "Novartis India",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481539090",
+    "title": "Data Science Intern",
+    "company": "WebBoost Solutions by UM",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480409043",
+    "title": "Software Engineer, Internship - Query Engines",
+    "company": "Palantir Technologies",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4454435380",
+    "title": "Campus Graduate Masters Summer Internship Program - 2027 Software Engineer, Enterprise Technology Services- Phoenix, AZ",
+    "company": "American Express",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480341786",
+    "title": "Summer 2027 Software Engineering Intern",
+    "company": "T-Mobile",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480407297",
+    "title": "Software Engineering Intern - Summer 2027",
+    "company": "Patreon",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480401389",
+    "title": "Software Engineer, Internship - Query Engines",
+    "company": "Palantir Technologies",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480295835",
+    "title": "Software Engineering Intern - Summer 2027",
+    "company": "Patreon",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481505058",
+    "title": "Intern - IT Software Engineer",
+    "company": "Nintendo",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478635358",
+    "title": "Software Engineer Intern - Summer 2027",
+    "company": "Netflix",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478638628",
+    "title": "Software Web Developer Intern",
+    "company": "Viridien",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480443250",
+    "title": "WEB DEVELOPMENT INTERNSHIP",
+    "company": "Tin City Impact",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480413110",
+    "title": "Speech / Applied ML Engineer (Intern)",
+    "company": "VALSEA",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4460222695",
+    "title": "Campus Graduate I Summer Internship Program - 2027 Data Science, Finance - New York, NY",
+    "company": "American Express",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4460209950",
+    "title": "Campus Graduate II Summer Internship Program - 2027 Data Science, Finance - New York, NY",
+    "company": "American Express",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478633883",
+    "title": "Data Scientist",
+    "company": "Syngene International Limited",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478641592",
+    "title": "Data Scientist",
+    "company": "Syngene International Limited",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478286703",
+    "title": "Java Full Stack Engineer",
+    "company": "Neobium Technologies",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480271727",
+    "title": "Java Full stack developer",
+    "company": "Cognizant",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480405346",
+    "title": "Java Fullstack Engineer",
+    "company": "Apple",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481273790",
+    "title": "Senior Python Developer",
+    "company": "PPFAS Mutual Fund",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481281474",
+    "title": "Software Engineer II - Backend Leaning FullStack",
+    "company": "Rippling",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481505449",
+    "title": "Python Developer in Noida",
+    "company": "InstaAstro",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480421730",
+    "title": "Backend Engineer — Cladbe",
+    "company": "Cladbe",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478264508",
+    "title": "Senior Python Developer (Python with C/C++) 6+yrs,Bangalore, Immediate Joiners only",
+    "company": "Global Technologies",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480426189",
+    "title": "Python Backend Developer – Distributed Systems",
+    "company": "techolution",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480427282",
+    "title": "AI Backend Developer",
+    "company": "techolution",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481514055",
+    "title": "Infrastructure Automation- Devops Terraform, Python Scripting- Hyderabad Location",
+    "company": "Wipro",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481521024",
+    "title": "Full Stack Developer (Next.js + Node.js)",
+    "company": "STACKONN",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480428111",
+    "title": "Senior Backend Engineer",
+    "company": "RTX",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480276555",
+    "title": "Desenvolvedor Python / Pesquisa + Desenvolvimento - Trabalho Remoto",
+    "company": "BairesDev",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480274587",
+    "title": "Desenvolvedor Python / Pesquisa + Desenvolvimento - Trabalho Remoto",
+    "company": "BairesDev",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480287988",
+    "title": "Senior Python Application Developer",
+    "company": "fourtitude.asia",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478840115",
+    "title": "Backend Engineer (Python), AI Agents, Seoul (3–6 yrs) at a $5B AI Company",
+    "company": "Harper",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481260290",
+    "title": "Backend Developer Python Senior",
+    "company": "AVOS Tech | Chile",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480426973",
+    "title": "Python Full Stack Developer – Django & JavaScript (m/w/d)",
+    "company": "Rocken®",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478638329",
+    "title": "DevOps Engineer Backend",
+    "company": "Air Apps",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480402459",
+    "title": "DevOps Engineer",
+    "company": "Codewinglet Private Limited",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4469896561",
+    "title": "Senior DevOps Engineer",
+    "company": "HealthEdge",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4449541957",
+    "title": "DevOps Engineer",
+    "company": "KeyValue",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481520098",
+    "title": "Senior DevOps Engineer",
+    "company": "TechBrein India",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481508480",
+    "title": "DevOps Engineer",
+    "company": "Metasphere",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4462140765",
+    "title": "Senior Cloud Infrastructure Engineer",
+    "company": "HealthEdge",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480422050",
+    "title": "DevOps Engineer, India",
+    "company": "AlgoSec",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481523604",
+    "title": "Senior Devops Engineer",
+    "company": "Hewlett Packard Enterprise",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481502587",
+    "title": "DevOps Engineer",
+    "company": "Haventree Bank",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480409666",
+    "title": "Senior DevOps & Infrastructure Engineer",
+    "company": "Reclub",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478647039",
+    "title": "DevOps Engineer",
+    "company": "PRESCRIRE Solutions",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480412839",
+    "title": "DevOps Engineer",
+    "company": "Canstar",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478642727",
+    "title": "DevOps Engineer",
+    "company": "Canstar",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478638601",
+    "title": "DevOps Engineer",
+    "company": "WalkMe",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480450100",
+    "title": "(Seoul) DevOps Engineer",
+    "company": "Lunit Cancer Screening",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4475973625",
+    "title": "Lead/Mid- Level DevOps Engineer",
+    "company": "mroads",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480418577",
+    "title": "Frontend Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480429159",
+    "title": "Frontend Developer",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480441308",
+    "title": "Frontend Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478511534",
+    "title": "Reactjs Developer",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480431541",
+    "title": "Frontend Engineer",
+    "company": "Jobgether",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4470636178",
+    "title": "Principal Software Engineer (React)",
+    "company": "Newfold Digital",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481522942",
+    "title": "Full Stack Software Engineer | .NET & React",
+    "company": "Change Recruitment",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481500953",
+    "title": "Frontend Developer (React + Next.js)",
+    "company": "STACKONN",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481285517",
+    "title": "React Developer",
+    "company": "BCforward",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481503154",
+    "title": "Senior Software Engineer, Frontend/Web App",
+    "company": "Beacon AI",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481295358",
+    "title": "Software Engineer, Frontend/Web App",
+    "company": "Beacon AI",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481286193",
+    "title": "Développeur ou Développeuse web, Front-end",
+    "company": "GIRO",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478650587",
+    "title": "Ingeniero/a Front-End (React 18+)",
+    "company": "Aubay Spain",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480411939",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480427235",
+    "title": "Full Stack Engineer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480428220",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481508453",
+    "title": "Fullstack Developer",
+    "company": "TechBrein India",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480421514",
+    "title": "Full Stack Engineer",
+    "company": "Talentgigs",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4479582249",
+    "title": "Senior Full Stack Developer",
+    "company": "CDM Smith",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481521846",
+    "title": "Fullstack Engineer",
+    "company": "HuntingCube",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480400948",
+    "title": "Full Stack Engineer",
+    "company": "VISEO ASIA",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478620816",
+    "title": "Software Engineer – Full Stack (OpenBlue)",
+    "company": "Johnson Controls",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480440389",
+    "title": "Full Stack Developer",
+    "company": "Data Eminence",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480425393",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481503958",
+    "title": "Desenvolvedor(a) Web Fullstack",
+    "company": "Contato Seguro | Canal de Denúncias",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478632312",
+    "title": "Full Stack Developer / Migración a Databricks Apps",
+    "company": "Empresa Confidencial",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480441165",
+    "title": "Senior Full Stack Engineer - Grow",
+    "company": "Linktree",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480404624",
+    "title": "Senior Full Stack Software Engineer (Brazil)",
+    "company": "Félix",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478620227",
+    "title": "Desarrollador Fullstack AWS",
+    "company": "R y C Consultores Asociados",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480406962",
+    "title": "Application Developer",
+    "company": "AbsoluteHub",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480431039",
+    "title": "Back End Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480429127",
+    "title": "Back End Developer",
+    "company": "Nexal IIT",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478627232",
+    "title": "Lead Software Engineer",
+    "company": "Virtusa",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481299582",
+    "title": "Software Development Engineer II, FGBS",
+    "company": "Amazon",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4479964555",
+    "title": "Back End Developer",
+    "company": "Hunar.AI",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481280606",
+    "title": "Software Engineer II - Monetization",
+    "company": "Rippling",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480264471",
+    "title": "Associate Software Engineer",
+    "company": "Priceline",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481297806",
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4481514044",
+    "title": "DEVELOPER L3",
+    "company": "Wipro",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480416312",
+    "title": "Software Engineer",
+    "company": "Pints AI",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4477843107",
+    "title": "Senior Software Engineer, Platform & Infrastructure",
+    "company": "Natus Sensory",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478624745",
+    "title": "Software Engineer II",
+    "company": "Zendesk",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4471698133",
+    "title": "Senior Software Engineer (For Pooling Only)",
+    "company": "Bluehost",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480417698",
+    "title": "Associate UI Developer",
+    "company": "techolution",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4478652498",
+    "title": "Front End Developer",
+    "company": "Duruper",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4473264430",
+    "title": "Principal Software Engineer",
+    "company": "HealthEdge",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480133957",
+    "title": "Custom Software Engineer",
+    "company": "Accenture in India",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480420522",
+    "title": "Artificial Intelligence Engineer",
+    "company": "internmo",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480271852",
+    "title": "Senior Platform Engineer",
+    "company": "Arkose Labs",
+    "seenAt": "2026-10-20T06:31:01.154Z"
+  },
+  {
+    "id": "4480463062",
+    "title": "Machine Learning Intern",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480448956",
+    "title": "Machine Learning Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480451456",
+    "title": "Machine Learning Intern",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480459115",
+    "title": "Internship - AI/ML Engineering (m/f/x)",
+    "company": "Scalable Capital",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480439973",
+    "title": "Internship - AI/ML Engineering (m/f/x)",
+    "company": "Scalable Capital",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4447681464",
+    "title": "LLM/Multimodal AI Engineer Intern (TikTok Search) - 2027 Start",
+    "company": "TikTok",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4449980492",
+    "title": "Machine Learning Engineer Intern (E-Commerce Recommendation/Search Alliance) - 2027 Start (PhD)",
+    "company": "TikTok",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4455131498",
+    "title": "2027 Data & AI Program - Summer Internship - Analyst - United States",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480449589",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481558415",
+    "title": "Software Engineer Intern - Backend or Fullstack",
+    "company": "Criteo",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4446293082",
+    "title": "Backend Software Engineer Intern (Global E-Commerce) - 2027 Summer",
+    "company": "TikTok",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4471268591",
+    "title": "Software Engineer Intern - Backend",
+    "company": "ShopBack",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481550664",
+    "title": "Backend Development Intern",
+    "company": "NovaEdge Digital Labs",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4477281881",
+    "title": "Backend Engineer Intern",
+    "company": "Klook",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481554582",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "WebBoost Solutions by UM",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480462209",
+    "title": "Frontend Developer — Intern / Fresher",
+    "company": "Zudu AI",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478667014",
+    "title": "🚀 Fullstack Developer Internship | PearlThoughts | Remote",
+    "company": "PearlThoughts",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478683329",
+    "title": "Full-Stack Developer Intern – AI & Automation",
+    "company": "DTSecLabs",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480431858",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480462085",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Unified Mentor Private Limited",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481547762",
+    "title": "Engineering - Intern",
+    "company": "CoinSwitch",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480447700",
+    "title": "MERN STACK DEVELOPMENT INTERN",
+    "company": "SKOOLLAGE",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480458147",
+    "title": "Web Development Intern",
+    "company": "UM IT PRIVATE LIMITED",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478664860",
+    "title": "Golang Developer Intern",
+    "company": "KartAi",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481533399",
+    "title": "Data Science Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4343679484",
+    "title": "Software Engineer Project Intern (Lead Ads) - 2026 Start (BS/MS)",
+    "company": "TikTok",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4449969504",
+    "title": "Software Engineer Intern (Foundation Platform) - 2027 Summer",
+    "company": "TikTok",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481547952",
+    "title": "Software Engineer Intern",
+    "company": "Aries Global",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481565073",
+    "title": "Software Development Intern: Climate Tech (Brussels / Hybrid)",
+    "company": "BioFlux",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480463239",
+    "title": "Data Scientist",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4471201821",
+    "title": "Senior Cloud & DevOps Engineer (AWS, CI/CD, AI)",
+    "company": "UST",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4471528178",
+    "title": "Stage – Ingénieur R&D Deep Learning et Machine Learning F/H",
+    "company": "Framatome",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4471534929",
+    "title": "Stagiaire Forward Deployed Engineer (Data & IA) 2026 - H/F",
+    "company": "Forvis Mazars en France",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481564405",
+    "title": "Java Full Stack Developer (Java & Angular)",
+    "company": "Marsh",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4462282343",
+    "title": "ML Engineer II (Python Development and Gen AI)",
+    "company": "UST",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4291063782",
+    "title": "IN_Associate _Node JS_Advisory Corporate_Advisory _Bangalore",
+    "company": "PwC India",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480448912",
+    "title": "Python Developer",
+    "company": "Pace Wisdom Solutions",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478691044",
+    "title": "Senior Developer - Python",
+    "company": "MULTIVAC Technology Solutions India Private Limited",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480432814",
+    "title": "Senior II Software Engineer: 4+ yrs (Python / APIs / RabbitMQ / Celery / Docker)",
+    "company": "(UniCourt India) Mangalore Infotech Solutions Private Limited",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4291067234",
+    "title": "IN_Associate_Python Developer_Advisory Corporate_Advisory _ Bangalore",
+    "company": "PwC India",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478645850",
+    "title": "Python Developer",
+    "company": "EXL",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4292875116",
+    "title": "IN-Senior Associate_ Python Developers _Advisory Corporate_ Bangalore",
+    "company": "PwC India",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4469711591",
+    "title": "Java Software Engineer III - AWS",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4471540144",
+    "title": "Staff Software Engineer, Backend (Identity Decisioning)",
+    "company": "Affirm",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480452793",
+    "title": "Software Engineer (Node.js Backend)",
+    "company": "LSEG",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4429261176",
+    "title": "IPECS - Backend Developer",
+    "company": "Ericsson",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480441527",
+    "title": "Backend Developer [MongoDB/NodeJS]",
+    "company": "MySuki",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4479322532",
+    "title": "Fullstack developer Specialist con Node.js , ingles avanzado",
+    "company": "Accenture Argentina",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478653834",
+    "title": "Backend Developer Node.js (Portugal, remote)",
+    "company": "Zero to One Search | Recruitment Agency",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4468377701",
+    "title": "Software Engineer - Staff - Node",
+    "company": "Atarus",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480403670",
+    "title": "Senior Software Engineer — TypeScript & Node · Distributed Messaging (Kafka / RabbitMQ) · AI Coding Agents",
+    "company": "Big Wave Digital - United States",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480465305",
+    "title": "Backend Software Engineer – TypeScript",
+    "company": "Spectrum IT Recruitment",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480446621",
+    "title": "Développeur Python",
+    "company": "Visian",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478640942",
+    "title": "Senior Python Developer",
+    "company": "MyStartups",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4399823450",
+    "title": "Python Engineer",
+    "company": "WorldQuant",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481548647",
+    "title": "Développeur python H/F",
+    "company": "Scalian",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4479545935",
+    "title": "Senior Python Developer",
+    "company": "Luxoft",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478677613",
+    "title": "Middle Python Developer",
+    "company": "Mantu",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4303705257",
+    "title": "AVP/VP, Software Engineer (Python), Technology Group",
+    "company": "GIC",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4414092634",
+    "title": "Senior AWS DevOps Engineer (AWS & Kubernetes)",
+    "company": "UST",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481534622",
+    "title": "DevOps Engineer",
+    "company": "Infolitz Software Private Limited",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4471577875",
+    "title": "AWS + Terraform DevOps",
+    "company": "Infosys",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4463257303",
+    "title": "Senior/Lead DevOps Engineer",
+    "company": "Ericsson",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480461489",
+    "title": "IT/DevOps Engineer",
+    "company": "Master Software Solutions",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480413211",
+    "title": "Senior DevOps Engineer (Google Cloud Platform)",
+    "company": "Wecare Group",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480439690",
+    "title": "Ingénieur DevOps / Cloud H/F",
+    "company": "Devoteam",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481564266",
+    "title": "DevOps Engineer",
+    "company": "FPT Software",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480441922",
+    "title": "Frontend Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480447857",
+    "title": "Frontend Developer",
+    "company": "Uni.AiHUb",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480470045",
+    "title": "Frontend Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4470625223",
+    "title": "Software Engineer III - Java, Kafka, React, AI",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4471394279",
+    "title": "ReactJS Node JS Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480451738",
+    "title": "React Developer",
+    "company": "Pace Wisdom Solutions",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478683118",
+    "title": "Software Engineer (UI Developer - React)",
+    "company": "Mobility Global",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478681221",
+    "title": "Senior Software Engineer (UI Developer - React)",
+    "company": "Mobility Global",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480465340",
+    "title": "Frontend Developer",
+    "company": "Ditto Insurance",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480438972",
+    "title": "Product Technical Analyst-Reactjs",
+    "company": "Infosys Finacle",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4292864952",
+    "title": "IN-Associate_ Full Stack React JS Developer _TC Guidewire_ Advisory_ Kolkata",
+    "company": "PwC India",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478681058",
+    "title": "Senior Full Stack Developer (Laravel, React.js, Next.js & Flutter)",
+    "company": "Script Craft Technologies",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481539735",
+    "title": "Full Stack Developer JavaScript Vue.js C# .Net",
+    "company": "Client Server",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480454486",
+    "title": "Frontend Developer (React JS)",
+    "company": "PT Deptech Digital Indonesia",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481540373",
+    "title": "React Developer",
+    "company": "TaskVerse",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478656456",
+    "title": "Ingeniero Frontend (React 18+)",
+    "company": "Aubay Spain",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478669647",
+    "title": "Softwareentwickler Frontend (m/w/d)",
+    "company": "Cloudogu GmbH",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478686116",
+    "title": "Frontend Developer",
+    "company": "Stockford Recruitment",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480461236",
+    "title": "Full Stack Web Developer",
+    "company": "internmo",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4454232800",
+    "title": "Senior Software Engineer (Full Stack)",
+    "company": "Energy Exemplar",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481534853",
+    "title": "Fresher - ERP Full Stack Developer (MERN & NestJS)",
+    "company": "GwayERP",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481550045",
+    "title": ".NET Full Stack Developer",
+    "company": "AiLogic Neural Network Pvt Ltd",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480443384",
+    "title": "Full Stack Engineer",
+    "company": "Nuaav",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4471398041",
+    "title": ".Net full stack Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481537592",
+    "title": "Full Stack Developer",
+    "company": "Thompsons HR Consulting Pvt Ltd",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480451568",
+    "title": "Senior Full Stack Developer",
+    "company": "Edit Lobby",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4399295782",
+    "title": "Senior Software Engineer (Full stack)",
+    "company": "Field Nation",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480457133",
+    "title": "Full Stack Software Engineer",
+    "company": "Senceive",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478676721",
+    "title": "Μηχανικός full stack",
+    "company": "Softweb Adaptive I.T. Solutions®",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4479602490",
+    "title": "Software Engineer III, Full Stack - Global Servicing Technology",
+    "company": "American Express",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480458472",
+    "title": "Back End Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480443974",
+    "title": "Back End Developer",
+    "company": "Nexal IIT",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480457305",
+    "title": "Back End Developer",
+    "company": "F6IT Fintech & IT Solutions",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480463223",
+    "title": "Application Developer",
+    "company": "AbsoluteHub",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478662751",
+    "title": "Developer II - Software Engineering",
+    "company": "UST",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481505419",
+    "title": "Software Development Engineer II, FGBS",
+    "company": "Amazon",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481532837",
+    "title": "Sr SW Development Engineer",
+    "company": "Dexcom",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481545113",
+    "title": "NestJS Lead Developer",
+    "company": "Bounteous",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4427942893",
+    "title": "Developer III, Software",
+    "company": "Toro Technology Center - India",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480458317",
+    "title": "Artificial Intelligence Engineer",
+    "company": "internmo",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4464427407",
+    "title": "Software Engineer III, Global Portfolio Holdings Technology",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478646581",
+    "title": "Member Experience Software Development Engineer II - III",
+    "company": "Cambia Health Solutions",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4481298716",
+    "title": "Senior Software Engineer, Atlas Clusters Security",
+    "company": "MongoDB",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4478665606",
+    "title": "Infrastructure Engineer",
+    "company": "VGW",
+    "seenAt": "2026-10-20T12:30:57.623Z"
+  },
+  {
+    "id": "4480462974",
+    "title": "Machine Learning Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481597511",
+    "title": "Machine Learning Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481586372",
+    "title": "Data scientist Internship (6 months)",
+    "company": "Shift Technology",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481704107",
+    "title": "PYTHON DEVELOPMENT INTERN",
+    "company": "Zenithbyte",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4464351650",
+    "title": "Backend Engineer (Internship)",
+    "company": "Klook",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481704177",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Devryxa",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481585988",
+    "title": "FRONTEND DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481598496",
+    "title": "REACT JS DEVELOPMENT INTERN",
+    "company": "WebBoost Solutions by UM",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481704098",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481595575",
+    "title": "FULLSTACK WEB DEVELOPMENT INTERN",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481591795",
+    "title": "MERN STACK DEVELOPMENT INTERN",
+    "company": "WebBoost Solutions by UM",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481597532",
+    "title": "Web Development Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481582984",
+    "title": "Web Development Intern",
+    "company": "Zenithbyte",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480491044",
+    "title": "Artificial Intelligence Intern",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481599448",
+    "title": "Data Science Intern",
+    "company": "Vortenza Systems",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481586906",
+    "title": "Data Science Intern",
+    "company": "Dexter's Tech",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481588982",
+    "title": "Data Science Intern",
+    "company": "Devryxa",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4478688452",
+    "title": "Software Engineer-INTERN",
+    "company": "Lockheed Martin",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4473091269",
+    "title": "Software Engineer Intern (3 months)",
+    "company": "Moloco",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4478683597",
+    "title": "Stage - Data Scientist / ML Engineer (H/F)",
+    "company": "Coface",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481582847",
+    "title": "Data scientist (F/H) - stage",
+    "company": "AXA en France",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481592595",
+    "title": "2027 Machine Learning Center of Excellence (NLP) - Summer Associate",
+    "company": "JPMorganChase",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481593175",
+    "title": "Java Full-Stack Developer",
+    "company": "Tata Consultancy Services",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4471396121",
+    "title": "Java Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4462969538",
+    "title": "Senior Software Engineer (Backend)",
+    "company": "Wise",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480467912",
+    "title": "Engenheiro de Software Node.js - Trabalho Remoto",
+    "company": "BairesDev",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480466884",
+    "title": "Desenvolvedor Node.js - Trabalho Remoto",
+    "company": "BairesDev",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4444962681",
+    "title": "Senior Back-end Engineer Node.Js - Wizz",
+    "company": "Wizz App",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4478699127",
+    "title": "Senior Backend Engineer",
+    "company": "Capitole",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4391871456",
+    "title": "Développeur Python Confirmé (H/F)",
+    "company": "Extia",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481594183",
+    "title": "26-1106: Python Developer - Herndon, VA",
+    "company": "Navitas Business Consulting, Inc.",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481541960",
+    "title": "Développeur python H/F",
+    "company": "Scalian",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480458868",
+    "title": "Cloud Engineer (AWS/Azure/GCP with Kubernates)",
+    "company": "Infosys",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4463263251",
+    "title": "Senior/Lead DevOps Engineer",
+    "company": "Ericsson",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480479641",
+    "title": "DevOps Engineer",
+    "company": "VentraGate",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481571207",
+    "title": "DevOps Lead",
+    "company": "techjays",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481596758",
+    "title": "DevOps Engineer",
+    "company": "TechShack",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481588767",
+    "title": "Sr. DevOps / Cloud Infrastructure Engineer",
+    "company": "Brainpower360",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481584257",
+    "title": "DevOps Engineer - UK",
+    "company": "Glassbox",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4385090402",
+    "title": "Senior DevOps Engineer - Digital Health Excellence Center (w/m/d)",
+    "company": "EY",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480483115",
+    "title": "DevOps Engineer ( Middle/Senior)",
+    "company": "Trustify Technology",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480464697",
+    "title": "Frontend Developer",
+    "company": "Dexterz Technology",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480478281",
+    "title": "Frontend Developer",
+    "company": "Zetheta Algorithms Private Limited",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480475430",
+    "title": "Frontend Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4436986802",
+    "title": "Senior .NET Full Stack Developer (React)",
+    "company": "Concept Reply US",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4471383832",
+    "title": "ReactJS Node JS Developer",
+    "company": "Infosys",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481548297",
+    "title": "Stage - développeur front-end Design System",
+    "company": "Loto-Québec",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480465887",
+    "title": "Senior Full Stack Developer (Django + React) - Remote Work",
+    "company": "BairesDev",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480469669",
+    "title": "Senior Full Stack Developer (Django + React) - Remote Work",
+    "company": "BairesDev",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480462660",
+    "title": "CDI - FULLSTACK RUBY/REACT DEVELOPER - EDTECH À IMPACT (H/F/N)",
+    "company": "STATION F",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4464300439",
+    "title": "Senior Frontend Engineer in React",
+    "company": "ISS Market Intelligence",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480479409",
+    "title": "Sr Front-End Developer/Micro Frontend (React/React.js, Next.js, AI-assisted development)",
+    "company": "Compest Solutions Inc.",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480472361",
+    "title": "Full Stack Web Developer",
+    "company": "Dexterz Technology",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480468641",
+    "title": "Full Stack Engineer",
+    "company": "Zetheta Algorithms Private Limited",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481595040",
+    "title": "Full Stack Engineer",
+    "company": "Synmatch AI",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4478902013",
+    "title": "Full Stack Engineer",
+    "company": "dataliva",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4481588632",
+    "title": "Senior Fullstack Developer",
+    "company": "VTXRM - Software Factory",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480483212",
+    "title": "Desarrollador Fullstack",
+    "company": "QiBit",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480473460",
+    "title": "Back End Developer",
+    "company": "ThinkNovaa",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480473695",
+    "title": "Back End Developer",
+    "company": "Jobs4PanIndia",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4473244389",
+    "title": "Software Development Engineer, CAM",
+    "company": "Amazon",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4464483121",
+    "title": "Sr. Engineer Software Engineering XII",
+    "company": "Vertiv",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4480350051",
+    "title": "Custom Software Engineer",
+    "company": "Accenture in India",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4478779621",
+    "title": "Senior Dev Ops Engineer",
+    "company": "Oxford Dynamics",
+    "seenAt": "2026-10-20T15:32:16.606Z"
+  },
+  {
+    "id": "4478695878",
+    "title": "AI Solutions Engineer Intern (Forward Deployed)",
+    "company": "Prepreater",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481726850",
+    "title": "Software Engineer Intern, Undergraduate - Summer 2027 (Mountain View, CA)",
+    "company": "LinkedIn",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4471239257",
+    "title": "AI Engineer Intern (Masters)",
+    "company": "Electronic Arts (EA)",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481723004",
+    "title": "Summer intern, Digital Signal/ Imaging AI",
+    "company": "Johnson & Johnson Innovative Medicine",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481707571",
+    "title": "Summer intern, Digital Signal/ Imaging AI",
+    "company": "Johnson & Johnson Innovative Medicine",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4478698456",
+    "title": "Software Engineer Intern - Backend or Fullstack",
+    "company": "Criteo Deutschland",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4475411547",
+    "title": "Internship - Full Stack Software Developer",
+    "company": "ABB",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481559669",
+    "title": "Engineering - Intern",
+    "company": "Lemonn | Making Trading Easy and Accessible For India",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480713154",
+    "title": "Artificial Intelligence Intern",
+    "company": "India's Future Investors - Money Entertainment Reality Show",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4478911340",
+    "title": "Software Tools Engineering Intern",
+    "company": "Analog Devices",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480496127",
+    "title": "Software Engineer Intern",
+    "company": "General Dynamics Mission Systems",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4464093033",
+    "title": "Software Developer Intern (Dublin)",
+    "company": "Rakuten Kobo Inc.",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481735289",
+    "title": "Forward Deployed Engineer (TypeScript + AI) - Remote - India",
+    "company": "FullStack",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4470883868",
+    "title": "Stage : Réduc de modèles par machine learning pour l'optimisation de la structure d'un véhicule en choc",
+    "company": "Stellantis",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480493248",
+    "title": "Java Fullstack Developer",
+    "company": "Citi",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480493299",
+    "title": "Java Full Stack Developer",
+    "company": "Citi",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480491327",
+    "title": "Java Developer, Equity Finance Post Trade - Assistant Vice President",
+    "company": "Citi",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480490445",
+    "title": "Senior Python Developer- Assistant Vice President",
+    "company": "Citi",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480484586",
+    "title": "Senior Python Developer, Risk Analytics - Assistant Vice President",
+    "company": "Citi",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480496137",
+    "title": "Python Developer – Distributed Systems",
+    "company": "techolution",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4318716710",
+    "title": "Développeur FullStack Java Angular | Devoteam Maroc Nearshore",
+    "company": "Devoteam",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4473078381",
+    "title": "Senior Software Engineer, Backend",
+    "company": "Grab",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4462260516",
+    "title": "Senior Software Engineer - Backend (Node.js)",
+    "company": "Makro PRO",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4478901344",
+    "title": "Desenvolvedor Nodejs",
+    "company": "Verx Tecnologia e Inovação",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481736399",
+    "title": "Backend Developer (Next/Nest)",
+    "company": "PrimeIT España",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4475675221",
+    "title": "Senior Node Developer",
+    "company": "Haystack",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4398482309",
+    "title": "Senior Back-End Developer (Node.js)",
+    "company": "Salonkee",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4464357840",
+    "title": "Deloitte Innovation Hub I Senior Python Backend Developer, Cairo, Egypt",
+    "company": "Deloitte",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4227030655",
+    "title": "Senior Software Engineer - Cloud & Application Engineering",
+    "company": "Bristlecone",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4462967837",
+    "title": "AWS DevOps Engineer",
+    "company": "LSEG",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4473212613",
+    "title": "Senior DevOps Engineer",
+    "company": "Stagwell Media",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481745720",
+    "title": "Senior Software Engineer - AWS EC2, Blackfoot Endpoints",
+    "company": "Amazon Web Services (AWS)",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4464309525",
+    "title": "DevOps Engineer (AWS)",
+    "company": "Telia",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480456828",
+    "title": "Frontend Developer",
+    "company": "Dexterz Technology",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481749403",
+    "title": "Senior Frontend Engineer",
+    "company": "Level AI",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4478917171",
+    "title": "[TEST] Senior Frontend Engineer (React) - Scoring Check",
+    "company": "ealana",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4455712906",
+    "title": "Principal Frontend Engineer - React and TypeScript experience is required",
+    "company": "SonicWall",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480487626",
+    "title": "Senior Frontend Engineer",
+    "company": "N-iX",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480493392",
+    "title": "Senior Frontend Engineer",
+    "company": "N-iX",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4464603112",
+    "title": "FR - Senior React Front-End Developer",
+    "company": "Valtech",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480484083",
+    "title": "Full Stack Web Developer",
+    "company": "Dexterz Technology",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480711079",
+    "title": "Full Stack Developer",
+    "company": "INFONET",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4470151560",
+    "title": ".NET Full Stack Developer",
+    "company": "Concentrix",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4478906734",
+    "title": "STAGE - Développeur Fullstack (F/H) – PARIS",
+    "company": "BPCE Solutions informatiques",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4470886727",
+    "title": "STAGE - DEVELOPPEUR FULLSTACK F/H",
+    "company": "Cdiscount",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480486110",
+    "title": "Back End Developer",
+    "company": "Jobs4PanIndia",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4481716534",
+    "title": "Software Engineer",
+    "company": "Ford Motor Company",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4473234674",
+    "title": "Software Development Engineer 2",
+    "company": "Amazon",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480495297",
+    "title": "Senior GUI developer - Equities Technology",
+    "company": "Citi",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480709141",
+    "title": "Software Engineer (Django) - Remote Work",
+    "company": "BairesDev",
+    "seenAt": "2026-10-20T18:31:11.357Z"
+  },
+  {
+    "id": "4480706174",
+    "title": "Software Engineer (Django) - Remote Work",
+    "company": "BairesDev",
+    "seenAt": "2026-10-20T18:31:11.357Z"
   }
 ]

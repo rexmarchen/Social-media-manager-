@@ -42,9 +42,10 @@ function getISTDateString(dateInput) {
   }
 }
 
-function saveLocalState(updates) {
+function saveLocalState(updates, userId = null) {
   try {
-    const statePath = path.join(__dirname, "state.json");
+    const filename = (userId && userId !== 1 && userId !== '1') ? `state_${userId}.json` : "state.json";
+    const statePath = path.join(__dirname, filename);
     let current = {};
     if (fs.existsSync(statePath)) {
       current = JSON.parse(fs.readFileSync(statePath, "utf8"));
@@ -52,8 +53,19 @@ function saveLocalState(updates) {
     const merged = { ...current, ...updates, updatedAt: new Date().toISOString() };
     fs.writeFileSync(statePath, JSON.stringify(merged, null, 2));
   } catch (err) {
-    console.warn("[Super Brain Warning] Failed to update local state.json:", err.message);
+    console.warn("[Super Brain Warning] Failed to update local state:", err.message);
   }
+}
+
+function loadLocalState(userId = null) {
+  try {
+    const filename = (userId && userId !== 1 && userId !== '1') ? `state_${userId}.json` : "state.json";
+    const statePath = path.join(__dirname, filename);
+    if (fs.existsSync(statePath)) {
+      return JSON.parse(fs.readFileSync(statePath, "utf8"));
+    }
+  } catch {}
+  return null;
 }
 
 const TELEGRAM_API = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
@@ -76,6 +88,9 @@ async function sendTelegramAlert(text) {
  */
 function diagnoseFault(error) {
   const msg = (error && error.message ? error.message : String(error)).toLowerCase();
+  if (msg.includes("invalid_access_token") || msg.includes("invalid access token") || msg.includes("revoked") || (msg.includes("401") && msg.includes("token"))) {
+    return { type: "AUTH_TOKEN_INVALID", strategy: "NOTIFY_CREDENTIAL_REAUTH_REQUIRED", retryable: false };
+  }
 
   if (msg.includes("429") || msg.includes("quota") || msg.includes("rate limit")) {
     return { type: "RATE_LIMIT", strategy: "BACKOFF_AND_MODEL_CASCADE", retryable: true };
@@ -194,12 +209,13 @@ async function autoHealAndExecute(taskName, taskFn, maxAttempts = 3) {
  * - If gap < 36 hours: enters Deep Research & Portfolio Learning Mode (stores learnings, no post).
  * - If gap >= 36 hours: runs Autonomous Tech Post generation and publishes to LinkedIn.
  */
-async function runSuperBrainDailyCycle(forcePost = false) {
+async function runSuperBrainDailyCycle(forcePost = false, options = {}) {
   console.log("==================================================");
   console.log("   Super Brain: Autonomous Daily Research & Post  ");
   console.log("==================================================");
 
-  const state = await loadState({ lastIndex: -1, lastPostedAt: null, scheduleEnabled: true });
+  const userId = options.userId || null;
+  const state = (await loadState({ lastIndex: -1, lastPostedAt: null, scheduleEnabled: true }, userId)) || (loadLocalState(userId) || { lastIndex: -1, lastPostedAt: null, scheduleEnabled: true });
   const now = Date.now();
   const lastPosted = state.lastPostedAt ? new Date(state.lastPostedAt).getTime() : 0;
   const elapsedHours = lastPosted > 0 ? (now - lastPosted) / (1000 * 60 * 60) : 999;
@@ -207,33 +223,31 @@ async function runSuperBrainDailyCycle(forcePost = false) {
   console.log(`[Super Brain] Last LinkedIn Post was ${elapsedHours.toFixed(1)} hours ago.`);
 
   // Configurable Posting Interval:
-  // - "daily" (default): Posts once per calendar day in IST (with minimal 14h cooldown to avoid accidental rapid triggers)
+  // - "daily" (default): Posts daily. Minimal 1h cooldown prevents duplicate double-triggers in the same hour.
   // - "alternate": Requires at least 36 hours between posts (skips alternate days for deep research)
   // - Can also be bypassed immediately using forcePost / --force
   const postFrequency = (process.env.POST_FREQUENCY || "daily").toLowerCase();
   const todayIST = getISTDateString(now);
   const lastPostedIST = getISTDateString(lastPosted);
-  const alreadyPostedToday = lastPosted > 0 && todayIST === lastPostedIST;
   const cooldownMinHours = postFrequency === "daily"
-    ? Math.min(parseFloat(process.env.MIN_POST_GAP_HOURS || "12"), 12)
+    ? Math.min(parseFloat(process.env.MIN_POST_GAP_HOURS || "1"), 2)
     : parseFloat(process.env.MIN_POST_GAP_HOURS || "36");
   const inCooldown = elapsedHours < cooldownMinHours;
 
   let isGapActive = false;
   let gapReason = "";
 
-  if (!forcePost) {
+  if (forcePost) {
+    console.log("[Super Brain] Force post active — completely bypassing cooldown and gatekeeper.");
+  } else {
     if (postFrequency === "alternate") {
       if (elapsedHours < 36) {
         isGapActive = true;
         gapReason = `Alternate-day cycle active (${elapsedHours.toFixed(1)}h < 36h)`;
       }
     } else {
-      // Daily mode: Post once every calendar day in IST
-      if (alreadyPostedToday) {
-        isGapActive = true;
-        gapReason = `Already published today in IST (${todayIST})`;
-      } else if (inCooldown) {
+      // Daily mode: only block if in short cooldown (< 1h) to prevent duplicate runs
+      if (inCooldown) {
         isGapActive = true;
         gapReason = `Cooldown active (${elapsedHours.toFixed(1)}h < ${cooldownMinHours}h)`;
       }
@@ -285,7 +299,7 @@ async function runSuperBrainDailyCycle(forcePost = false) {
   console.log("Initiating autonomous post generation, RAG retrieval, and publishing...");
 
   const publishResult = await autoHealAndExecute("Autonomous Post & Publish", async () => {
-    return await generateAutonomousPost();
+    return await generateAutonomousPost(null, options);
   });
 
   // Update persistent state in both MongoDB Atlas and local state.json
@@ -296,8 +310,8 @@ async function runSuperBrainDailyCycle(forcePost = false) {
     lastPostCategory: publishResult.category || "project",
     lastPostedDateIST: todayIST,
   };
-  await saveState(stateUpdate);
-  saveLocalState(stateUpdate);
+  await saveState(stateUpdate, userId);
+  saveLocalState(stateUpdate, userId);
 
   console.log(`🎉 [Super Brain] Post successfully published to LinkedIn! ID: ${publishResult.postId}`);
 

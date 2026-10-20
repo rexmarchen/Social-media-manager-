@@ -1,0 +1,18 @@
+{
+  "commentedPosts": {
+    "urn:li:activity:7516800862762147841": {
+      "urn": "urn:li:activity:7516800862762147841",
+      "postUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7516800862762147841/",
+      "authorName": "Apurav Sharma",
+      "targetProfile": "Kunal Shah (Founder, CRED)",
+      "commentText": "High talent density is great, but it often creates a maintenance debt trap if the team prioritizes velocity over system architecture. How are you balancing that initial push for speed with the inevitable need to refactor once the product-market fit stabilizes?",
+      "commentId": "7518186949694644224",
+      "date": "2026-10-20",
+      "timestamp": "2026-10-20T05:50:48.000Z"
+    }
+  },
+  "dailyCount": {
+    "2026-10-20": 1
+  },
+  "lastCommentTime": "2026-10-20T05:50:48.000Z"
+}

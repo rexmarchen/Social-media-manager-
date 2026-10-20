@@ -38,6 +38,15 @@ const {
   checkAndAutoPostGitHub,
 } = require("./github-monitor");
 const { runJobMonitor } = require("./job-monitor");
+const {
+  runCommentCampaign,
+  generateInsightfulComment,
+  publishLinkedInComment,
+  extractUrnFromUrl,
+  sendDailyTelegramCommentAudit,
+  getDailyCommentReport,
+  formatTelegramReportMessage,
+} = require("./comment-campaign");
 
 const app = express();
 app.use(express.json());
@@ -138,32 +147,31 @@ cron.schedule(JOB_CRON, async () => {
   }
 });
 
-let isPostingInProgress = false;
+const activePostingUsers = new Set();
 let activeRetryTimeout = null;
 
-async function triggerDailyPost(reason = "Daily Run") {
-  if (!scheduleEnabled) {
-    console.log(`[${reason}] Skipped — schedule is currently off.`);
-    return { status: "skipped_schedule_off" };
+async function triggerDailyPost(reason = "Daily Run", forcePost = false, options = {}) {
+  const userKey = String(options.userId || options.authorUrn || options.authorName || 'default');
+  if (!scheduleEnabled && !forcePost) {
+    console.log(`[${reason}] Skipped for ${userKey} — schedule is currently off.`);
+    return { status: "skipped_schedule_off", userId: userKey };
   }
 
-  if (isPostingInProgress) {
-    console.log(`[${reason}] Another operation is currently in progress. Skipping duplicate.`);
-    return { status: "in_progress" };
+  if (activePostingUsers.has(userKey)) {
+    console.log(`[${reason}] Another operation is currently in progress for user ${userKey}. Skipping duplicate.`);
+    return { status: "in_progress", userId: userKey };
   }
 
-  isPostingInProgress = true;
+  activePostingUsers.add(userKey);
   try {
-    console.log(`[${reason}] Triggering Super Brain Autonomous Engine (1-Day Gap Post / Deep Research)...`);
-    const result = await autoHealAndExecute("Super Brain Daily Cycle", async () => {
-      return await runSuperBrainDailyCycle();
-    });
+    console.log(`[${reason}] Triggering Super Brain Autonomous Engine for user ${userKey}...`);
+    const result = await runSuperBrainDailyCycle(forcePost, options);
     return result;
   } catch (err) {
-    console.error(`[${reason}] Super Brain cycle encountered fatal error:`, err.message);
+    console.error(`[${reason}] Super Brain cycle encountered fatal error for user ${userKey}:`, err.message);
     throw err;
   } finally {
-    isPostingInProgress = false;
+    activePostingUsers.delete(userKey);
   }
 }
 
@@ -172,7 +180,29 @@ async function triggerDailyPost(reason = "Daily Run") {
 cron.schedule(
   CRON_SCHEDULE,
   async () => {
-    await triggerDailyPost("Daily Cron");
+    console.log(`[Daily Cron] Scheduled time reached (${CRON_SCHEDULE} ${TIMEZONE}). Triggering guaranteed LinkedIn post...`);
+    try {
+      await triggerDailyPost("Daily Cron", true);
+    } catch (err) {
+      console.error("[Daily Cron] Error during scheduled post:", err.message);
+    }
+  },
+  {
+    timezone: TIMEZONE,
+  }
+);
+
+// ---------- Daily 5:00 AM IST Telegram Comment Audit Report ----------
+// Strictly dispatches full audit with direct post links to verify comments
+cron.schedule(
+  "0 5 * * *",
+  async () => {
+    console.log("[Comment Audit Watchdog] 5:00 AM IST: Dispatching Daily LinkedIn Comment Audit Report to Telegram...");
+    try {
+      await sendDailyTelegramCommentAudit(24);
+    } catch (err) {
+      console.error("[Comment Audit Warning] Failed to dispatch 5 AM report:", err.message);
+    }
   },
   {
     timezone: TIMEZONE,
@@ -211,6 +241,8 @@ async function handleTelegramMessage(message) {
         "• /project <text> - log a project or technical milestone\n" +
         "• /jobs - check & email fresh tech jobs & internships (< 12h)\n" +
         "• /memory - show latest memories stored in MongoDB cloud\n" +
+        "• /comment <post_url> - generate & publish a smart human comment on any LinkedIn post\n" +
+        "• /comments - view full audit report with direct links to all commented posts\n" +
         "• /schedule on/off - toggle daily automated posting\n" +
         "• /status - show current schedule and posting status"
     );
@@ -306,6 +338,49 @@ async function handleTelegramMessage(message) {
       );
     } catch (err) {
       await sendTelegramMessage(chatId, `❌ Failed to post GitHub update: ${err.message}`);
+    }
+    return;
+  }
+
+  // Command to comment on an external LinkedIn post
+  if (lower.startsWith("/comment")) {
+    const rawTarget = text.replace(/^\/comment\s*/i, "").trim();
+    if (!rawTarget) {
+      await sendTelegramMessage(chatId, "Usage: /comment <linkedin_post_url_or_urn>");
+      return;
+    }
+
+    const urn = extractUrnFromUrl(rawTarget);
+    if (!urn) {
+      await sendTelegramMessage(chatId, "❌ Invalid LinkedIn post URL or URN format. Example: https://www.linkedin.com/posts/activity-724...");
+      return;
+    }
+
+    await sendTelegramMessage(chatId, `🧠 Reading target post and crafting human-like technical insight...`);
+    try {
+      const commentText = await generateInsightfulComment(
+        `LinkedIn Post Reference: ${rawTarget}. Provide practical, collegial technical commentary.`,
+        { authorName: "Apurav Sharma", targetRole: "Software / Full-Stack Engineer" }
+      );
+
+      await sendTelegramMessage(chatId, `💬 *Drafted Comment:*\n\n"${commentText}"\n\nPublishing to LinkedIn...`);
+      const commentId = await publishLinkedInComment(urn, commentText);
+      await sendTelegramMessage(chatId, `✅ Successfully commented on post!\nComment ID: ${commentId}`);
+    } catch (commentErr) {
+      await sendTelegramMessage(chatId, `❌ Failed to publish comment: ${commentErr.message}`);
+    }
+    return;
+  }
+
+  // On-demand command to view the comment audit report
+  if (lower === "/comments" || lower === "/report" || lower === "/comments_report") {
+    await sendTelegramMessage(chatId, "🔍 Generating LinkedIn Comment Audit Report with direct clickable post links...");
+    try {
+      const entries = getDailyCommentReport(48); // last 48 hours for full visibility
+      const reportText = formatTelegramReportMessage(entries);
+      await sendTelegramMessage(chatId, reportText);
+    } catch (reportErr) {
+      await sendTelegramMessage(chatId, `❌ Failed to generate report: ${reportErr.message}`);
     }
     return;
   }
@@ -540,9 +615,21 @@ app.get("/health", (req, res) =>
 );
 
 // External trigger route for cron services (e.g. cron-job.org / GitHub Actions / curl)
-app.get("/trigger-daily", async (req, res) => {
+app.all("/trigger-daily", async (req, res) => {
+  // Default to force=true so webhook crons always guarantee publishing, unless ?force=false is passed
+  const force = req.query.force !== "false" && req.body?.force !== false;
   try {
-    const result = await triggerDailyPost("External Webhook Trigger");
+    const options = {
+      accessToken: req.body?.accessToken || req.headers['x-linkedin-token'] || null,
+      authorUrn: req.body?.authorUrn || req.body?.personUrn || null,
+      topic: req.body?.topic || req.query.topic || null,
+      userId: req.body?.userId || null,
+      authorName: req.body?.authorName || null,
+      isOwner: req.body?.isOwner !== undefined ? Boolean(req.body.isOwner) : null,
+      targetRole: req.body?.targetRole || null,
+      githubUsername: req.body?.githubUsername || null
+    };
+    const result = await triggerDailyPost("External Webhook Trigger", force, options);
     res.json({ ok: true, result });
   } catch (err) {
     res.status(500).json({ ok: false, error: err.message });
@@ -554,6 +641,64 @@ app.get("/sync-github", async (req, res) => {
     const force = req.query.force === "true";
     const result = await syncGitHubActivity(process.env.GITHUB_USERNAME || "rexmarchen", force);
     res.json({ ok: true, result });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
+// Single comment trigger route
+app.post("/comment", async (req, res) => {
+  try {
+    const { url, postUrn, postText, authorName, targetRole, accessToken, authorUrn } = req.body || {};
+    const urn = extractUrnFromUrl(url || postUrn);
+    if (!urn) {
+      return res.status(400).json({ ok: false, error: "Valid url or postUrn is required." });
+    }
+
+    const commentText = await generateInsightfulComment(postText || url || "Tech engineering post", {
+      authorName: authorName || "Apurav Sharma",
+      targetRole: targetRole || "Software / Full-Stack Engineer"
+    });
+
+    const commentId = await publishLinkedInComment(urn, commentText, {
+      accessToken,
+      authorUrn
+    });
+
+    res.json({ ok: true, urn, commentText, commentId });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
+// Automated safe batch campaign route for Apurav or any user
+app.post("/comment-campaign", async (req, res) => {
+  try {
+    const { posts, authorName, targetRole, dailyLimit, dryRun, accessToken, authorUrn } = req.body || {};
+    const options = {
+      authorName: authorName || "Apurav Sharma",
+      targetRole: targetRole || "Software / Full-Stack Engineer",
+      dailyLimit: dailyLimit || 6,
+      dryRun: Boolean(dryRun),
+      accessToken,
+      authorUrn
+    };
+
+    // Run campaign with built-in human safety jitter & deduplication
+    const result = await runCommentCampaign(posts || [], options);
+    res.json({ ok: true, result });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
+// External trigger route to manually trigger the 5 AM Telegram report anytime
+app.all("/comment-report", async (req, res) => {
+  try {
+    const hours = parseInt(req.query.hours || req.body?.hours || 24, 10);
+    const sent = await sendDailyTelegramCommentAudit(hours);
+    const entries = getDailyCommentReport(hours);
+    res.json({ ok: true, sent, entriesCount: entries.length, entries });
   } catch (err) {
     res.status(500).json({ ok: false, error: err.message });
   }
